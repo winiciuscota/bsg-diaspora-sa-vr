@@ -7,6 +7,10 @@ missions, HUD fixes and optional HD texture / voice packs.
 The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr](https://github.com/winiciuscota/fs2open-diaspora-vr)**
 (branch `diaspora`). This repository holds the mod files, tools and notes.
 
+[![Gameplay video](https://img.youtube.com/vi/1w9ybdsAaO0/maxresdefault.jpg)](https://www.youtube.com/watch?v=1w9ybdsAaO0)
+
+*Watch it in action: https://www.youtube.com/watch?v=1w9ybdsAaO0*
+
 > You need your own copy of **Diaspora R1 (with the 1.1 / 1.1.1 patches)**. Nothing here replaces it.
 
 ## What's in it
