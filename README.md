@@ -35,7 +35,19 @@ The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr]
   and want your voice removed, open an issue and it will be taken down.
 - An Arch Linux engine package built from the fork.
 
-## Installing
+## Install on Arch Linux (one command)
+
+```sh
+yay -S bsg-diaspora-sa-vr        # or paru, or: git clone https://aur.archlinux.org/bsg-diaspora-sa-vr.git && cd bsg-diaspora-sa-vr && makepkg -si
+```
+
+This downloads Diaspora R1 and its patches, builds the engine, adds the mod, HD textures and voices, and installs a
+launcher and menu entries ("Battlestar Galactica: Diaspora" and "... (VR)"). It needs about 25 GB of free disk during the
+build (5 GB installed) and takes 10 to 30 minutes depending on your CPU. Run `bsg-diaspora-sa-vr` for a window
+(`DIASPORA_RES=1920x1080`, `DIASPORA_FULLSCREEN=1` to change it) or `bsg-diaspora-sa-vr --vr` with an OpenXR runtime
+active. Tested on a clean Arch + KDE Plasma (Wayland) install.
+
+## Installing by hand
 
 1. Install Diaspora R1 and its patches as usual.
 2. Copy `mod/diaspora_fixes` into the Diaspora folder (next to the `.vp` files).
