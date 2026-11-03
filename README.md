@@ -21,9 +21,11 @@ The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr]
   HUD with long green streaks, worst with the sun in view).
 
 **Mod (`mod/diaspora_fixes`)**
-- 14 extra missions in the *Thunderlords Patrol Log* campaign (also in the Mission Simulator): Vigil, Tylium Run, Hollow
-  Rock, Iron Shepherd, Station Keeping, Dead Reckoning, Deep Look (Raptor), Firebreak, Hunter's Moon, Hammer and Anvil,
-  Picket Line, Long Tow, Ghost Light, and Fleet Anchorage (a peaceful free flight to test your controls).
+- 19 extra missions in the *Thunderlords Patrol Log* campaign (also in the Mission Simulator, which shows the estimated
+  duration and difficulty of each): Vigil, Tylium Run, Hollow Rock, Iron Shepherd, Station Keeping, Dead Reckoning, Deep
+  Look (Raptor), Firebreak, Hunter's Moon, Hammer and Anvil, Picket Line, Long Tow, Ghost Light, **five long missions of
+  25 to 30 minutes** (The Long Watch, Cold Convoy, Dead Hulks, Hammerfall, Last Stand at Armistice), and Fleet Anchorage
+  (a peaceful free flight to test your controls).
 - HUD layout tweaks for VR (smaller ship outline, stores and target box placement).
 - Saitek X52 default bindings.
 
@@ -59,6 +61,11 @@ active. Tested on a clean Arch + KDE Plasma (Wayland) install.
 
 ## VR settings
 
+Press **F9** in the main hall or in the Options screen for the in-game VR settings (HUD distance, size, height and placement,
+menu size, flash and glare strength, sun light shafts, camera shake, padlock, look-to-target). Changes are saved in
+`diaspora_vr_settings.ini` in your profile data folder. The same options can be forced with environment variables
+(put them in `vr.env` next to `launch-example.sh`, one `VAR=value` per line); what you save in the menu wins:
+
 Environment variables (put them in `vr.env` next to `launch-example.sh`, one `VAR=value` per line):
 
 | Variable | Default | What it does |
@@ -73,7 +80,6 @@ Environment variables (put them in `vr.env` next to `launch-example.sh`, one `VA
 | `FSO_VR_SHAKE`, `FSO_VR_FLASH` | off, 0.35 | View shake, flash strength |
 | `FSO_VR_PADLOCK`, `FSO_VR_GAZE_TARGET` | on | Hat-switch targeting, head-gaze targeting |
 | `FSO_VR_MENU_SCALE`, `FSO_VR_EYE_FORWARD` | 1.35, 0.2 | Menu quad scale, eye offset into the cockpit (m) |
-| `FSO_VR_HUD_HIDE`, `FSO_VR_HUD_SKIP` | — | Debugging: hide the HUD layer / skip HUD gauge types (comma list) |
 
 ## Building the engine
 

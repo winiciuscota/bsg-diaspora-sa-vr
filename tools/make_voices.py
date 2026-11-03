@@ -24,6 +24,7 @@ VOICE = {
     "Red 3": "flask", "Blue 2": "rook",
     "Halyard": "captain",
     "Cassia": "hauler", "Kestrel": "hauler", "Pilgrim Mercy": "hauler", "Hesper": "hauler",
+    "Lantern 1": "civilian", "Allsop": "hauler", "Keplaw": "hauler", "Pixie": "hauler",
     "Aster": "civilian", "Briony": "civilian", "Tern": "civilian", "Gull": "civilian", "Petrel": "civilian",
     "Lantern 2": "civilian", "Lantern 3": "civilian", "Gleaner 1": "civilian",
 }

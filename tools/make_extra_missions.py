@@ -1063,17 +1063,35 @@ def ghost_light():
     return m
 
 
+# estimated play time and difficulty, shown in the Mission Simulator
+META = {
+    "XM-Tylium.fs2": ("~15 min", "Medium"), "XM-Hollow.fs2": ("~12 min", "Medium"), "XM-Shepherd.fs2": ("~14 min", "Medium"),
+    "XM-Station.fs2": ("~14 min", "Medium"), "XM-Reckoning.fs2": ("~13 min", "Medium"), "XM-DeepLook.fs2": ("~11 min", "Hard"),
+    "XM-Firebreak.fs2": ("~10 min", "Hard"), "XM-Hunter.fs2": ("~13 min", "Medium"), "XM-Anvil.fs2": ("~12 min", "Hard"),
+    "XM-Picket.fs2": ("~8 min", "Easy"), "XM-Tow.fs2": ("~11 min", "Medium"), "XM-Ghost.fs2": ("~8 min", "Medium"),
+    "XM-Fleet.fs2": ("no time limit", "None"),
+    "XM-Watch.fs2": ("~28 min", "Hard"), "XM-Convoy.fs2": ("~25 min", "Hard"), "XM-Hulks.fs2": ("~26 min", "Medium"),
+    "XM-Hammerfall.fs2": ("~24 min", "Hard"), "XM-Armistice.fs2": ("~32 min", "Very Hard"),
+}
+
 if __name__ == "__main__":
+    import long_missions
+    long_missions.G.update(TEST=TEST, CIVIL=CIVIL_FLAGS, CAPITAL=CAPITAL_FLAGS, win_end=win_end, fail_end=fail_end)
     missions = [("XM-Tylium.fs2", tylium_run()), ("XM-Hollow.fs2", hollow_rock()), ("XM-Shepherd.fs2", iron_shepherd()),
                 ("XM-Station.fs2", station_keeping()), ("XM-Reckoning.fs2", dead_reckoning()), ("XM-DeepLook.fs2", deep_look()),
                 ("XM-Firebreak.fs2", firebreak()), ("XM-Hunter.fs2", hunters_moon()), ("XM-Anvil.fs2", hammer_and_anvil()),
                 ("XM-Picket.fs2", picket_line()), ("XM-Tow.fs2", long_tow()), ("XM-Ghost.fs2", ghost_light()),
+                ("XM-Watch.fs2", long_missions.long_watch()), ("XM-Convoy.fs2", long_missions.cold_convoy()),
+                ("XM-Hulks.fs2", long_missions.dead_hulks()), ("XM-Hammerfall.fs2", long_missions.hammerfall()),
+                ("XM-Armistice.fs2", long_missions.last_stand()),
                 ("XM-Fleet.fs2", fleet_anchorage())]
     manifest_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overlay", "diaspora_fixes", "data", "voice",
                                  "special", "voice_manifest.json")
     manifest = json.load(open(manifest_path)) if os.path.exists(manifest_path) else {}
     for fname, mission in missions:
         add_chatter(fname, mission)
+        if fname in META:
+            mission.desc = "[[Duration: %s | Difficulty: %s]] %s" % (META[fname][0], META[fname][1], mission.desc)
         mission.waves = manifest.get(fname, {})
         print(mission.write(os.path.join(OUT, fname)), "| voiced:", len(mission.waves))
     order = ["XM-Vigil.fs2"] + [f for f, _ in missions]

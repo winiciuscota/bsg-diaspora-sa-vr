@@ -134,10 +134,60 @@ $Mission: XM-Ghost.fs2
 +Flags: 0
 +Main Hall: 0
 +Formula: ( cond
-   ( ( true ) ( next-mission "XM-Fleet.fs2" ) )
+   ( ( true ) ( next-mission "XM-Watch.fs2" ) )
 )
 
 +Level: 12
++Position: 0
+
+$Mission: XM-Watch.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Convoy.fs2" ) )
+)
+
++Level: 13
++Position: 0
+
+$Mission: XM-Convoy.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Hulks.fs2" ) )
+)
+
++Level: 14
++Position: 0
+
+$Mission: XM-Hulks.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Hammerfall.fs2" ) )
+)
+
++Level: 15
++Position: 0
+
+$Mission: XM-Hammerfall.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Armistice.fs2" ) )
+)
+
++Level: 16
++Position: 0
+
+$Mission: XM-Armistice.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Fleet.fs2" ) )
+)
+
++Level: 17
 +Position: 0
 
 $Mission: XM-Fleet.fs2
@@ -147,7 +197,7 @@ $Mission: XM-Fleet.fs2
    ( ( true ) ( end-of-campaign ) )
 )
 
-+Level: 13
++Level: 18
 +Position: 0
 
 #End
