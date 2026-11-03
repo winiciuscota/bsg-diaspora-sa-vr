@@ -33,7 +33,7 @@ The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr]
 - HUD layout tweaks for VR (smaller ship outline, stores and target box placement).
 - Saitek X52 default bindings.
 
-**Release downloads** (see [Releases](https://github.com/winiciuscota/diaspora-vr-port/releases))
+**Release downloads** (see [Releases](https://github.com/winiciuscota/bsg-diaspora-sa-vr/releases))
 - **HD textures**: Real-ESRGAN upscales of the ship, weapon and cockpit textures (cockpits 4x, everything else 2x).
   Derived from Diaspora's own art; `tools/upscale_all.py` regenerates them.
 - **Voices for the extra missions**: AI-generated with F5-TTS zero-shot cloning **from the original Diaspora voice
