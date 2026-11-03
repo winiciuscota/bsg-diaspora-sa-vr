@@ -1,0 +1,73 @@
+# Maintainer: Winicius Cota <winicius.cota@gmail.com>
+# FreeSpace Open engine used for the Diaspora: Shattered Armistice port.
+# Built on aur-builder (Manjaro) and run inside Wolf's Ubuntu-based containers, so the
+# result is a relocatable bundle in /opt/fs2open-diaspora: libstdc++/libgcc are linked
+# statically and every non-graphics shared library is copied next to the binary.
+# The graphics stack (Mesa, Vulkan loader, Wayland/X11) always comes from the host/container.
+pkgname=fs2open-diaspora
+pkgver=26.2.0.r0
+pkgrel=74
+pkgdesc="SCP FreeSpace 2 Open engine (Diaspora port build, relocatable bundle)"
+arch=('x86_64')
+url="https://github.com/scp-fs2open/fs2open.github.com"
+license=('custom:fs2_open')
+depends=('sdl2' 'openal' 'ffmpeg' 'libpng' 'jansson' 'freetype2' 'lz4' 'vulkan-icd-loader' 'curl')
+makedepends=('git' 'cmake' 'ninja' 'python' 'glslang' 'shaderc' 'vulkan-headers' 'libx11' 'libxrandr' 'libxinerama' 'libxcursor' 'libxi' 'wayland' 'mesa' 'speech-dispatcher' 'patchelf')
+options=('!strip' '!debug')
+# Source is the `diaspora` branch of our fs2open fork (upstream scp-fs2open + our commits, base 8afa31842).
+# On aur-builder this is a bare repo next to the PKGBUILD (/build in the container), pushed by tools/build-engine.sh;
+# once the GitHub fork exists only this URL changes (git+https://github.com/<user>/fs2open.github.com.git#branch=diaspora).
+source=("fs2open::git+https://github.com/winiciuscota/fs2open-diaspora-vr.git#branch=diaspora")
+sha256sums=('SKIP')
+
+prepare() {
+  cd fs2open
+  git submodule update --init --recursive --depth 1
+}
+
+build() {
+  cmake -S fs2open -B build -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX=/opt/fs2open-diaspora \
+    -DCMAKE_EXE_LINKER_FLAGS="-static-libstdc++ -static-libgcc" \
+    -DFSO_BUILD_TESTS=OFF -DFSO_BUILD_FRED2=OFF -DFSO_BUILD_QTFRED=OFF \
+    -DFSO_BUILD_INCLUDE_TOOLS=OFF \
+    -DFSO_RELEASE_LOGGING=ON -DFSO_BUILD_WITH_OPENXR=ON -DFSO_BUILD_WITH_VULKAN=ON -DFSO_BUILD_WITH_DISCORD=OFF \
+    -Wno-dev
+  cmake --build build -j 24
+}
+
+package() {
+  DESTDIR="$pkgdir" cmake --install build
+  local root="$pkgdir/opt/fs2open-diaspora"
+  local bin; bin=$(find "$root" -maxdepth 2 -type f -name 'fs2_open_*' | head -1)
+  [ -n "$bin" ] || { echo "no fs2_open binary installed"; return 1; }
+  # bundle shared libraries, INCLUDING glibc + its loader: the binary needs a newer glibc than Wolf's Ubuntu
+  # container has, and a newer glibc happily runs the container's older Mesa/Vulkan/X11 libs. Only the
+  # graphics/window-system stack is left to the container.
+  install -d "$root/lib"
+  ldd "$bin" | awk '/=> \//{print $3} /ld-linux/{print $1}' | sort -u | while read -r lib; do
+    case "$(basename "$lib")" in
+      libfakeroot*|libGL*|libEGL*|libGLX*|libGLdispatch*|libOpenGL*|libvulkan*|libdrm*|libgbm*|libwayland*|libxcb*|libX*|libxkbcommon*|libasound*|libpulse*|libpipewire*|libdbus*|libsystemd*|libudev*) ;;
+      *) install -m755 "$(readlink -f "$lib")" "$root/lib/$(basename "$lib")" ;;
+    esac
+  done
+  # the Vulkan backend dlopen()s shaderc at runtime (not linked), so bundle it and its dependencies too
+  local shaderc; shaderc=$(readlink -f /usr/lib/libshaderc_shared.so.1)
+  install -m755 "$shaderc" "$root/lib/libshaderc_shared.so.1"
+  ldd "$shaderc" | awk '/=> \//{print $3}' | sort -u | while read -r lib; do
+    [ -e "$root/lib/$(basename "$lib")" ] || case "$(basename "$lib")" in
+      libGL*|libEGL*|libvulkan*|libdrm*|libwayland*|libX*|libxcb*) ;;
+      *) install -m755 "$(readlink -f "$lib")" "$root/lib/$(basename "$lib")" ;;
+    esac
+  done
+  mv "$bin" "$root/fs2_open.bin"
+  cat > "$root/fs2_open" <<'WRAP'
+#!/bin/sh
+R="$(dirname "$(readlink -f "$0")")"
+exec "$R/lib/ld-linux-x86-64.so.2" --library-path "$R/lib" "$R/fs2_open.bin" "$@"
+WRAP
+  chmod 755 "$root/fs2_open"
+  echo "bundled libs:"; ls "$root/lib" | tr '\n' ' '; echo
+  echo "binary needs up to: $(objdump -T "$root/fs2_open.bin" | grep -o 'GLIBC_[0-9.]*' | sort -Vu | tail -1)"
+}

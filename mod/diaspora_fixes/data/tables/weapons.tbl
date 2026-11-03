@@ -1,0 +1,2455 @@
+#Primary Weapons
+
+;========================
+;Colonial Fighter Weapons
+
+;;Standard Colonial fighter-mounted KEW
+$Name:					MEC-A6 
++Title:					MEC-A6 Thraxon
++Description:				30mm Colonial high velocity cannon
+					Standard Issue
+					Kinetic Energy Weapon
+$end_multi_text
++Tech Title:				XSTR("MEC-A6 Thraxon", 163)
++Tech Anim:				Tech_MECA6
++Tech Description:			XSTR( "The MEC-A6 is a 30mm rapid fire cannon and serves as the standard armament for all space superiority fighters in the Colonial Defence Fleet. The high explosive rounds used by the MEC-A6 are able to easily destroy hostile fighters. MEC-A6 rounds are also easy to manufacture, and munition production facilities are present on all battlestars.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_MecA6.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+	@Laser Bitmap:			Tracer_Col_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 110, 0
+	@Laser Color2:			255, 180, 0
+	@Laser Length:			8.5
+	@Laser Head Radius:		1.35
+	@Laser Tail Radius:		1.35
+$Mass:					0.0
+$Velocity:				1500
+$Fire Wait:				0.15
+$Damage:				15
+$Damage Type:				Colonial_KEW
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime:				0.75
+$Cargo Size:				0.001
+$PreLaunchSnd: 				77
++PreLaunchSnd Min Interval: 		500
+$LaunchSnd:                             76	
+$ImpactSnd: 				85
+$Rearm Rate:				100
++Weapon Range:				1500
+$Flags:					( "ballistic" "in tech database" "shudder" "cycle" 
+					  "player allowed" "stream" "same turret cooldown"
+					  "Supercap" )
+$Muzzleflash:				MuzzleFlash_Col_KEW 
+$FOF:					0.25
+
+
+;;Standard Colonial fighter-mounted training KEW
+$Name:					Training MEC-A6
++Title:					Training MEC-A6 Thraxon
++Description:				30mm Colonial high velocity cannon
+					Standard Issue
+					Kinetic Energy Weapon
+$end_multi_text
++Tech Title:				XSTR("Training MEC-A6", 163)
++Tech Anim:				Tech_TrainingMECA6
++Tech Description:			XSTR( "A modified version of the MEC-A6 Thraxon for training exercises, the Training MEC-A6 fires blank rounds. Used in live fire training and wargame scenarios, this version of the MEC-A6 has seen the most active use since the end of the Cylon-Colonial War.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_MecA6.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+	@Laser Bitmap:			Tracer_Col_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 110, 0
+	@Laser Color2:			255, 180, 0
+	@Laser Length:			8.5
+	@Laser Head Radius:		1.35
+	@Laser Tail Radius:		1.35
+$Mass:					0.0
+$Velocity:				1500
+$Fire Wait:				0.15
+$Damage:				15
+$Damage Type:				Colonial_KEW
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime:				0.75
+$Cargo Size:				0.001
+$PreLaunchSnd: 				77
++PreLaunchSnd Min Interval: 		500
+$LaunchSnd:                             76	
+$ImpactSnd: 				85
+$Rearm Rate:				100
++Weapon Range:				1500
+$Flags:					( "ballistic" "shudder" "cycle" "player allowed"
+					   "stream" "same turret cooldown"
+					  "Supercap" "training")
+$Muzzleflash:				MuzzleFlash_Col_KEW 
+$FOF:					0.25
+
+
+;;Special Issue Raptor-mounted rotary KEW
+$Name:					GBK-6 
++Title:					GBK-6 Mulciber 
++Description:				20mm Colonial six barrel high speed
+autocannon
+					Special Issue
+					Kinetic Energy Weapon
+$end_multi_text
++Tech Title:				XSTR("GBK-6 Mulciber", 167)
++Tech Anim:				Tech_GBK6
++Tech Description:			XSTR( "The GBK-6 Mulciber is a hydraulically-driven six barrel rotary cannon designed to fire 20mm HE rounds. Developed as an anti-fighter KEW for assault configuration Raptors, some pilots have joked that the 'toaster hunter' variant was built around the GBK-6 as this weapon system is 12% of an Assault Raptor's total mass. While the GBK-6 is capable of continuous fire, to conserve ammunition and prevent overheating, which causes a wider spread of fire, most pilots recommend limiting fire to bursts no longer than five seconds.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_GBK6.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+	@Laser Bitmap:			Tracer_Col_GBK
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			235, 160, 0
+	@Laser Color2:			235, 220, 0
+	@Laser Length:			10.5
+	@Laser Head Radius:		1.40
+	@Laser Tail Radius:		1.40
+$Mass:					0.0
+$Velocity:				1500
+$Fire Wait:				0.0666
+$Damage:				22.0
+$Damage Type:				Colonial_KEW
+$Armor Factor:				1.0
+$Subsystem Factor:			0.1
+$Lifetime:				0.75
+$Cargo Size:				0.0005
+$PreLaunchSnd: 				79
++PreLaunchSnd Min Interval: 		500
+$LaunchSnd:				78
+$ImpactSnd: 				85
+$Rearm Rate:				800
++Weapon Range:				1500
+$Flags:					( "ballistic" "in tech database" "shudder" "player allowed" 
+					  "stream" "same turret cooldown" "Supercap" )
+$Muzzleflash:				MuzzleFlash_Col_KEW 
+$FOF:					0.25
++FOF Spread Rate:		0.085
++FOF Reset Rate:        0.9
++Max FOF:				1.8
+
+
+;=============
+;Colonial/RTF Cap ship
+
+;;Standard Artillery, Small mostly non-military.
+$Name:					Colonial Artillery
++Title:					Arty
++Description:				Colonial standard Artillery.  Smaller
+then that used on most military ships
+it's main role has become civilian a...
+					Standard Issue
+					Artillery
+$end_multi_text
+	@Laser Bitmap:			Artillery_Shell
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 110, 0
+	@Laser Color2:			255, 180, 0
+	@Laser Length:			14.5
+	@Laser Head Radius:		8.5
+	@Laser Tail Radius:		8.5
+$Mass:					0.0001
+$Velocity:				800.0
+$Fire Wait:				2
+$Damage:				100
+$Damage Type:				Colonial_Arty
+$Arm distance:				100
+$Detonation Radius:			20.0
+$Blast Force:				45.0
+$Inner Radius:				20.0
+$Outer Radius:				30.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				7.5
+$Energy Consumed:			0.0
+$Cargo Size:				1.0
+$LaunchSnd:				116
+$ImpactSnd:				117
++Weapon Range:				4000
++Weapon Min Range:			150
+$Flags:					( "cycle" "same turret cooldown" "huge" "Big Ship" "Supercap" )
+$Trail:                            
+	+Start Width:			2.5                                      
+	+End Width:			14.0                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			4.0
+	+Bitmap:			MissileTrail02
+$Impact Explosion:			Exp_Huge
+$Impact Explosion Radius:		65.0
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Piercing Impact Explosion:		Exp_Large
+$Piercing Impact Radius:		35
+$Piercing Impact Velocity:		15
+$Piercing Impact Splash Velocity:	15
+$Piercing Impact Variance:		0.0
+$Piercing Impact Life:			0.1
+$Piercing Impact Particles:		2
+$Muzzleflash:				MuzzleFlash_Col_Art
+$FOF:					0.33
+$Shots:					1
+
+
+;Colonial Heavy Artillery, anti-capitalship, military grade
+$Name:					Colonial Heavy Artillery 
++Title:					Hvy Arty
++Description:				Colonial Heavy Artillery.  While still
+not up to par with Battlestar specs this
+round packs a punch.  This is milita...
+					Standard Issue
+					Heavy Artillery
+$end_multi_text
+	@Laser Bitmap:			Artillery_Shell
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 110, 0
+	@Laser Color2:			255, 180, 0
+	@Laser Length:			16.5
+	@Laser Head Radius:		10.0
+	@Laser Tail Radius:		10.0
+$Mass:					0.0005
+$Velocity:				1000.0
+$Fire Wait:				3
+$Damage:				300
+$Damage Type:				Colonial_Arty
+$Arm distance:				300
+$Detonation Radius:			25.0
+$Blast Force:				70.0
+$Inner Radius:				20.0
+$Outer Radius:				50.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				7.5
+$LaunchSnd:				116
+$ImpactSnd:				117
++Weapon Range:				5500
++Weapon Min Range:			150
+$Flags:					( "huge" "cycle" "same turret cooldown" "Big Ship" "Supercap" )
+$Trail:                         
+	+Start Width:			2.5                                      
+	+End Width:			18.0                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			4.0
+	+Bitmap:			MissileTrail02
+$Impact Explosion:			Exp_Large 
+$Impact Explosion Radius:		55.0
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Piercing Impact Explosion:		Exp_Large
+$Piercing Impact Radius:		35
+$Piercing Impact Velocity:		15
+$Piercing Impact Splash Velocity:	15
+$Piercing Impact Variance:		0.0
+$Piercing Impact Life:			0.1
+$Piercing Impact Particles:		2
+$Muzzleflash:				MuzzleFlash_Col_Art
+$FOF:					0.5
+$Shots:					1
+
+
+;;Heavy Mount Artillery, anti-capitalship, battlestar size
+$Name:					Colonial Heavy Mount Artillery
++Title:					HM Arty
++Description:				Colonial Heavy Mount Artillery.  Your
+standard battlestar offensive armorment.
+					Military Issue
+					Heavy Artillery
+$end_multi_text
+	@Laser Bitmap:			Artillery_Shell
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 110, 0
+	@Laser Color2:			255, 180, 0
+	@Laser Length:			18.25
+	@Laser Head Radius:		10.5
+	@Laser Tail Radius:		10.5
+$Mass:					0.00075
+$Velocity:				1000.0
+$Fire Wait:				5
+$Damage:				1200
+$Damage Type:				Colonial_Arty
+$Arm distance:				300
+$Detonation Radius:			50.0
+$Blast Force:				80.0
+$Inner Radius:				30.0
+$Outer Radius:				100.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				7.5
+$LaunchSnd:				116
+$ImpactSnd:				117
++Weapon Range:				5500
++Weapon Min Range:			150
+$Flags: 				( "huge" "cycle" "same turret cooldown" "Big Ship" "Supercap" )
+$Trail:                         
+	+Start Width:			2.5                                      
+	+End Width:			20.0                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			4.0
+	+Bitmap:			MissileTrail02
+$Impact Explosion:			Exp_Huge
+$Impact Explosion Radius:		55.0
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Piercing Impact Explosion:		Exp_Large
+$Piercing Impact Radius:		35
+$Piercing Impact Velocity:		15
+$Piercing Impact Splash Velocity:	15
+$Piercing Impact Variance:		0.0
+$Piercing Impact Life:			0.1
+$Piercing Impact Particles:		2
+$Muzzleflash:				MuzzleFlash_Col_Art
+$FOF:					0.5
+$Shots:					1
+
+
+;;Light Mount Artillery, anti-capitalship, frigate size
+$Name:					Colonial Light Mount Artillery
++Title:					LM Arty
++Description:				Colonial Light Mount Artillery. Used on
+frigates and as light guns on some
+battlestars.
+					Military Issue
+					Light Artillery
+$end_multi_text
+	@Laser Bitmap:			Artillery_Shell
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 110, 0
+	@Laser Color2:			255, 180, 0
+	@Laser Length:			17.00
+	@Laser Head Radius:		10.0
+	@Laser Tail Radius:		10.0
+$Mass:					0.00075
+$Velocity:				1200.0
+$Fire Wait:				3
+$Damage:				600
+$Damage Type:				Colonial_Arty
+$Arm distance:				300
+$Detonation Radius:			35.0
+$Blast Force:				50.0
+$Inner Radius:				20.0
+$Outer Radius:				70.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				6.0
+$LaunchSnd:				116
+$ImpactSnd:				117
++Weapon Range:				5000
++Weapon Min Range:			100
+$Flags: 				( "huge" "cycle" "same turret cooldown" "Big Ship" "Supercap" )
+$Trail:                         
+	+Start Width:			2.5                                      
+	+End Width:			20.0                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			4.0
+	+Bitmap:			MissileTrail02
+$Impact Explosion:			Exp_Huge
+$Impact Explosion Radius:		40.0
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Piercing Impact Explosion:		Exp_Large
+$Piercing Impact Radius:		30
+$Piercing Impact Velocity:		15
+$Piercing Impact Splash Velocity:	15
+$Piercing Impact Variance:		0.0
+$Piercing Impact Life:			0.1
+$Piercing Impact Particles:		2
+$Muzzleflash:				MuzzleFlash_Col_Art
+$FOF:					0.5
+$Shots:					1
+
+
+;======================
+;Colonial Point Defence
+
+;Colonial Capitalship Point Defence Flak
+$Name:					Colonial Flak 
++Title:					Flak
++Description:				Colonial Flak.  Designed to be fired
+from the same guns that fire Heavy Mount
+Arty these rounds lay down an anti-...
+					Standard Issue
+					Flak
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_GBK
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			152, 138, 48
+	@Laser Color2:			152, 138, 48
+	@Laser Length:			5.0
+	@Laser Head Radius:		1.40
+	@Laser Tail Radius:		1.40
+$Mass:					0.0001
+$Velocity:				600.0          
+$Fire Wait:				1.25            
+$Damage:				75
+$Damage Type:				Colonial_Heavy
+$Detonation Range:			5000
+$Detonation Radius:			50.0
+$Blast Force:				2275.0
+$Inner Radius:				30.0
+$Outer Radius:				105.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime Min:				10.0
+$Lifetime Max:				11.0
+$LaunchSnd:				113
+$ImpactSnd:				114
+$Rearm Rate:				100
++Weapon Range:				5000        
++Weapon Min Range:			1250
+$Flags:					( "big ship" "cycle" "stream" "ballistic" "small only" 
+					  "same turret cooldown"  "flak" "Supercap" "render flak" ) 
+$Impact Explosion:			Exp_Flak_Big
+$Impact Explosion Radius:		30.0
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Muzzleflash:				MuzzleFlash_Col_Art
+$FOF:					12 
+$Burst Shots:				6
+$Burst Delay:				1
+$Burst Flags:				( "fast firing" )
+
+
+;Colonial Capitalship Point Defence Flak Merc size guns
+$Name:					Colonial Heavy Flak 
++Title:					Hvy Flak
++Description:				Colonial Flak.  Designed to be fired
+from the same guns that fire Spinal
+Mount Arty these rounds lay down an...
+					Standard Issue
+					Flak
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_GBK
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			152, 138, 48
+	@Laser Color2:			152, 138, 48
+	@Laser Length:			5.0
+	@Laser Head Radius:		1.40
+	@Laser Tail Radius:		1.40
+$Mass:					0.0001
+$Velocity:				800.0          
+$Fire Wait:				1.25            
+$Damage:				75
+$Damage Type:				Colonial_Heavy
+$Detonation Range:			7500
+$Detonation Radius:			66.0
+$Blast Force:				2925.0
+$Inner Radius:				40.0
+$Outer Radius:				140.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime Min:				10.0
+$Lifetime Max:				11.0
+$LaunchSnd:				113
+$ImpactSnd:				114
+$Rearm Rate:				100
++Weapon Range:				7500        
++Weapon Min Range:			1500
+$Flags:					( "big ship" "cycle" "stream" "ballistic" "small only" 
+					  "same turret cooldown"  "flak" "Supercap" "render flak" ) 
+$Impact Explosion:			Exp_Flak_Big
+$Impact Explosion Radius:		30.0
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Muzzleflash:				MuzzleFlash_Col_Art
+$FOF:					12
+$Burst Shots:				8
+$Burst Delay:				1
+$Burst Flags:				( "fast firing" )
+
+
+;Colonial Close-in Weapons System, anti-torpedo
+$Name:					Colonial CIWS 
++Title:					CIWS Kew
++Description:				CIWS Kew rounds are fired from point
+defense arrays on capital ships.  While
+short range and only causing light...
+					CIWS Issue
+					KEW
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 180, 00
+	@Laser Color2:			255, 230, 00
+	@Laser Length:			4.5
+	@Laser Head Radius:		2.25
+	@Laser Tail Radius:		2.25
+$Mass:					0.0
+$Velocity:				1000.0         
+$Fire Wait:				0.25
+$Damage:				4.0
+$Damage Type:				Colonial_Norm
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime:				1.6            
+$Homing:				NO
+$LaunchSnd:				111 
+$ImpactSnd: 				85                     
+$Rearm Rate:				100
++Weapon Range:				1400        
+$Flags:					( "cycle" "stream" "ballistic" "small only" 
+					  "same turret cooldown" "Big Ship" "Supercap" ) 
+$Muzzleflash:				MuzzleFlash_Col_CIWS
+$FOF:					0.1
+
+
+;Colonial Close-in Weapons System, anti-torpedo Heavy version
+$Name:					Colonial Heavy CIWS 
++Title:					CIWS Hvy Kew
++Description:				Heavy CIWS Kew rounds are fired from
+point defense arrays on capital ships.
+Longer range and harder hitting then...
+					CIWS Issue
+					KEW
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			255, 180, 00
+	@Laser Color2:			255, 230, 00
+	@Laser Length:			6.0
+	@Laser Head Radius:		3.0
+	@Laser Tail Radius:		3.0
+$Mass:					0.0
+$Velocity:				1000.0         
+$Fire Wait:				0.25        
+$Damage:				8.0
+$Damage Type:				Colonial_Norm
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime:				2.5            
+$Homing:				NO
+$LaunchSnd:				112  
+$ImpactSnd: 				85                    
+$Rearm Rate:				100
++Weapon Range:				2100        
+$Flags:					( "cycle" "stream" "ballistic" "small only" 
+					  "same turret cooldown" "Big Ship" "Supercap" ) 
+$Muzzleflash:				MuzzleFlash_Col_CIWS
+$FOF:					0.1
+
+
+;CIWS flak field
+$Name:					Colonial CIWS Flak 
++Title:					CIWS Flak
++Description:				CIWS Flak rounds are fired from point
+defense arrays on capital ships.  They
+have longer range then KEW rounds bu...
+					CIWS Issue
+					Flak
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_GBK
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			152, 138, 48
+	@Laser Color2:			152, 138, 48
+	@Laser Length:			5.0
+	@Laser Head Radius:		1.40
+	@Laser Tail Radius:		1.40
+$Mass:					0.0001
+$Velocity:				500.0         
+$Fire Wait:				0.25       
+$Damage:				50
+$Damage Type:				Colonial_Norm
+$Detonation Range:			2800
+$Detonation Radius:			25.0
+$Blast Force:				100.0
+$Inner Radius:				15.0
+$Outer Radius:				40.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.7
+$Lifetime Min:				3.0
+$Lifetime Max:				6.0      
+$LaunchSnd:				112
+$ImpactSnd:				114
+$Rearm Rate:				100
++Weapon Range:				2800        
++Weapon Min Range:			800
+$Flags:					( "big ship" "cycle" "stream" "ballistic" "small only" 
+					  "same turret cooldown" "flak" "Supercap" "render flak" ) 
+$Impact Explosion:			Exp_Flak_Small
+$Impact Explosion Radius:		9.5
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Muzzleflash:				MuzzleFlash_Col_CIWS
+$FOF:					10 
+
+
+;Light Colonial Capitalship Point Defence Flak
+$Name:					Colonial Heavy CIWS Flak 
++Title:					CIWS Hvy Flak
++Description:				CIWS Heavy Flak rounds are fired from
+point defense arrays on capital ships.
+They have longer range then KEW roun...
+					CIWS Issue
+					Flak
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_GBK
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			152, 138, 48
+	@Laser Color2:			152, 138, 48
+	@Laser Length:			5.0
+	@Laser Head Radius:		1.40
+	@Laser Tail Radius:		1.40
+$Mass:					0.0001
+$Velocity:				1000.0         
+$Fire Wait:				.25         
+$Damage:				60
+$Damage Type:				Colonial_Norm
+$Detonation Range:			4200
+$Detonation Radius:			40.0
+$Blast Force:				125.0
+$Inner Radius:				17.5
+$Outer Radius:				45.0
+$Armor Factor:				1.0
+$Subsystem Factor:			0.7
+$Lifetime Min:				3.0
+$Lifetime Max:				6.0      
+$LaunchSnd:				113             
+$ImpactSnd:				114          
+$Rearm Rate:				100
++Weapon Range:				4200        
++Weapon Min Range:			800
+$Flags:					( "big ship" "cycle" "stream" "ballistic" "small only" 
+					  "same turret cooldown" "flak" "Supercap" "render flak" )
+$Impact Explosion:			Exp_Flak_Small
+$Impact Explosion Radius:		9.5
+$Dinky impact explosion:		none
+$Dinky impact Explosion Radius:		0.0
+$Muzzleflash:				MuzzleFlash_Col_VSArt
+$FOF:					10 
+
+;Special Issue anti fighter rotary KEW
+$Name:					Colonial Phalanx Cannon 
++Title:					CPC-17 Phalanx 
++Description:				The Phalanx cannon is a multi barrel,
+rapid fire, cannon.  Designed mainly as
+an anti-fighter weapon it is also ve...
+Standard Issue
+Phalanx
+$end_multi_text
+	@Laser Bitmap:			Tracer_Col_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			250, 250, 150
+	@Laser Color2:			250, 150, 0
+	@Laser Length:			6.5
+	@Laser Head Radius:		1.25
+	@Laser Tail Radius:		1.25
+$Mass:					0.0
+$Velocity:				1200
+$Fire Wait:				0.125
+$Damage:				10
+$Damage Type:				Colonial_Norm
+$Armor Factor:				1.0
+$Subsystem Factor:			0.1
+$Lifetime:				0.3
+$Homing:				NO
+$LaunchSnd:				111
+$ImpactSnd: 				85
+$Rearm Rate:				800
++Weapon Range:				400
+$Flags:					( "ballistic" "small only" "stream" "same turret cooldown" 
+					  "Big Ship" "Supercap" )
+$Muzzleflash:				MuzzleFlash_Col_KEW 
+$FOF:					0.5
+
+
+;=====================
+;Cylon Fighter Weapons
+
+;Standard Cylon fighter-mounted KEW
+$Name:					30mm 2.1 
++Title:					30mm v2.1 Gladius
++Description:				Standard Cylon 30mm high velocity cannon
+					Standard Issue
+					Kinetic Energy Weapon
+$end_multi_text
++Tech Title:				XSTR("30mm Gladius", 168)
++Tech Anim:				Tech_Gladius
++Tech Description:			XSTR( "The 30mm high velocity cannon used on Cylon raiders, codenamed Gladius, is highly effective against Colonial space superiority fighters. The Gladius is slightly more accurate than the MEC-A6, and appears to have a slightly more massive round that deals more damage than its Colonial counterpart, although it has a lower muzzle velocity.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_30mm.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+	@Laser Bitmap:			Tracer_Cyl_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			0, 175, 220
+	@Laser Color2:			0, 175, 220
+	@Laser Length:			8.5
+	@Laser Head Radius:		1.45
+	@Laser Tail Radius:		1.45
+$Mass:					0.0
+$Velocity:				1300
+$Fire Wait:				0.20
+$Damage:				20
+$Damage Type:				Cylon_KEW
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime:				1.0
+$Cargo Size:				0.001
+$PreLaunchSnd: 				164
++PreLaunchSnd Min Interval: 		500
+$LaunchSnd:				163 
+$ImpactSnd: 				85
+$Rearm Rate:				100
++Weapon Range:				1300
+$Flags:					( "in tech database" "ballistic" "player allowed" "cycle" 
+					  "stream" "same turret cooldown" "shudder" "Supercap" )
+$Muzzleflash:				MuzzleFlash_Cyl_KEW 
+$FOF:					0.20
+
+
+;Cylon Heavy-Raider KEW
+$Name:					35mm 5.1 
++Title:					35mm v5.1 Spatha
++Description:				Heavy Raider 35mm high velocity cannon
+					Standard Issue
+					Kinetic Energy Weapon
+$end_multi_text
++Tech Title:				XSTR("35mm Spatha", 170)
++Tech Anim:				Tech_Spatha
++Tech Description:			XSTR( "The 35mm high velocity cannon used by Cylon heavy raiders, codenamed Spatha, is deadly against space superiority fighters and light capital ships. The Spatha's high rate of fire, number of banks, and tight firing configuration result in a frontal attack on a Heavy Raider being tantamount to suicide. The Spatha does, however, have weaknesses: scarce ammunition and a tendency for the firing mechanisms to overheat force Cylons to limit fire to short bursts.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_35mm.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+	@Laser Bitmap:			Tracer_Cyl_KEW
+	@Laser Glow:			Tracer_Glows
+	@Laser Color:			0, 175, 220
+	@Laser Color2:			0, 175, 220
+	@Laser Length:			2
+	@Laser Head Radius:		1.5
+	@Laser Tail Radius:		1.5
+$Mass:					0.0
+$Velocity:				1200
+$Fire Wait:				0.09
+$Damage:				30
+$Damage Type:				CYlon_Norm
+$Armor Factor:				1.0
+$Subsystem Factor:			0.3
+$Lifetime:				1.0
+$Cargo Size:				0.001
+$PreLaunchSnd: 				166
++PreLaunchSnd Min Interval: 		500
+$LaunchSnd:				165 
+$ImpactSnd: 				85
+$Rearm Rate:				100
++Weapon Range:				1200
+$Flags:					( "in tech database" "ballistic" "player allowed" "cycle" 
+					  "stream" "same turret cooldown" "shudder" "Supercap" )
+$Muzzleflash:				MuzzleFlash_Cyl_KEW 
+$FOF:					0.3
++FOF Spread Rate:		0.014
++FOF Reset Rate:        0.4
++Max FOF:				1.8
+
+#End
+
+
+#Secondary Weapons
+;========================
+;Colonial Fighter Weapons
+
+;; Standard Colonial fighter-mounted missile
+$Name:					HD-70 Lightning Javelin
+$Alt Name:                              HD-70 
++Title:					HD-70 Lightning Javelin
++Description:				Standard anti-fighter missile
+					Standard Issue
+					Short Range Missile
+$end_multi_text
++Tech Title:				XSTR("HD-70 Lightning Javelin", 1475)
++Tech Anim:				tech_hd70
++Tech Description:			XSTR( "The HD-70 Lightning Javelin was developed as an anti-fighter missile for use against lightly armored targets. The Lightning Javelin is an all-aspect seeking warhead, able to maneuver in atmospheric and non-atmospheric conditions. The lack of manueverability and long lock times of the HD-70 make it less effective for close range engagements, so it is generally used as an opening salvo before a dogfight.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_HD70.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_HD70f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 65)
+$External Model File:			Col_Wep_HD70.pof
+$Mass:					0.0
+$Velocity:				180.0
+$Fire Wait:				2.0
+$Damage:				70                
+$Damage Type:				Colonial_Norm
+$Blast Force:				70.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				40.0                                                                             
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				8.0                              
+$Cargo Size:				2.5                                        
+$Homing:				YES
+	+Type:				ASPECT 
+	+Turn Time:			0.6
+	+Min Lock Time:			0.025
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20  
+        +Seeker Strength:		2
+        +Target Lead Scaler:		0                                      
+$LaunchSnd:				103                                        
+$ImpactSnd:				88                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.15                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail01
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		6.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			10
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+
+
+;; Training Colonial fighter-mounted missile
+$Name:					TM-7 Pyro Javelin
+$Alt Name:                              TM-7
++Title:					TM-7 Pyro Javelin
++Description:				Training anti-fighter missile
+					Training Issue
+					Short Range Missile
+$end_multi_text
++Tech Title:				XSTR("TM-7 Pyro Javelin", 1476)
++Tech Anim:				Tech_TM7
++Tech Description:			XSTR( "The TM-7 Pryo Javelin is a training weapon derived from the the HD-70. It has the same characteristics as the HD-70 but carries a pyrotechnic charge designed to look and feel like the real thing while barely scratching the paint of the target.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_TM7.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_TM7f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 65)
+$External Model File:			Col_Wep_TM7.pof
+$Mass:					0.0
+$Velocity:				180.0
+$Fire Wait:				4.0
+$Damage:				50                
+$Damage Type:				Colonial_Norm
+$Blast Force:				70.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				40.0                                                                             
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				8.0                              
+$Cargo Size:				2.5                                        
+$Homing:				YES
+	+Type:				ASPECT 
+	+Turn Time:			0.6
+	+Min Lock Time:			0.025
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20  
+        +Seeker Strength:		2
+        +Target Lead Scaler:		0                                      
+$LaunchSnd:				103                                        
+$ImpactSnd:				88                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" "training" )
+$Trail:                                                        
+	+Start Width:			0.15                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail01
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		6.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			10
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+
+
+;Special Issue Colonial fighter-mounted missile, anti-bomber
+$Name:					HD-51 Arbalest 
+$Alt Name:                              HD-51
++Title:					HD-51 Arbalest
++Description:				Long range anti-bomber missile.  
+					Special Issue
+					Long Range Missile
+$end_multi_text
++Tech Title:				XSTR("HD-51 Arbalest", 1477)
++Tech Anim:				Tech_HD51
++Tech Description:			XSTR(" The HD-51 Arbalest is a long range special issue anti-bomber missile. The Arbalest has a high yield warhead coupled with a sophisticated LIDAR targeting suite. The targeting systems of the Arbalest are designed to defeat electronic warfare systems, making it effective against Colonial Raptors or heavier Cylon fightercraft. However, pilots have found the Arbalest to be particularly deadly as an opening long-range weapon against space superiority fighters.", 1478)
+$end_multi_text
+$Tech Model:				Col_Wep_HD51t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_HD51f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 75)
+$External Model File:			Col_Wep_HD51.pof
+$Mass:					0.0
+$Velocity:				150.0
+$Fire Wait:				3.0
+$Damage:				140                  
+$Damage Type:				Colonial_Norm
+$Blast Force:				70.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				40.0                                                                             
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				25.0                             
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			1.2
+	+Min Lock Time:			0.05                                   
+	+Lock Pixels/Sec:		80                                        
+	+Catch-up Pixels/Sec:		100                                       
+	+Catch-up Penalty:		20 
+        +Seeker Strength:		1
+        +Target Lead Scaler:		1                                        
+$LaunchSnd:				104                                        
+$ImpactSnd:				87                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap"
+					  "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.15                                      
+	+End Width:			12.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail01                            
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		12.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+
+
+;Special Issue Colonial fighter-mounted missile, Electronics Warfare
+$Name:					CTD-17 Jester 
+$Alt Name:                              CTD-17 
++Title:					CTD-17 Jester
++Description:				Electronic Warfare missile
+					Special Issue
+$end_multi_text
++Tech Title:				XSTR("CTD-17 Jester", 1479)
++Tech Anim:				Tech_CTD17
++Tech Description:			XSTR( "Developed as an electronics warfare missile, the CTD-17 Jester consists of an explosively pumped flux compression generator (EPFCG), intended to disrupt the electronics systems of Cylon craft. The CTD-17 is able to temporarily disrupt fly-by-wire and targeting systems, buying crucial seconds for support vessels such as Raptors.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_CTD17t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_CTD17f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 30, 80)
+$External Model File:			Col_Wep_CTD17.pof
+$Mass:					0.0
+$Velocity:				140.0
+$Fire Wait:				3.5
+$Damage:				0                 
+$Damage Type:				Colonial_Norm
+$Blast Force:				50.0   
+$Inner Radius:				100.0                                       
+$Outer Radius:				100.0                                        
+$Shockwave Speed:			0                                                                         
+$Armor Factor:				0.1
+$Subsystem Factor:			1.5
+$Lifetime:				15.0                              
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.4
+	+Min Lock Time:			0.025
+	+Lock Pixels/Sec:		80                                        
+	+Catch-up Pixels/Sec:		100                                       
+	+Catch-up Penalty:		20 
+        +Seeker Strength:		2
+        +Target Lead Scaler:		0                                         
+$LaunchSnd:				106                                        
+$ImpactSnd:				90                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "puncture" "no dumbfire" "Supercap" 
+					  "in tech database" "emp" "corkscrew" "takes blast damage" 
+					  "no emp kill" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.25                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03   
+$Impact Explosion:			Exp_Missile_EMP
+$Impact Explosion Radius:		100.0                    
+$EMP Intensity:				120
+$EMP Time:				8
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+
+
+;Standard Issue Dumbfire Rocket
+$Name:					HS-24 Lance 
+$Alt Name:                              HS-24 
++Title:					HS-24 Lance
++Description:				Standard issue concussion rocket
+					Standard Issue
+					Dumbfire Rocket
+$end_multi_text
++Tech Title:				XSTR("HS-24 Lance", 1480)
++Tech Anim:				Tech_HS24
++Tech Description:			XSTR( "The HS-24 Lance is a high explosive dumbfire rocket. Lance missile pods are the standard armament on assault configuration Raptors. While not effective in a dogfight scenario, these warheads are deadly against small capital ships and other lightly armored large targets.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_HS24t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_HS24f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 12, 30)
+$External Model File:			Col_Wep_HS24.pof
+$Mass:					0.0
+$Velocity:				600.0
+$Fire Wait:				1.75
+$Damage:				65                
+$Damage Type:				Colonial_Heavy
+$Blast Force:				10
+$Inner Radius:				2.5                                       
+$Outer Radius:				20.0                                        
+$Shockwave Speed:			10                                         
+$Shockwave name:			Exp_Missile_Small
+$Armor Factor:				1.5
+$Subsystem Factor:			0.5
+$Lifetime:				2.85
+$Energy Consumed:			0.0                                       
+$Cargo Size:				0.125                                     
+$Homing:				YES   
+	+Type:				HEAT                                   
+	+Turn Time:			1200.0
+	+View Cone:			1
+$Free Flight Time:			0.45
+$LaunchSnd:				102                                        
+$ImpactSnd:				84                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
++Weapon Range:				800
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.1                                      
+	+End Width:			0.5                                      
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			1.4
+	+Bitmap:			MissileTrail02                      
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		3.5
+$Corkscrew:
+	+Num Fired:			8
+	+Radius:			1.5
+	+Fire Delay:			210
+	+Counter rotate:		1
+	+Twist:				2.0
+$FOF:					0.75
+$Weapon Hitpoints:			100
+$Thruster Flame Effect:			Tracer_Col_KEW
+$Thruster Glow Effect:			Missile_Col_Glow
+
+
+;Armor Piercing Dumbfire Rocket
+$Name:					HS-48 Spear 
+$Alt Name:                              HS-48 
++Title:					HS-48 Spear 
++Description:				Standard issue armor piercing rocket
+					Standard Issue
+					Dumbfire Rocket
+$end_multi_text
++Tech Title:				XSTR("HS-48 Spear", 1481)
++Tech Anim:				Tech_HS48
++Tech Description:			XSTR( "The HS-48 Spear is an armor piercing dumbfire rocket designed for damaging the subsystems of large targets. The Spear is a modified Lance rocket fitted with a shaped charge and a secondary submunition intended to maximimze internal damage on hardened targets.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_HS48t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_HS48f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 12, 30)
+$External Model File:			Col_Wep_HS48.pof
+$Mass:					0.0
+$Velocity:				600.0
+$Fire Wait:				1.75
+$Damage:				75                
+$Damage Type:				Colonial_Heavy
+$Blast Force:				0.0
+$Inner Radius:				0.0                                       
+$Outer Radius:				0.0                                        
+$Shockwave Speed:			0                                         
+$Armor Factor:				.25
+$Subsystem Factor:			2.5
+$Lifetime:				2.85
+$Energy Consumed:			0.0                                       
+$Cargo Size:				0.125                                     
+$Homing:				YES   
+	+Type:				HEAT                                   
+	+Turn Time:			1200.0
+   	+View Cone:			1
+$Free Flight Time:			0.45
+$LaunchSnd:				102                                        
+$ImpactSnd:				84                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
++Weapon Range:				800
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap" "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.1                                      
+	+End Width:			0.5                                      
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			1.4
+	+Bitmap:			MissileTrail02                      
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		2.5
+$Corkscrew:
+	+Num Fired:			8
+	+Radius:			1.5
+	+Fire Delay:			210
+	+Counter rotate:		1
+	+Twist:				2.0
+$FOF:					0.75
+$Thruster Flame Effect:			Tracer_Col_KEW
+$Thruster Glow Effect:			Missile_Col_Glow
+
+
+;;Special Issue Colonial Torpedo, anti-subsystem
+$Name:					AGM-41 Whiplash
+$Alt Name:                              AGM-41 
++Title:					AGM-41 Whiplash
++Description:				Anti subsystem torpedo
+					Special Issue
+					Anti-subsystem Torpedo
+$end_multi_text
++Tech Title:				XSTR( "AGM-41 Whiplash", -1)
++Tech Anim:				Tech_AGM41
++Tech Description:			XSTR( "Whiplash torpedoes are a special issue anti-subsystem weapon. The Whiplash is fitted with a shaped charge intended to piece the weak armor of exposed capital ship subsystems. Whiplash torpedoes are effective in disarming turrets and disabling the engines of capital ships, up to and including Cylon basestars.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_AGM41t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_AGM41f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 75)
+$External Model File:			Col_Wep_AGM41.pof
+$Mass:					0.0
+$Velocity:				150.0
+$Fire Wait:				16.0
+$Damage:				5000                 
+$Damage Type:				Colonial_Heavy
+$Blast Force:				70.0
+$Inner Radius:				30.0                                       
+$Outer Radius:				45.0                                                                             
+$Armor Factor:				1.0
+$Subsystem Factor:			4.0
+$Lifetime:				20.0                             
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.6
+	+Min Lock Time:			1.5                                    
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20                                     
+$LaunchSnd:				105                                        
+$ImpactSnd:				86                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "bomb" "puncture" "corkscrew"
+					  "in tech database" "no radius doubling" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" "bomber+" )
+$Trail:                                                        
+	+Start Width:			0.10                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		24.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+$Score:					1
+
+
+$Name:					GBU-102 Tercio 
+$Alt Name:                              GBU-102 
++Title:					GBU-102 Tercio
++Description:				Conventional warhead bomb
+					Standard Issue
+					Anti-shipping Bomb
+$end_multi_text
++Tech Title:				XSTR("GBU-102 Tercio", 1482)
++Tech Anim:				tech_gbu102
++Tech Description:			XSTR( "A high yield conventional torpedo, the GBU-102 Tercio is intended for raiding light Cylon shipping. A single Tercio is designed to be capable of destroying heavily armored Cylon logistics transports and is also capable of significantly damaging capital ships.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_GBU102t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_GBU102f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 75)
+$External Model File:			Col_Wep_GBU102.pof
+$Mass:					0.0
+$Velocity:				100.0
+$Fire Wait:				16.0
+$Damage:				10000            
+$Damage Type:				Colonial_Arty
+$Blast Force:				70.0
+$Inner Radius:				45.0                                       
+$Outer Radius:				60.0                                                                             
+$Armor Factor:				2.0
+$Subsystem Factor:			0.25
+$Lifetime:				32.5                             
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.6
+	+Min Lock Time:			7.5                                    
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20                                     
+$LaunchSnd:				107                                        
+$ImpactSnd:				83                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "bomb" "Huge" "in tech database"
+					  "no radius doubling" "corkscrew" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.25                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		32.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+$Score:					2
+
+
+;;Training Issue Colonial Torpedo, anti-shipping 
+$Name:					TGB-102 Petardo 
+$Alt Name:                              TGB-102 
++Title:					TGB-102 Petardo
++Description:				Training warhead bomb
+					Training Issue
+					Anti-shipping Bomb
+$end_multi_text
++Tech Title:				XSTR("TGB-102 Petardo", 1483)
++Tech Anim:				Tech_TGB102
++Tech Description:			XSTR( "This training version of the GBU-102 contains a pyrotechnic charge instead of an actual warhead.  It is designed to give the look and feel of the real thing without damaging the target.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_TGB102t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_TGB102f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 75)
+$External Model File:			Col_Wep_TGB102.pof
+$Mass:					0.0
+$Velocity:				100.0
+$Fire Wait:				16.0
+$Damage:				10000            
+$Damage Type:				Colonial_Arty
+$Blast Force:				70.0
+$Inner Radius:				45.0                                       
+$Outer Radius:				60.0                                                                             
+$Armor Factor:				2.0
+$Subsystem Factor:			0.25
+$Lifetime:				32.5                             
+$Cargo Size:				2.5                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.6
+	+Min Lock Time:			7.5                                    
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20                                     
+$LaunchSnd:				107                                        
+$ImpactSnd:				83                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "bomb" "Huge" "in tech database" "corkscrew" "Supercap" "training" "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.25                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		32.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+$Score:					1
+
+
+;Colonial fighter-mounted Nuclear Bomb
+$Name:					N4 Nessus
+$Alt Name:                              N4
++Title:					N4 Nessus
++Description:				Tactical nuclear bomb
+					Special Issue
+					Nuclear Warhead
+$end_multi_text
++Tech Title:				XSTR("N4 Nessus", 1484)
++Tech Anim:				Tech_N4
++Tech Description:			XSTR( "The N4 Nessus is a low yield tactical nuclear warhead intended for use against the largest Cylon capital ships. The Nessus is capable of outright destroying smaller capital ships in a single detonation, and a simulated wing of assault fighters armed with these warheads is capable of outright destroying a baseship.", -1)
+$end_multi_text
+$Tech Model:				Col_Wep_N4t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_N4f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 25, 75)
+$External Model File:			Col_Wep_N4.pof
+$Mass:					0.0 
+$Velocity:				60.0 
+$Fire Wait:				22.0 
+$Damage:				65000 
+$Damage Type:				Nuke
+$Arm radius:				180 
+$Shockwave Damage Type:			Shockwave
+$Blast Force:				100.0 
+$Inner Radius:				100.0  
+$Outer Radius:				550.0 
+$Shockwave Speed:			500.0 
+$Shockwave name:			Shockwave01 
+$Dinky shockwave: 
+	+Shockwave damage:		1 
+	+Blast Force:			5 
+	+Inner Radius:			5 
+	+Outer Radius:			10 
+	+Shockwave Speed:		0 
+$Armor Factor:				1.0 
+$Subsystem Factor:			0.666 
+$Lifetime:				40.0 
+$Energy Consumed:			0.0  
+$Cargo Size:				5 
+$Homing:				YES 
+	+Type: 				ASPECT 
+	+Turn Time:			5.0 
+	+Min Lock Time:			15.0 
+	+Lock Pixels/Sec:		50 
+	+Catch-up Pixels/Sec:		70 
+	+Catch-up Penalty:		10  
+$Free Flight Time:			1.0 
+$LaunchSnd:				108 
+$ImpactSnd:				89
+$FlyBySnd:				144 
+$Rearm Rate:				2.0 
+$Flags:					( "Bomb" "Huge" "player allowed" "in tech database" 
+					  "No Dumbfire" "no radius doubling" "Supercap" "takes blast damage" "takes shockwave damage" ) 
+$Impact Explosion:			Exp_Nuke 
+$Impact Explosion Radius:		500.0
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Weapon Hitpoints:			25
+$Armor Type: Armored_Missile
+$Score:					3
+
+
+;=============
+;Colonial/RTF Cap ship
+
+;Battlestar Vertical Launch Nuke
+$Name:					N3 Kratos 
+$Alt Name:                              N3  
++Title:					N3 Kratos 
++Description:				Vertical Launch System Nuclear Warhead
+					Special Issue
+					Nuclear Warhead
+$end_multi_text
+$Tech Model:				Col_Wep_N3t.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Col_Wep_N3f.pof
+$POF target LOD:			0
+$Detail distance:			(0, 125, 350)
+$External Model File:			Col_Wep_N3.pof
+$Mass:					20 
+$Velocity:				100.0 
+$Fire Wait:				150.0 
+$Damage:				500000
+$Damage Type:				Nuke
+$Arm radius:				180
+$Shockwave Damage Type:			Shockwave
+$Blast Force:				250.0 
+$Inner Radius:				250.0  
+$Outer Radius:				1000.0 
+$Shockwave Speed:			1000.0 
+$Shockwave name:			Shockwave01
+$Dinky shockwave: 
+	+Shockwave damage:		1 
+	+Blast Force:			5 
+	+Inner Radius:			5 
+	+Outer Radius:			10 
+	+Shockwave Speed:		0 
+$Armor Factor:				1.0 
+$Subsystem Factor:			0.666 
+$Lifetime:				120.0 
+$Energy Consumed:			0.0  
+$Cargo Size:				5 
+$Homing:				YES 
+	+Type:				ASPECT 
+	+Turn Time:			5.0 
+	+Min Lock Time:			5.0 
+	+Lock Pixels/Sec:		50 
+	+Catch-up Pixels/Sec:		70 
+	+Catch-up Penalty:		10  
+$Free Flight Time:			1.0 
+$LaunchSnd:				107 
+$ImpactSnd:				89
+$FlyBySnd:				144 
+$Rearm Rate:				.008
+$Flags:					( "Bomb" "Huge" "corkscrew" "takes blast damage" "Supercap"
+					  "takes shockwave damage" "no subsystem homing" "No Dumbfire" "no radius doubling" ) 
+$Trail:                                                        
+	+Start Width:			3.0                                      
+	+End Width:			36.0                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			12.0
+	+Bitmap:			MissileTrail03 
+$Impact Explosion:			Exp_Nuke_Big 
+$Impact Explosion Radius:		500.0 
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Corkscrew: 
+    +Num Fired:				1 
+    +Radius:				1.5 
+    +Fire Delay:			0 
+    +Counter rotate: 			1 
+    +Twist:				1.0 
+$Weapon Hitpoints:			250
+$Armor Type: Armored_Missile
+$Thruster Flame Effect:			Thruster_Col_Missile
+$Thruster Glow Effect:			Missile_Col_Glow
+$Score:					4
+
+
+;=====================
+;Cylon Fighter Weapons
+
+;Standard Cylon fighter-mounted missile
+$Name:					SRM-AF 2.6 Pilum 
+$Alt Name:                              SRM-AF 2.6 
++Title:					SRM-AF v2.6 Pilum
++Description:				Short range anti fighter missile
+					Standard Issue
+					Short Range Missile
+$end_multi_text
++Tech Title:				XSTR("SRM-AF Pilum", 1485)
++Tech Anim:				Tech_Pilum
++Tech Description:			XSTR( "The Cylon short range anti-fighter missile, codenamed Pilum, is designed for close engagements. Based on the increased effectiveness of these missiles as our number of engagements has increased, the Pilum appears to have a unique tracking system based on referencing targeting information from past engagements. If this is correct, this class of missile 'learns' from every engagement.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Pilumt.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Pilumf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 20, 60)
+$External Model File:			Cyl_Wep_Pilum.pof
+$Mass:					0.0
+$Velocity:				185.0
+$Fire Wait:				2.5
+$Damage:				70                
+$Damage Type:				Cylon_Norm
+$Blast Force:				50.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				40.0                                        
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				8.0                                    
+$Cargo Size:				2.5                                       
+$Homing:				YES
+	+Type:				HEAT                                   
+	+Turn Time:			0.5
+   	+View Cone:			60 
+        +Seeker Strength:		3
+        +Target Lead Scaler:		-1                   
+$LaunchSnd:				94                                        
+$ImpactSnd:				88                                        
+$FlyBySnd:				145
+$Rearm Rate:				2.0                                       
+$Flags:					( "in tech database" "player allowed" "corkscrew" 
+					  "Supercap" "takes blast damage" "takes shockwave damage" "no subsystem homing" "untargeted heat seeker" )
+$Trail:                                                        
+	+Start Width:			.875                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail01                            
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		6.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			10
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+
+
+;Special Issue Cylon fighter-mounted missile, anti-bomber
+$Name:					LRM-AF 1.5 Voulge 
+$Alt Name:                              LRM-AF 1.5 
++Title:					LRM-AF v1.5 Voulge
++Description:				Long range anti-fighter missile
+					Special Issue
+					Long Range Missile
+$end_multi_text
++Tech Title:				XSTR("LRM-AF Voulge", 1486)
++Tech Anim:				Tech_Voulge
++Tech Description:			XSTR( "The Cylon long range anti-bomber missile, codenamed Voulge, is roughly equivalent to the HD-51 Arbalest. This warhead appears to be aspect seeking and is highly effective in long range engagements against Colonial Raptors. Voulge missiles are able to readily defeat our most advanced electronic countermeasures, underlining our hubris in hoping to match the Cylons in electronic warfare.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Voulget.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Voulgef.pof
+$POF target LOD:			0
+$Detail distance:			(0, 20, 60)
+$External Model File:			Cyl_Wep_Voulge.pof
+$Mass:					0.0
+$Velocity:				150.0
+$Fire Wait:				3.0
+$Damage:				140                  
+$Damage Type:				Cylon_Norm
+$Blast Force:				50.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				40.0                                                                             
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				25.0                             
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				HEAT                                   
+	+Turn Time:			1.0
+   	+View Cone:			60  
+        +Seeker Strength:		2
+        +Target Lead Scaler:		1                                     
+$LaunchSnd:				95                                        
+$ImpactSnd:				87                                        
+$FlyBySnd:				145
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "in tech database" "corkscrew" 
+					  "Supercap" "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			.875                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail01                            
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		12.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+
+
+;Standard Cylon anti-subsystem torpedo
+$Name:					LRT-AP 2.2 Shipwreck
+$Alt Name:                              LRT-AP 2.2  
++Title:					LRT-AP v2.2 Shipwreck
++Description:				Long range Anti subsystem torpedo
+					Special Issue			
+					Anti-subsystem Torpedo
+$end_multi_text
++Tech Title:				XSTR("LRT-AP Shipwreck", 1487)
++Tech Anim:				Tech_Shipwreck
++Tech Description:			XSTR( "Codenamed Shipwreck, this Cylon long range anti-subsystem torpedo is highly effective against Colonial shipping. Shipwreck torpedoes appear to use multiple timed shaped munitions to rip through light hull plating and subsystems. A single Shipwreck is capable of disabling the engines of a civilian vessel or destroying the heavy turrets of a Colonial capital ship. Raiders armed with these weapons are a significant threat to Colonial forces.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Shipwreckt.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Shipwreckf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 20, 60)
+$External Model File:			Cyl_Wep_Shipwreck.pof
+$Mass:					0.0
+$Velocity:				150.0
+$Fire Wait:				16.0
+$Damage:				5000                 
+$Damage Type:				Cylon_Torp
+$Blast Force:				70.0
+$Inner Radius:				60.0                                       
+$Outer Radius:				90.0                                                                             
+$Armor Factor:				1.0
+$Subsystem Factor:			3.5
+$Lifetime:				20.0                             
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.6
+	+Min Lock Time:			1.5                                    
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20                                     
+$LaunchSnd:				96                                        
+$ImpactSnd:				86                                        
+$FlyBySnd:				145
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "bomb" "puncture" "corkscrew"
+					  "in tech database" "no radius doubling" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" "bomber+" )
+$Trail:                                                        
+	+Start Width:			.875                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		24.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					1
+
+
+;Standard Cylon anti-shipping torpedo
+$Name:					MRT-HE 1.0 Scythe 
+$Alt Name:                              MRT-HE 1.0 
++Title:					MRT-HE v1.0 Scythe
++Description:				Medium Range Torpedo High Explosive
+Warhead
+					Standard Issue
+					Anti-shipping Torpedo
+$end_multi_text
++Tech Title:				XSTR("MRT-HE Scythe", 1488)
++Tech Anim:				Tech_Scythe
++Tech Description:			XSTR( "The Cylon medium range high explosive torpedo, codenamed Scythe, is the heavest conventional warhead seen fielded by Cylon forces. This torpedo is capable of outright destroying civilian targets and crippling Colonial capital ships. Intercepting these warheads is critical to ensuring the survival of remaining Colonial assets.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Scythet.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Scythef.pof
+$POF target LOD:			0
+$Detail distance:			(0, 20, 60)
+$External Model File:			Cyl_Wep_Scythe.pof
+$Mass:					0.0
+$Velocity:				120.0
+$Fire Wait:				16.0
+$Damage:				10000                 
+$Damage Type:				Cylon_Torp
+$Blast Force:				70.0
+$Inner Radius:				60.0                                       
+$Outer Radius:				90.0                                                                             
+$Armor Factor:				2.0
+$Subsystem Factor:			0.25
+$Lifetime:				27.0                             
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.6
+	+Min Lock Time:			6.0                                    
+	+Lock Pixels/Sec:		90                                        
+	+Catch-up Pixels/Sec:		110                                       
+	+Catch-up Penalty:		20                                     
+$LaunchSnd:				97                                        
+$ImpactSnd:				83                                        
+$FlyBySnd:				145
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "bomb" "Huge" "in tech database" 
+					  "corkscrew" "no radius doubling" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			.875                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03                           
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		34.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			20
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					2
+
+
+;Special Issue Cylon fighter-mounted missile, Electronics Warfare
+$Name:					EWF-FM 3.1 Siren 
+$Alt Name:                              EWF-FM 3.1 
++Title:					EWF-FM v3.1 Siren
++Description:				Electronic Warfare missile
+					Special Issue
+$end_multi_text
++Tech Title:				XSTR("EWF-FM Siren", 1489)
++Tech Anim:				Tech_Siren
++Tech Description:			XSTR( "The Siren is a fighter mounted EMP warhead, designed to disrupt Colonial targeting and fly by wire systems. This missile is believed to play a key role in the defense of Cylon capital ships, as warheads caught within its detonation radius are destroyed.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Sirent.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Sirenf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 20, 60)
+$External Model File:			Cyl_Wep_Siren.pof
+$Mass:					0.0
+$Velocity:				140.0
+$Fire Wait:				3.5
+$Damage:				0                 
+$Damage Type:				Cylon_Norm
+$Blast Force:				50.0   
+$Inner Radius:				100.0                                       
+$Outer Radius:				100.0                                        
+$Shockwave Speed:			0                                                                         
+$Armor Factor:				0.1
+$Subsystem Factor:			1.5
+$Lifetime:				15.0                              
+$Cargo Size:				5.0                                        
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			0.4
+	+Min Lock Time:			0.025
+	+Lock Pixels/Sec:		80                                        
+	+Catch-up Pixels/Sec:		100                                       
+	+Catch-up Penalty:		20 
+        +Seeker Strength:		2
+        +Target Lead Scaler:		0                                         
+$LaunchSnd:				100                                       
+$ImpactSnd:				90                                        
+$FlyBySnd:				144
+$Rearm Rate:				2.0                                       
+$Flags:					( "player allowed" "puncture" "no dumbfire" "Supercap" 
+					  "in tech database" "emp" "corkscrew" "takes blast damage" 
+					  "no emp kill" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			.875                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			5.0
+	+Bitmap:			MissileTrail03
+$Impact Explosion:			Exp_Missile_EMP
+$Impact Explosion Radius:		100.0                    
+$EMP Intensity:				120
+$EMP Time:				8
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				3
+$Weapon Hitpoints:			15
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+
+
+;Cylon fighter-mounted Nuclear Missile
+$Name:					MRT-N 2.3 Mangonel
+$Alt Name:                              MRT-N 2.3
++Title:					MRT-N v2.3 Mangonel
++Description:				Medium Range Torpedo Nuclear Warhead
+					Special Issue
+					Nuclear Warhead
+$end_multi_text
++Tech Title:				XSTR("MRT-N Mangonel", 1490)
++Tech Anim:				Tech_Mangonel
++Tech Description:			XSTR( "The fighter mounted nuclear warhead used by Cylon forces, codenamed Magonel, is deadly against all Colonial vessels. While a lower yield nuclear device than those used by baseships against our worlds, a wing of raiders armed with these devices could devastate what remains of Colonial forces.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Mangonelt.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Mangonelf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 20, 60)
+$External Model File:			Cyl_Wep_Mangonel.pof
+$Mass:					0.0 
+$Velocity:				60.0 
+$Fire Wait:				22.0 
+$Damage:				65000
+$Damage Type:				Nuke
+$Arm radius:				180 
+$Shockwave Damage Type:			Shockwave
+$Blast Force:				100.0 
+$Inner Radius:				100.0  
+$Outer Radius:				550.0 
+$Shockwave Speed:			500.0 
+$Shockwave name:			Shockwave01 
+$Dinky shockwave: 
+	+Shockwave damage:		1 
+	+Blast Force:			5 
+	+Inner Radius:			5 
+	+Outer Radius:			10 
+	+Shockwave Speed:		0 
+$Armor Factor:				1.0 
+$Subsystem Factor:			0.666 
+$Lifetime:				40.0 
+$Energy Consumed:			0.0  
+$Cargo Size:				5 
+$Homing:				YES 
+	+Type:				ASPECT 
+	+Turn Time:			5.0 
+	+Min Lock Time:			15.0 
+	+Lock Pixels/Sec:		50 
+	+Catch-up Pixels/Sec:		70 
+	+Catch-up Penalty:		10  
+$Free Flight Time:			1.0 
+$LaunchSnd:				98 
+$ImpactSnd:				89
+$FlyBySnd:				145 
+$Rearm Rate:				2.0 
+$Flags:					( "Bomb" "Huge" "in tech database" "takes shockwave damage" 
+					  "No Dumbfire" "player allowed" "Supercap" "takes blast damage" ) 
+$Trail:                                                        
+	+Start Width:			0.25                                      
+	+End Width:			10.5                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			9.0
+	+Bitmap:			MissileTrail03 
+$Impact Explosion:			Exp_Nuke 
+$Impact Explosion Radius:		500.0 
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Weapon Hitpoints:			25
+$Armor Type: Armored_Missile
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					3
+
+
+;, Standard Issue Dumbfire Rocket
+$Name:					CR-HE 2.2 Dart 
+$Alt Name:                              CR-HE 2.2 
++Title:					CR-HE v2.2 Dart 
++Description:				Concussion Rocket - High Expolosive.  
+					Standard Issue
+					Dumbfire Rocket
+$end_multi_text
++Tech Title:				XSTR("CR-HE Dart", 1491)
++Tech Anim:				Tech_Dart
++Tech Description:			XSTR( "The dumbfire rocket mounted on Cylon Heavy Raiders, codenamed Dart, is a high explosive rocket, roughly equivalent to the HS-24 Lance. While ineffective in a dogfight, Dart missiles are a lethal combination with the KEW systems of a Heavy Raider when engaging civilian craft or light capital ships.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Dartt.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Dartf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 30)
+$External Model File:			Cyl_Wep_Dart.pof
+$Mass:					0.0
+$Velocity:				600.0
+$Fire Wait:				1.75
+$Damage:				75                
+$Damage Type:				Cylon_Heavy
+$Blast Force:				10
+$Inner Radius:				2.5                                       
+$Outer Radius:				10.0                                        
+$Shockwave Speed:			10                                         
+$Shockwave name:			Exp_Missile_Small
+$Armor Factor:				1.5
+$Subsystem Factor:			0.5
+$Lifetime:				2.85
+$Energy Consumed:			0.0                                       
+$Cargo Size:				0.125                                     
+$Homing:				YES   
+	+Type:				HEAT                                   
+	+Turn Time:			1200.0
+   	+View Cone:			1
+$Free Flight Time:			0.45
+$LaunchSnd:				93                                        
+$ImpactSnd:				84                                        
+$FlyBySnd:				145
+$Rearm Rate:				2.0                                       
++Weapon Range:				800
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap"
+					  "takes blast damage" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.1                                      
+	+End Width:			0.5                                      
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			1.4
+	+Bitmap:			MissileTrail02                      
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		1.75
+$Corkscrew:
+	+Num Fired:			6
+	+Radius:			1.5
+	+Fire Delay:			210
+	+Counter rotate:		1
+	+Twist:				2.0
+$FOF:					0.75
+$Weapon Hitpoints:			100
+$Thruster Flame Effect:			Tracer_Cyl_KEW
+$Thruster Glow Effect:			Missile_Cyl_Glow
+
+
+;, Standard Issue Swarm Rocket
+$Name:					SR-HE 1.0 Halberd
+$Alt Name:                              SR-HE 1.0
++Title:					SR-HE v1.0 Halberd
++Description:				Swarm Rocket - High Expolosive.  
+					Standard Issue
+					Short Range Swarm Rocket
+$end_multi_text
++Tech Title:				XSTR("SR-HE Halberd", 1492)
++Tech Anim:				Tech_Halberd
++Tech Description:			XSTR( "The heat seeking swarm rocket, codenamed Halberd, is one of the deadliest short range weapons in the Cylon arsenal. While each individual warhead has a low yield, a volley of Halberd rockets will destroy most lightly armored targets.", -1)
+$end_multi_text
+$Tech Model:				Cyl_Wep_Halberdt.pof
++Closeup_Pos:				0,0,0
++Closeup_Zoom:				1.57
+$Selection Effect:                      Off
+$Model File:				Cyl_Wep_Halberdf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 12, 30)
+$External Model File:			Cyl_Wep_Halberd.pof
+$Mass:					0.0
+$Velocity:				180.0
+$Fire Wait:				1.75
+$Damage:				15                
+$Damage Type:				Cylon_Norm
+$Blast Force:				10
+$Inner Radius:				2.5                                       
+$Outer Radius:				10.0                                        
+$Shockwave Speed:			10                                         
+$Shockwave name:			Exp_Missile_Small
+$Armor Factor:				1.5
+$Subsystem Factor:			0.5
+$Lifetime:				9.5
+$Energy Consumed:			0.0                                       
+$Cargo Size:				0.25                                     
+$Homing:				YES
+	+Type:				HEAT                                   
+	+Turn Time:			0.5
+   	+View Cone:			60 
+        +Seeker Strength:		3
+        +Target Lead Scaler:		-1   
+$Free Flight Time:			0.45
+$LaunchSnd:				93                                        
+$ImpactSnd:				84                                        
+$FlyBySnd:				145
+$Rearm Rate:				2.0                                       
++Weapon Range:				1500
+$Flags:					( "player allowed" "in tech database" "corkscrew" "Supercap"
+					  "takes blast damage" "no subsystem homing" "untargeted heat seeker" "takes shockwave damage" )
+$Trail:                                                        
+	+Start Width:			0.1                                      
+	+End Width:			0.5                                      
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			1.4
+	+Bitmap:			MissileTrail02                      
+$Impact Explosion:			Exp_Missile_Small
+$Impact Explosion Radius:		3.0
+$Corkscrew:
+	+Num Fired:			6
+	+Radius:			1.5
+	+Fire Delay:			210
+	+Counter rotate:		1
+	+Twist:				2.0
+$FOF:					0.75
+$Weapon Hitpoints:			100
+$Thruster Flame Effect:			Tracer_Cyl_KEW
+$Thruster Glow Effect:			Missile_Cyl_Glow
+
+
+;=========================
+;Cylon Capitalship Weapons
+
+;Salvo Fire Cylon Basestar Torpedo 4 fired
+$Name:					Cylon Torpedo ;Salvo Fire Cylon Basestar Torpedo
+$Tech Model:				Cyl_Wep_Light_Torpt.pof
+$Model File:				Cyl_Wep_Light_Torpf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 40, 120)
+$External Model File:			Cyl_Wep_Light_Torp.pof
+$Mass:					20.0
+$Velocity:				130.0 
+$Fire Wait:				55.0
+$Damage:				500                 
+$Damage Type:				Cylon_Torp
+$Arm radius:				180
+$Blast Force:				95.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				45.0                                                                               
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				65.0
+$Energy Consumed:			0.0                                       
+$Cargo Size:				2.5                                       
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			5.0
+	+Min Lock Time:			5.5                                       
+	+Lock Pixels/Sec:		50                                        
+	+Catch-up Pixels/Sec:		70                                     
+	+Catch-up Penalty:		10                                        
+$Free Flight Time:			1.0
+$LaunchSnd:				170
+$ImpactSnd:				86 
+$FlyBySnd:				169
+$Rearm Rate:				2.0                                       
++Weapon Range:				7500
++Weapon Min Range:			550                                       
+$Flags:					( "bomber+" "bomb" "Huge" "No Dumbfire" "corkscrew" 
+					  "no radius doubling" "no subsystem homing" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" "hide from radar" )
+$Trail:                                                        
+	+Start Width:			5.0                                      
+	+End Width:			20.25                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			9.0 
+	+Bitmap:			MissileTrail04                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		35.0
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Corkscrew:
+	+Num Fired:			4
+	+Radius:			1.5
+	+Fire Delay:			80000
+	+Counter rotate:		1
+	+Twist:				1.0
+$Weapon Hitpoints:			30
+$Armor Type: Armored_Missile
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					1
+
+
+;Salvo Fire Cylon Basestar Torpedo 6 fired
+$Name:					Cylon Torpedo#6 Pack 
+$Tech Model:				Cyl_Wep_Light_Torpt.pof
+$Model File:				Cyl_Wep_Light_Torpf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 40, 120)
+$External Model File:			Cyl_Wep_Light_Torp.pof
+$Mass:					20.0
+$Velocity:				130.0 
+$Fire Wait:				55.0
+$Damage:				500                 
+$Damage Type:				Cylon_Torp
+$Arm radius:				180
+$Blast Force:				95.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				45.0                                                                               
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				65.0
+$Energy Consumed:			0.0                                       
+$Cargo Size:				2.5                                       
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			5.0
+	+Min Lock Time:			5.5                                       
+	+Lock Pixels/Sec:		50                                        
+	+Catch-up Pixels/Sec:		70                                     
+	+Catch-up Penalty:		10                                        
+$Free Flight Time:			1.0
+$LaunchSnd:				170
+$ImpactSnd:				86 
+$FlyBySnd:				169
+$Rearm Rate:				2.0                                       
++Weapon Range:				7500
++Weapon Min Range:			550                                       
+$Flags:					( "bomber+" "bomb" "Huge" "No Dumbfire" "corkscrew" 
+					  "no radius doubling" "no subsystem homing" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" "hide from radar" )
+$Trail:                                                        
+	+Start Width:			5.0                                      
+	+End Width:			20.25                                       
+	+Start Alpha:			.75
+	+End Alpha:			0.0
+	+Max Life:			9.0 
+	+Bitmap:			MissileTrail04                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		35.0
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Corkscrew:
+	+Num Fired:			6
+	+Radius:			1.5
+	+Fire Delay:			80000
+	+Counter rotate:		1
+	+Twist:				1.0
+$Weapon Hitpoints:			30
+$Armor Type: Armored_Missile
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					1
+
+
+;Single Fire Cylon Basestar Torpedo
+$Name:					Cylon Heavy Torpedo 
+$Tech Model:				Cyl_Wep_Heavy_Torpt.pof
+$Model File:				Cyl_Wep_Heavy_Torpf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 50, 140)
+$External Model File:			Cyl_Wep_Heavy_Torp.pof
+$Mass:					20.0
+$Velocity:				130.0 
+$Fire Wait:				40.0
+$Damage:				8000                
+$Damage Type:				Cylon_Torp
+$Arm radius:				180
+$Blast Force:				95.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				45.0                                                                           
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				65.0
+$Energy Consumed:			0.0                                       
+$Cargo Size:				2.5                                       
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			5.0
+	+Min Lock Time:			5.5                                       
+	+Lock Pixels/Sec:		50                                        
+	+Catch-up Pixels/Sec:		70                                     
+	+Catch-up Penalty:		10                                        
+$Free Flight Time:			.75
+$LaunchSnd:				171
+$ImpactSnd:				83                                        
+$FlyBySnd:				169
+$Rearm Rate:				2.0                                       
++Weapon Range:				7500
++Weapon Min Range:			550                                       
+$Flags:					( "bomber+" "bomb" "Huge" "No Dumbfire" "corkscrew" 
+					  "no radius doubling" "Supercap" "takes blast damage" 
+					  "takes shockwave damage" "hide from radar" )
+$Trail:                                                        
+	+Start Width:			5.0                                      
+	+End Width:			20.25                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			9.0 
+	+Bitmap:			MissileTrail04                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		35.0
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			1.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				1.0
+$Weapon Hitpoints:			135
+$Armor Type: Armored_Missile
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					2
+
+
+;Basestar Heavy Torpedo 2 per launch
+$Name:					Cylon Heavy Torpedo#2 Pack 
+$Tech Model:				Cyl_Wep_Heavy_Torpt.pof
+$Model File:				Cyl_Wep_Heavy_Torpf.pof
+$POF target LOD:			0
+$Detail distance:			(0, 50, 140)
+$External Model File:			Cyl_Wep_Heavy_Torp.pof
+$Mass:					20.0
+$Velocity:				130.0 
+$Fire Wait:				40.0
+$Damage:				8000                
+$Damage Type:				Cylon_Torp
+$Arm radius:				180
+$Blast Force:				95.0
+$Inner Radius:				20.0                                       
+$Outer Radius:				45.0                                                                           
+$Armor Factor:				1.0
+$Subsystem Factor:			0.5
+$Lifetime:				65.0
+$Energy Consumed:			0.0                                       
+$Cargo Size:				2.5                                       
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			5.0
+	+Min Lock Time:			5.5                                       
+	+Lock Pixels/Sec:		50                                        
+	+Catch-up Pixels/Sec:		70                                     
+	+Catch-up Penalty:		10                                        
+$Free Flight Time:			.75
+$LaunchSnd:				171
+$ImpactSnd:				83                                        
+$FlyBySnd:				169
+$Rearm Rate:				2.0                                       
++Weapon Range:				7500
++Weapon Min Range:			550                                       
+$Flags:					( "bomber+" "bomb" "Huge" "No Dumbfire" "corkscrew" 
+					  "no radius doubling" "no subsystem homing" "Supercap" 
+					  "takes blast damage" "takes shockwave damage" "hide from radar" )
+$Trail:                                                        
+	+Start Width:			5.0                                      
+	+End Width:			20.25                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			9.0 
+	+Bitmap:			MissileTrail04                            
+$Impact Explosion:			Exp_Medium
+$Impact Explosion Radius:		 35.0
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Corkscrew:
+	+Num Fired:			2
+	+Radius:			1.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				1.0
+$Weapon Hitpoints:			135
+$Armor Type: Armored_Missile
+$Thruster Flame Effect:			Thruster_Cyl_Missile
+$Thruster Glow Effect:			Missile_Cyl_Glow
+$Score:					2
+
+
+;Single Fire Cylon Basestar Nuke
+$Name:					Cylon Nuclear Torpedo 
+$Tech Model:				Cyl_Wep_Nuket.pof
+$Model File:				Cyl_Wep_Nukef.pof
+$POF target LOD:			0
+$Detail distance:			(0, 50, 140)
+$External Model File:			Cyl_Wep_Nuke.pof
+$Mass:					20.0
+$Velocity:				130.0 
+$Fire Wait:				40.0
+$Damage:				65000               
+$Damage Type:				Nuke
+$Arm radius:				180
+$Shockwave Damage Type:			Shockwave
+$Blast Force:				100.0 
+$Inner Radius:				100.0  
+$Outer Radius:				550.0 
+$Shockwave Speed:			500.0 
+$Shockwave name:			Shockwave01
+$Dinky shockwave: 
+	+Shockwave damage:		1 
+	+Blast Force:			5 
+	+Inner Radius:			5 
+	+Outer Radius:			10 
+	+Shockwave Speed:		0 
+$Lifetime:				65.0
+$Energy Consumed:			0.0                                       
+$Cargo Size:				2.5                                       
+$Homing:				YES
+	+Type:				ASPECT                                    
+	+Turn Time:			5.0
+	+Min Lock Time:			5.5                                       
+	+Lock Pixels/Sec:		50                                        
+	+Catch-up Pixels/Sec:		70                                     
+	+Catch-up Penalty:		10                                        
+$Free Flight Time:			.75
+$LaunchSnd:				172                                        
+$ImpactSnd:				89                                        
+$FlyBySnd:				169
+$Rearm Rate:				2.0                                       
++Weapon Range:				7500
++Weapon Min Range:			550                                       
+$Flags:					( "Bomb" "Huge" "No Dumbfire" "corkscrew" "no radius doubling" 
+					  "Supercap" "takes blast damage" "takes shockwave damage"  )
+$Trail:                                                        
+	+Start Width:			5.0                                      
+	+End Width:			20.25                                       
+	+Start Alpha:			1.0
+	+End Alpha:			0.0
+	+Max Life:			9.0 
+	+Bitmap:			MissileTrail04                            
+$Impact Explosion:			Exp_Nuke
+$Impact Explosion Radius:		500.0
+$Dinky impact explosion:		Exp_Medium
+$Dinky impact Explosion Radius:		10.0
+$Corkscrew:
+	+Num Fired:			1
+	+Radius:			1.5
+	+Fire Delay:			0
+	+Counter rotate:		1
+	+Twist:				1.0
+$Weapon Hitpoints:			45
+$Armor Type: Armored_Missile
+$Score:					4
+
+#End
+
+
+#Countermeasures
+$Name:					Colonial Countermeasure
+	@Laser Bitmap: 			Glow_Col_Yellow_1
+	@Laser Glow:			Glow_Col_Yellow_1
+	@Laser Color:			161, 136, 53
+	@Laser Color2:			161, 136, 53
+	@Laser Length:			0.6
+	@Laser Head Radius:		0.6
+	@Laser Tail Radius:		0.6
+$Velocity:				30.0 
+$Fire Wait:				0.5 
+$Lifetime Min:				3.0 
+$Lifetime Max:				5.0 
+$LaunchSnd:				99 
+$Flags:					( "countermeasure" "particle spew")
+$Trail:                                                        
+	+Start Width:			1.0                                      
+	+End Width:			2.5                                      
+	+Start Alpha:			0.5
+	+End Alpha:			0.0
+	+Max Life:			1.25
+	+Bitmap:			MissileTrail01 
+$Countermeasure:
+	+Heat Effectiveness:		0.875
+	+Aspect Effectiveness:		0.6
+	+Effective Radius:		750.0
+$Pspew:
+	+Count:				1
+	+Time:				17
+	+Vel:				0.0
+	+Radius:			1.2
+	+Life:				0.025
+	+Scale:				0.000001
+	+Bitmap:			Glow_Col_Yellow_2
+$Weapon Hitpoints:			25
+
+
+$Name:					Cylon Countermeasure
+	@Laser Bitmap:			Glow_Cyl_Blue_1
+	@Laser Glow:			Glow_Cyl_Blue_1
+	@Laser Color:			0, 175, 220
+	@Laser Color2:			0, 175, 220
+	@Laser Length:			0.6
+	@Laser Head Radius:		0.6
+	@Laser Tail Radius:		0.6
+$Velocity:				30.0 
+$Fire Wait:				0.5 
+$Lifetime Min:				3.0 
+$Lifetime Max:				5.0 
+$LaunchSnd:				99 
+$Flags:					( "countermeasure" "particle spew" )
+$Trail:                                                        
+	+Start Width:			0.1                                      
+	+End Width:			2.5                                      
+	+Start Alpha:			0.5
+	+End Alpha:			0.0
+	+Max Life:			1.25
+	+Bitmap:			MissileTrail01 
+$Countermeasure:
+	+Heat Effectiveness:		0.875
+	+Aspect Effectiveness:		0.6
+	+Effective Radius:		750.0
+$Pspew:
+	+Count:				1
+	+Time:				17
+	+Vel:				0.0
+	+Radius:			1.2
+	+Life:				0.025
+	+Scale:				0.000001
+	+Bitmap:			Glow_Cyl_Blue_2
+$Weapon Hitpoints:			25
+
+#End
+
+
+$Player Weapon Precedence:		("MEC-A6" "30mm 2.1")

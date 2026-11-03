@@ -1,0 +1,4 @@
+; Diaspora loads its scripts from *-sct.tbm; empty table silences the missing-file error
+#Global Hooks
+
+#End

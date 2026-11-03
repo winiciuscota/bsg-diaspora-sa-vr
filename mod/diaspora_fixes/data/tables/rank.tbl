@@ -1,0 +1,75 @@
+[RANK NAMES]
+
+$Name:			Ensign
+$Points:		0
+$Bitmap:		Medal_Rank.png
+$Promotion Voice Base:	Rank_Ensign.ogg
+$Promotion Text:	XSTR("Congratulations Ensign, you have received your commission in the Colonial Defense Fleet.", 1423)
+$end_multi_text
+
+$Name:			Lieutenant
+$Points:		4000
+$Bitmap:		Medal_Ranka.png
+$Promotion Voice Base:	Rank_Lieutenant.ogg
+$Promotion Text:	XSTR("Due to your outstanding achievements and strength of character you have been awarded the rank of Lieutenant. Continue to serve the Colonies well.", 1424)
+$end_multi_text
+
+$Name:			Captain
+$Points:		10000
+$Bitmap:		Medal_Rankb.png
+$Promotion Voice Base:	Rank_Captain.ogg
+$Promotion Text:	XSTR("Based on the recommendations of your superior officers, and continued service in the finest traditions of the Colonial fleet, I have been authorized to promote you to the rank of Captain. Keep up the excellent work.", 1425)
+$end_multi_text
+
+$Name:			Major
+$Points:		22000
+$Bitmap:		Medal_Rankc.png
+$Promotion Voice Base:	Rank_Major.ogg
+$Promotion Text:	XSTR("You are hereby promoted to the rank of Major for your excellent leadership and conduct in the field.", 1426)
+$end_multi_text
+
+$Name:			Colonel
+$Points:		50000
+$Bitmap:		Medal_Rankd.png
+$Promotion Voice Base:	Rank_Colonel.ogg
+$Promotion Text:	XSTR("You have proven yourself to be a distinguished officer of the highest caliber. I am honored to promote you to the rank of Colonel.", 1427)
+$end_multi_text
+
+;; the Alcoholics
+$Name:			Commander
+$Points:		150000
+$Bitmap:		Medal_Ranke.png
+$Promotion Voice Base:	Rank_Commander.ogg
+$Promotion Text:	XSTR("For your continued service to the Colonies, and your skill not only as a pilot but as a decisive leader, I hereby confer you with the rank of Commander.", 1428)
+$end_multi_text
+
+;; the Brass
+$Name:			Rear Admiral
+$Points:		400000
+$Bitmap:		Medal_Rankf.png
+$Promotion Voice Base:	Rank_Rear_Admiral.ogg
+$Promotion Text:	XSTR("Colonel, your long record of service has distinguished you as a leader with the integrity, courage, and wisdom needed in the highest ranks of the Colonial Fleet. You are duly promoted to the rank of Rear Admiral.", 1429)
+$end_multi_text
+
+$Name:			Vice Admiral
+$Points:		2000000
+$Bitmap:		Medal_Rankg.png
+$Promotion Voice Base:	Rank_Vice_Admiral.ogg
+$Promotion Text:	XSTR("On the behalf of the Twelve Colonies of Kobol and the Admiralty of the Colonial Defense fleet, you are hereby conferred with the prestigious rank of Vice Admiral. ", 1430)
+$end_multi_text
+
+$Name:			Admiral
+$Points:		5000000
+$Bitmap:		Medal_Rankh.png
+$Promotion Voice Base:	Rank_Admiral.ogg
+$Promotion Text:	XSTR("Your career has been in the finest traditions of the service, and few have rendered greater service to the Twelve Colonies. I hereby confer upon you the rank of Admiral.", 1431)
+$end_multi_text
+
+$Name:			Fleet Admiral
+$Points:		9000000
+$Bitmap:		Medal_Ranki.png
+$Promotion Voice Base:	Rank_Fleet_Admiral.ogg
+$Promotion Text:	XSTR("The combination of strength of character, courage, and strategic guile you have demonstrated has been an inspiration to all in the service. On the behalf of the Colonial Defense Fleet and the Twelve Colonies of Kobol, I hereby promote you to the rank of Fleet Admiral.", 1432)
+$end_multi_text
+
+#End

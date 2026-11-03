@@ -1,0 +1,4202 @@
+$Load Retail Configuration:				No
+$Font:							3
+$Max Directives:					7
+$Max Escort Ships:					7
+ 
+
+#Gauge Config
+
+$Ship:							Raptor
+$Color:							( 160, 225, 255 )
+$Font:							4
+$Base:							(1600, 900)		
+$Required Aspect:				Wide Screen		
+$Gauges:		
++Custom:
+	Position: 										(635, 277 )
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge
++Throttle: 
+	Position: 					(556, 322)
+	Slew: yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(933, 323)
+	Slew: yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(628, 541)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(970, 402)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(989, 438)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(592, 438)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(947, 544)
+	Slew: true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(800, 450)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1366, 250)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1426, 100)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1455, 620)
+	Size: 						(90, 90)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1361, 447)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1361, 537)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(638, 351)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1511, 872)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(611, 594)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(913, 591)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(788, 441)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 						2
++Training Messages: 
+	Position:					(667, 191)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(747, 600)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(728, 61)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(800, 250)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 752)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
+
++Text Warnings: 
+	Position:					(800, 341)
++Mini Target Shields:
+	Position:					(785, 536)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1472, 5)
++Lag:
+	Position:					(915, 595)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:							Raptor
+$Color:							( 160, 225, 255 )
+$Font:							4
+$Base:							(1400, 1050)		
+$Required Aspect:				Full Screen		
+$Gauges:		
++Custom:
+	Position: 										(535, 352)
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge
++Throttle: 
+	Position: 					(456, 397)
+	Slew: yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(833, 398)
+	Slew: yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(528, 616)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(870, 477)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(889, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(492, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(847, 619)
+	Slew: true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(700, 525)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1166, 250)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1226, 100)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1255, 770)
+	Size: 						(90, 90)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1161, 597)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1161, 687)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(538, 426)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1311, 1022)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(511, 669)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(813, 665)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(688, 516)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 						2
++Training Messages: 
+	Position:					(567, 266)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(647, 675)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(628, 136)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(700, 325)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 902)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
+
++Text Warnings: 
+	Position:					(700, 416)
++Mini Target Shields:
+	Position:					(685, 611)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1272, 5)
++Lag:
+	Position:					(815, 670)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:							Assault Raptor
+$Color:							( 160, 225, 255 )
+$Font:							4
+$Base:							(1600, 900)		
+$Required Aspect:				Wide Screen		
+$Gauges:		
++Custom:
+	Position: 										(635, 277 )
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge
++Throttle: 
+	Position: 					(556, 322)
+	Slew: 						yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: 				yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(933, 323)
+	Slew: 						yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(628, 541)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(970, 402)
+	Slew: 						yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: 					Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(989, 438)
+	Slew: 						yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(592, 438)
+	Slew: 						yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(947, 544)
+	Slew: true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(800, 450)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1366, 250)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1426, 100)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1455, 620)
+	Size: 						(90, 90)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1361, 447)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1361, 537)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(638, 351)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1511, 872)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(611, 594)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(913, 591)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(788, 441)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 2
++Training Messages: 
+	Position:					(667, 191)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(747, 600)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(728, 61)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(800, 250)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 752)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
++Text Warnings: 
+	Position:					(800, 341)
++Mini Target Shields:
+	Position:					(785, 536)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1472, 5)
++Lag:
+	Position:					(915, 595)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:							Assault Raptor
+$Color:							( 160, 225, 255 )
+$Font:							4
+$Base:							(1400, 1050)		
+$Required Aspect:				Full Screen		
+$Gauges:		
++Custom:
+	Position: 										(535, 352)
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge
++Throttle: 
+	Position: 					(456, 397)
+	Slew: yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: 				yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(833, 398)
+	Slew: yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(528, 616)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(870, 477)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: 					Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(889, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(492, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(847, 619)
+	Slew: true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(700, 525)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1166, 250)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1226, 100)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1255, 770)
+	Size: 						(90, 90)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1161, 597)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1161, 687)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(538, 426)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1311, 1022)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(511, 669)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(813, 665)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(688, 516)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 2
++Training Messages: 
+	Position:					(567, 266)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(647, 675)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(628, 136)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(700, 325)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 902)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
++Text Warnings: 
+	Position:					(700, 416)
++Mini Target Shields:
+	Position:					(685, 611)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1272, 5)
++Lag:
+	Position:					(815, 670)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:				Viper Mark VII
+$Color:				( 91, 175, 40 )
+$Font:				4
+$Base:				(1600, 900)
+$Required Aspect:	Wide Screen
+$Gauges:
++Custom:
+	Position: 										(635, 277 )
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge
++Throttle: 
+	Position: 					(556, 322)
+	Slew: 						yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: 				yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(933, 323)
+	Slew: 						yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(628, 541)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(970, 402)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: 					Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(989, 438)
+	Slew: 						yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(592, 438)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(947, 544)
+	Slew: 						true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(800, 450)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1366, 330)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1426, 144)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1211, 767)
+	Size: 						(180, 180)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1361, 707)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1361, 807)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(638, 351)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1511, 872)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(611, 594)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(913, 591)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(788, 441)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 						2
++Training Messages: 
+	Position:					(667, 191)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(747, 600)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(728, 61)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(800, 250)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 752)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
++Text Warnings: 
+	Position:					(800, 341)
++Mini Target Shields:
+	Position:					(785, 536)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1472, 5)
++Lag:
+	Position:					(915, 595)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+
+#End
+
+#Gauge Config
+
+$Ship:							Viper Mark VII
+$Color:							( 91, 175, 40 )
+$Font:							4
+$Base:							(1400, 1050)		
+$Required Aspect:				Full Screen		
+$Gauges:		
++Custom:
+	Position: 										(535, 352)
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge
++Throttle: 
+	Position: 					(456, 397)
+	Slew: yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(833, 398)
+	Slew: yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(528, 616)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(870, 477)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(889, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(492, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(847, 619)
+	Slew: true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(700, 525)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1166, 300)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1226, 144)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1011, 917)
+	Size: 						(180, 180)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1161, 857)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1161, 957)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(538, 426)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1311, 1022)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(511, 669)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(813, 665)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(688, 516)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 						2
++Training Messages: 
+	Position:					(567, 266)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(647, 675)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(628, 136)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(700, 325)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 902)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
+
++Text Warnings: 
+	Position:					(700, 416)
++Mini Target Shields:
+	Position:					(685, 611)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1272, 5)
++Lag:
+	Position:					(815, 670)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:							Viper Mark VIIe
+$Color:							( 91, 175, 40 )
+$Font:							4
+$Base:							(1600, 900)		
+$Required Aspect:				Wide Screen		
+$Gauges:	
++Custom:
+	Position: 										(635, 277 )
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge	
++Throttle: 
+	Position: 					(556, 322)
+	Slew: 						yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(933, 323)
+	Slew: yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(628, 541)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(970, 402)
+	Slew: 						yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: 					Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: Right
++Weapon Energy:
+	Position: 					(989, 438)
+	Slew: 						yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(592, 438)
+	Slew: 						yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(947, 544)
+	Slew: 						true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(800, 450)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1366, 330)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1426, 144)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1211, 767)
+	Size: 						(180, 180)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1361, 707)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1361, 797)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(638, 351)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1511, 872)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(611, 594)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(913, 591)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(800, 453)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(788, 441)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 						2
++Training Messages: 
+	Position:					(667, 191)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(747, 600)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(728, 61)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(800, 250)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 752)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
++Text Warnings: 
+	Position:					(800, 341)
++Mini Target Shields:
+	Position:					(785, 536)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1472, 5)
++Lag:
+	Position:					(915, 595)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:							Viper Mark VIIe
+$Color:							( 91, 175, 40 )
+$Font:							4
+$Base:							(1400, 1050)		
+$Required Aspect:				Full Screen		
+$Gauges:		
++Custom:
+	Position: 										(535, 352)
+	Name:											MiscSEXPBar
+	Text:											
+	X Offset:										10
+	Y Offset:										5
+	Gauge Type: 									RADAR
+	Slew: 											YES
+	Active by default: 								NO
+	Filename: 										col_miscbargauge	
++Throttle: 
+	Position: 					(456, 397)
+	Slew: yes
+	Filename: 					Throttle_Default
+	Foreground Clip Bottom Y-offset: 		210
+	Foreground Clip Width: 				109
+	Foreground Clip Height: 			133
+	Afterburner Clip Height: 			29
+	Show Background: 				no
+	Show Max Speed Label: 				no
+	Show Min Speed Label: 				no
+	Current Speed Offsets: 				(41, 56)
+	Target Speed Offsets: 				(41, 40)
+	Show Percentage: yes
+	Glide Status Offsets: 				(-5, 80)
+	Match Speed Status Offsets: 			(-5, 80)
++Threat Indicator:
+	Position: 					(833, 398)
+	Slew: yes
+	Arc Filename: 					Threat_Arc_Default
+	Dumbfire Filename: 				Threat_Dumb_Default
+	Lock Filename: 					Threat_Lock_Default
+	Dumbfire Offsets: 				(61, 50)
+	Lock Offsets: 					(61, 31)
++Countermeasures:
+	Position:					(528, 616)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(870, 477)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: 					Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: Right
++Weapon Energy:
+	Position: 					(889, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(492, 513)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Flight Path Marker:
+	Filename: 					Flight_Path_Default
+	Center Offsets: 				(15, 15)
++Warhead Count:
+	Position: 					(847, 619)
+	Slew: true
+	Filename: 					Warhead_Icon_Default
+	Name Offsets: 					(0, 0)
+	Count Offsets: 					(-4, 15)
+	Icon Width: 					7
+	Icon Height: 					22
+	Max Icons: 					8
+	Max Columns: 					8
+	Name Alignment: 					Right
++Lead Sight:
+	Position: 					(700, 525)
+	Filename: 					Leadsight_Default
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 4)
+	Top Background Height:				25
+	List Start Offsets:				(12, 23)
+	Entry Height:					18
+	Bottom Background Offset:		-18
+	Max Line Width:					210
++Escort View: 
+	Position:					(1166, 300)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Entry Height:					18
+	Bottom Background Offset:		4
+	Header Text:					sitrep
+	Header Offsets:					(4, 4)
+	List Start Offsets:				(0, 23)
+	Hull X-offset:					185
+	Ship Name Max Width:			160
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Wingman Status: 
+	Position:					(1226, 144)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Dummy
+	Right Background Filename:			Wingman_Entry_Default
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 3)
+	Left Background Width:				20
+	Entry Width:					20
+	Last Background Offset:			-16
+	Single Wing Offsets:				(0, 23)
+	Multiple Wing Start Offsets:			(0, 23)
+	Wing Name Offsets:				(30, 0)
+	Dot Offsets:					(100, 0) (115, 0) (130, 0) (145, 0) (160, 0) (175, 0)
+	Expansion Mode: 				Down
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(50, 50)
+	Locked Center Offsets:				(50, 50)
++Hardpoints:
+	Position: 					(1011, 917)
+	Size: 						(180, 180)
+	Line Width: 					2
+	View Direction: 				Top
+	Show Primary Weapons: 				no
+	Show Secondary Weapons: 			yes
++Primary Weapons:
+	Position: 					(1161, 857)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Primary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					55
+	Link X-offset: 					65
+	Name X-offset: 					75
++Secondary Weapons:
+	Position: 					(1161, 957)
+	Header Offsets: 				(4, 4)
+	Header Text: 					Secondary Stores
+	First Background Filename: 			col_weapons_h
+	First Background Height: 			20
+	First Background X-offset: 			0
+	Entry Background Filename: 			Dummy
+	Entry Background Height: 			20
+	Entry Background X-offset: 			0
+	Last Background Filename: 			col_weapons_list
+	Last Background X-offset: 			0
+	Last Background Y-offset:			-18
+	Entry Height: 					18
+	List Start Y-offset: 				20
+	Ammo X-offset: 					30
+	Link X-offset: 					40
+	Name X-offset: 					49
+	Unlink X-offset: 				45
+	Reload X-offset: 				180
++Mission Time: 
+	Position:					(538, 426)
+	Slew:						yes
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(4, 15)
++Kills: 
+	Position:					(1311, 1022)
+	Slew:						no
+	Filename:					Dummy
+	Text Offsets:					(4, 4)
+	Value Offsets:					(70, 4)
++Auto Speed:
+	Position:					(511, 669)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(6, 0)
+	Speed Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(813, 665)
+	Slew:						yes
+	Filename:					Dummy
+	Auto Offsets:					(9, 0)
+	Target Offsets:					(0, 12)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Hostile Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(700, 528)
+	Slew:						yes
+	Radius:						100
++Center Reticle: 
+	Position:					(688, 516)
+	Filename:					Reticle_Center_Default
++Messages: 
+	Position:					(5, 5)
+	Font: 						2
++Training Messages: 
+	Position:					(567, 266)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(647, 675)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(628, 136)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			Direct_Entry_Default
+	Header Offsets:					(2, 3)
+	Hull Integrity Offsets:				(4, 23)
+	Hull Integrity Value X-offset:			180
+	Top Background Height:				27
+	Subsystem Entry Height:				20
+	Subsystem List Start Offsets:			(4, 43)
+	Subsystem Entry Value X-offset:			142
+	Bottom Background Offset:				0
++Objective Notify: 
+	Position:					(700, 325)
+	Slew:						no
+	Filename:					Dummy
+	Objective Text Y-offset:			4
+	Objective Value Y-offset:			23
+	Subspace Text Y-offset:				4
+	Subspace Value Y-offset:			23
+	Red Alert Text Y-offset:			4
+	Red Alert Value Y-offset:			23
++Squad Message: 
+	Position:					(25, 50)
+	Slew:						no
+	Top Background Filename:			col_weapons_h
+	Entry Background Filename:			Dummy
+	Bottom Background Filename:			col_weapons_list
+	Header Offsets:					(4, 3)
+	List Start Offsets:				(4, 20)
+	Top Background Height:				20
+	Entry Height:					15
+	Bottom Background Offset:		-10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Target Monitor: 
+	Position:					(5, 902)
+	Monitor Filename:				TargetMon_Main_Default
+	Monitor Alpha Mask Filename:	TargetMon_Alpha
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(0, 0)
+	Viewport Size:					(180, 135)
+	Integrity Bar Offsets:				(176, 20)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(6, 18)
+	Name Offsets:					(8, -25)
+	Class Offsets:					(8, -10)
+	Distance Offsets:				(64, 6)
+	Speed Offsets:					(64, 20)
+	Hull Offsets:					(45, 6)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(3, 5)
+	Cargo Scan Size:				(172, 130)
+	Subsystem Name Offsets:			(25, 132)
+	Subsystem Integrity Offsets:	(155, 132)
+	Disabled Status Offsets:		(90, 120)
+	Desaturate: yes
++Radar BSG:
+	Position:					(0, 0)
+	Size:						(1024, 1024)
+	Cockpit Target:					dradis
+	Display Offset:					(0, 130)
+	Display Size:					(1024, 1024)
+        Loop Sound:                                     245
+        Arrival Beep Sound:                             246
+        Stealth arrival Beep Sound:                     249
+        Minimum Beep Delay:                             3.5
+        Departure Beep Sound:                           250 
+        Minimum Beep Delay:                             3.5
++Text Warnings: 
+	Position:					(700, 416)
++Mini Target Shields:
+	Position:					(685, 611)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(1272, 5)
++Lag:
+	Position:					(815, 670)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Offscreen Indicator:
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+#End
+
+#Gauge Config
+
+$Ship:							Raider
+$Color: ( 255,40,60 )
+$Font:                                                  3
+$Base:							(1024, 768)	
+$Gauges:
++Messages: 
+	Position:					(5, 5)
++Training Messages: 
+	Position:					(379, 125)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(459, 534)
+	Slew:						no
+	Filename:					Support_Cylon
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(440, 61)
+	Slew:						no
+	Top Background Filename:			Damage_Top_Cylon
+	Entry Background Filename:			Damage_Entry_Cylon
+	Bottom Background Filename:			Damage_Bottom_Cylon
+	Header Offsets:					(3, 2)
+	Hull Integrity Offsets:				(4, 15)
+	Hull Integrity Value X-offset:			142
+	Top Background Height:				25
+	Subsystem Entry Height:				9
+	Subsystem List Start Offsets:			(4, 27)
+	Subsystem Entry Value X-offset:			142
++Wingman Status: 
+	Position:					(30, 160)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Cylon
+	Entry Background Filename:			Wingman_Entry_Cylon
+	Right Background Filename:			Wingman_Right_Cylon
+	Dot Filename:					Wingman_Dot_Cylon
+	Header Offsets:					(2, 2)
+	Left Background Width:				71
+        Entry Width:					35
+	Single Wing Offsets:				(28, 15)
+	Multiple Wing Start Offsets:			(46, 15)
+        ;Dot Offsets: 					(11, 0) (4, 8) (18, 8) (11, 16) (0, 16) (22, 16)
++Auto Speed:
+	Position:					(625, 544)
+	Slew:						no
+	Filename:					Dummy
+	Auto Offsets:					(13, 2)
+	Speed Offsets:					(10, 10)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(350, 544)
+	Slew:						no
+	Filename:					Dummy
+	Auto Offsets:					(13, 2)
+	Target Offsets:					(7, 10)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Countermeasures:
+	Position:					(845, 220)
+	Slew:						no
+	Filename:					CMeasure_Cylon
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Directives: 
+	Position:					(845, 310)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Cylon
+	Entry Background Filename:			Direct_Entry_Cylon
+	Bottom Background Filename:			Direct_Bottom_Cylon
+	Header Offsets:					(2, 2)
+	Top Background Height:				12
+	List Start Offsets:				(3, 13)
+	Entry Height:					9
++Weapons: 
+	Position:					(845, 160)
+        Slew:						no
+	Primary List Top Background Filename:		Weapon_P_Top_Cylon
+	Alt Ballistic Filename:				weapons1_b
+	Primary List Middle Background Filename:	Weapon_P_Entry_Cylon
+	Alt Ballistic Filename:				weapons2_b
+	Primary List Bottom Background Filename:	Weapon_P_Bottom_Cylon
+	Alt Ballistic Filename:				weapons2_b
+	Secondary List Top Background Filename:		Weapon_S_Top_Cylon
+	Alt Ballistic Filename:				weapons3_b
+	Secondary List Entry Background Filename:	Weapon_S_Entry_Cylon
+	Alt Ballistic Filename:				weapons4_b
+	Secondary List Bottom Background Filename:	Weapon_S_Bottom_Cylon
+	Alt Ballistic Filename:				weapons5_b
+	Header Offsets:					(21, 2)
+	Alt Ballistic Offsets:				(-10, 2)
+	Top Primary Background X-offset:		12
+	Alt Ballistic X-offset:				-12
+	Text X-offset:					0
+	Alt Ballistic X-offset:				-12
+	Top Primary Frame Height:			20
+	Top Secondary Frame Height:			12
+	Primary List Start Y-offset:			12
+	Secondary List Start Y-offset:			4
+	Primary Weapon Ammo X-offset:			28
+	Primary Weapon Link X-offset:			33
+	Primary Weapon Name X-offset:			39
+	Secondary Weapon Ammo X-offset:			28
+	Secondary Weapon Unlinked X-offset:		33
+	Secondary Weapon Linked X-offset:		28
+	Secondary Weapon Name X-offset:			39
+	Secondary Weapon Reload X-offset:		160
+	Primary Weapon Entry Height:			12
+	Secondary Weapon Entry Height:			9
++Objective Notify: 
+	Position:					(436, 184)
+	Slew:						no
+	Filename:					Objective_Cylon
+	Objective Text Y-offset:			2
+	Objective Value Y-offset:			11
+	Subspace Text Y-offset:				2
+	Subspace Value Y-offset:			10
+	Red Alert Text Y-offset:			2
+	Red Alert Value Y-offset:			10
++Squad Message: 
+	Position:					(600, 5)
+	Slew:						no
+	Top Background Filename:			Message_Top_Cylon
+	Entry Background Filename:			Message_Entry_Cylon
+	Bottom Background Filename:			Message_Bottom_Cylon
+	Header Offsets:					(2, 1)
+	List Start Offsets:				(4, 13)
+	Top Background Height:				12
+	Entry Height:					10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Escort View: 
+	Position:					(30, 340)
+	Slew:						no
+	Top Background Filename:			Escort_Top_Cylon
+	Entry Background Filename:			Escort_Entry_Cylon
+	Bottom Background Filename:			Escort_Bottom_Cylon
+	Entry Height:					11
+	Header Text:					monitoring
+	Header Offsets:					(3, 2)
+	List Start Offsets:				(0, 13)
+	;Hull X-offset:					(116, 0)
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Target Monitor: 
+	Position:					(830, 470)
+	Monitor Filename:				TargetMon_Main_Cylon
+	Integrity Bar Filename:				TargetMon_Bar_Cylon
+	Viewport Offsets:				(3, 39)
+	Viewport Size:					(150, 120)
+	Integrity Bar Offsets:				(133, 52)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(107, 53)
+	Name Offsets:					(8, -3)
+	Class Offsets:					(8, 7)
+	;Distance Offsets:				(8, 18)
+	Speed Offsets:					(85, 18)
+	Hull Offsets:					(134, 42)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(2, 45)
+	Cargo Scan Size:				(130, 109)
+	Desaturate: yes
++Radar BSG:
+	Position:					(384, 595)
+	Size:						(256, 256)
+	XY Disc Filename:				DRADIS_Cyl_XY
+	XZ YZ Disc Filename:				DRADIS_Cyl_XY_YZ
+	Sweep Disc Filename:				DRADIS_Cyl_Sweep
++Afterburner Energy: 
+	Position:					(633, 384)
+	Slew:						yes
+	Filename:					Energy_Cylon
+	Foreground Clip Height:				150
++Flight Path Marker:
+	Filename: 					Flight_Path_Cylon
+	Center Offsets: 				(32, 16)
++Text Warnings: 
+	Position:					(512, 275)
++Center Reticle: 
+	Position:					(480, 353)
+	Filename:					Reticle_Center_Cylon
++Mini Target Shields:
+	Position:					(506, 477)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Throttle: 
+	Position:					(651, 380)
+	Slew:						yes
+	Filename:					Throttle_Cylon
+	Foreground Clip Bottom Y-offset:		128
+	Foreground Clip Width:				128
+	Foreground Clip Height:				128
+	Afterburner Clip Height:			8
+	Show Background:				no
+	Max Speed Label Offsets:			(75, -5)
+	Min Speed Label Offsets:			(23, 87)
+	Orbit Center Offsets:				(173, 80)
+	Orbit Radius:					166
++Threat Indicator: 
+	Position:					(256, 383)
+	Slew:						yes
+	Arc Filename:					Threat_Arc_Cylon
+	Dumbfire Filename:				Threat_Dumb_Cylon
+	Lock Filename:					Threat_Lock_Cylon
+	Dumbfire Offsets:				(145, 148)
+	Lock Offsets:					(313, 148)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(896, 5)
++Lag:
+	Position:					(627, 529)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets: 
+
++Lead Indicator:
+	Filename:					Lead_Ind_Default
+	Center Offsets:					(13, 13)
+
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(28, 25)
+	Locked Center Offsets:				(50, 52)
+
++Offscreen Indicator:
++Hostile Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
++Weapon Energy: 
+	Position:					(245, 384)
+	Slew:						yes
+	Filename:					Energy_Cylon
+	Foreground Clip Height:				150
+	Text Offsets:					(43, 85)
++Mission Time: 
+	Position:					(615, 716)
+	Slew:						no
+	Filename:					Time_Cylon
+	Text Offsets:					(4, 4)
+	Value Offsets:					(26, 12)
++Kills: 
+	Position:					(490, 227)
+	Slew:						no
+	Filename:					Time_Cylon
+	Text Offsets:					(4, 4)
+	Value Offsets:					(24, 12)
++Custom:
+	Position:					(10, 90)
+	 Name:						Left_Border
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Left_Border
++Custom:
+	Position:					(10, 678)
+	 Name:						Left_Border_bottom
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Left_Border_bottom
++Custom:
+	 Position:					(502, 90)
+	 Name:						Right_Border
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Right_Border
++Custom:
+	 Position:					(502, 678)
+	 Name:						Right_Border_bottom
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Right_Border_bottom
++Custom:
+	 Position:					(380, 495)
+	 Name:						Left_bottomarc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					left_bottomarc
++Custom:
+	 Position:					(525, 495)
+	 Name:						right_bottomarc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					right_bottomarc
++Custom:
+	 Position:					(284, 235)
+	 Name:						Left_toparc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					left_toparc
++Custom:
+	 Position:					(619, 235)
+	 Name:						right_toparc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					right_toparc
++Custom:
+	 Position:					(5, 150)
+	 Name:						left_bracket_small
+	 Text: 
+	 Gauge Type:					WINGMEN_STATUS 
+	 Slew:						yes
+	 Filename:					left_bracket_small
++Custom:
+	 Position:					(5, 330)
+	 Name:						left_bracket_small2
+	 Text: 
+	 Gauge Type:					ESCORT_VIEW 
+	 Slew:						yes
+	 Filename:					left_bracket_small2
++Custom:
+	 Position:					(895, 150)
+	 Name:						right_bracket_small
+	 Text: 
+	 Gauge Type:					WEAPONS_GAUGE 
+	 Slew:						yes
+	 Filename:					right_bracket_small
++Custom:
+	 Position:					(895, 300)
+	 Name:						right_bracket_small2
+	 Text: 
+	 Gauge Type:					DIRECTIVES_VIEW 
+	 Slew:						yes
+	 Filename:					right_bracket_small2
++Custom:
+	 Position:					(895, 455)
+	 Name:						right_bracket_large
+	 Text: 
+	 Gauge Type:					TARGET_MONITOR 
+	 Slew:						yes
+	 Filename:					right_bracket_large
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+
+#End
+
+
+#Gauge Config
+
+$Ship:							Advanced Raider
+$Color: ( 255,40,60 )
+$Font:                                                  3
+$Base:							(1024, 768)				
+$Gauges:
++Messages: 
+	Position:					(5, 5)
++Training Messages: 
+	Position:					(379, 125)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(459, 534)
+	Slew:						no
+	Filename:					Support_Cylon
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(440, 61)
+	Slew:						no
+	Top Background Filename:			Damage_Top_Cylon
+	Entry Background Filename:			Damage_Entry_Cylon
+	Bottom Background Filename:			Damage_Bottom_Cylon
+	Header Offsets:					(3, 2)
+	Hull Integrity Offsets:				(4, 15)
+	Hull Integrity Value X-offset:			142
+	Top Background Height:				25
+	Subsystem Entry Height:				9
+	Subsystem List Start Offsets:			(4, 27)
+	Subsystem Entry Value X-offset:			142
++Wingman Status: 
+	Position:					(30, 160)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Cylon
+	Entry Background Filename:			Wingman_Entry_Cylon
+	Right Background Filename:			Wingman_Right_Cylon
+	Dot Filename:					Wingman_Dot_Cylon
+	Header Offsets:					(2, 2)
+	Left Background Width:				71
+        Entry Width:					35
+	Single Wing Offsets:				(28, 15)
+	Multiple Wing Start Offsets:			(46, 15)
+        ;Dot Offsets: 					(11, 0) (4, 8) (18, 8) (11, 16) (0, 16) (22, 16)
++Auto Speed:
+	Position:					(625, 544)
+	Slew:						no
+	Filename:					Dummy
+	Auto Offsets:					(13, 2)
+	Speed Offsets:					(10, 10)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(350, 544)
+	Slew:						no
+	Filename:					Dummy
+	Auto Offsets:					(13, 2)
+	Target Offsets:					(7, 10)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Countermeasures:
+	Position:					(845, 220)
+	Slew:						no
+	Filename:					CMeasure_Cylon
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Directives: 
+	Position:					(845, 310)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Cylon
+	Entry Background Filename:			Direct_Entry_Cylon
+	Bottom Background Filename:			Direct_Bottom_Cylon
+	Header Offsets:					(2, 2)
+	Top Background Height:				12
+	List Start Offsets:				(3, 13)
+	Entry Height:					9
++Weapons: 
+	Position:					(845, 160)
+        Slew:						no
+	Primary List Top Background Filename:		Weapon_P_Top_Cylon
+	Alt Ballistic Filename:				weapons1_b
+	Primary List Middle Background Filename:	Weapon_P_Entry_Cylon
+	Alt Ballistic Filename:				weapons2_b
+	Primary List Bottom Background Filename:	Weapon_P_Bottom_Cylon
+	Alt Ballistic Filename:				weapons2_b
+	Secondary List Top Background Filename:		Weapon_S_Top_Cylon
+	Alt Ballistic Filename:				weapons3_b
+	Secondary List Entry Background Filename:	Weapon_S_Entry_Cylon
+	Alt Ballistic Filename:				weapons4_b
+	Secondary List Bottom Background Filename:	Weapon_S_Bottom_Cylon
+	Alt Ballistic Filename:				weapons5_b
+	Header Offsets:					(21, 2)
+	Alt Ballistic Offsets:				(-10, 2)
+	Top Primary Background X-offset:		12
+	Alt Ballistic X-offset:				-12
+	Text X-offset:					0
+	Alt Ballistic X-offset:				-12
+	Top Primary Frame Height:			20
+	Top Secondary Frame Height:			12
+	Primary List Start Y-offset:			12
+	Secondary List Start Y-offset:			4
+	Primary Weapon Ammo X-offset:			28
+	Primary Weapon Link X-offset:			33
+	Primary Weapon Name X-offset:			39
+	Secondary Weapon Ammo X-offset:			28
+	Secondary Weapon Unlinked X-offset:		33
+	Secondary Weapon Linked X-offset:		28
+	Secondary Weapon Name X-offset:			39
+	Secondary Weapon Reload X-offset:		160
+	Primary Weapon Entry Height:			12
+	Secondary Weapon Entry Height:			9
++Objective Notify: 
+	Position:					(436, 184)
+	Slew:						no
+	Filename:					Objective_Cylon
+	Objective Text Y-offset:			2
+	Objective Value Y-offset:			11
+	Subspace Text Y-offset:				2
+	Subspace Value Y-offset:			10
+	Red Alert Text Y-offset:			2
+	Red Alert Value Y-offset:			10
++Squad Message: 
+	Position:					(600, 5)
+	Slew:						no
+	Top Background Filename:			Message_Top_Cylon
+	Entry Background Filename:			Message_Entry_Cylon
+	Bottom Background Filename:			Message_Bottom_Cylon
+	Header Offsets:					(2, 1)
+	List Start Offsets:				(4, 13)
+	Top Background Height:				12
+	Entry Height:					10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Escort View: 
+	Position:					(30, 340)
+	Slew:						no
+	Top Background Filename:			Escort_Top_Cylon
+	Entry Background Filename:			Escort_Entry_Cylon
+	Bottom Background Filename:			Escort_Bottom_Cylon
+	Entry Height:					11
+	Header Text:					monitoring
+	Header Offsets:					(3, 2)
+	List Start Offsets:				(0, 13)
+	;Hull X-offset:					(116, 0)
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Target Monitor: 
+	Position:					(830, 470)
+	Monitor Filename:				TargetMon_Main_Cylon
+	Integrity Bar Filename:				TargetMon_Bar_Cylon
+	Viewport Offsets:				(3, 39)
+	Viewport Size:					(150, 120)
+	Integrity Bar Offsets:				(133, 52)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(107, 53)
+	Name Offsets:					(8, -3)
+	Class Offsets:					(8, 7)
+	;Distance Offsets:				(8, 18)
+	Speed Offsets:					(85, 18)
+	Hull Offsets:					(134, 42)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(2, 45)
+	Cargo Scan Size:				(130, 109)
+	Desaturate:						yes
++Radar BSG:
+	Position:					(384, 595)
+	Size:						(256, 256)
+	XY Disc Filename:				DRADIS_Cyl_XY
+	XZ YZ Disc Filename:				DRADIS_Cyl_XY_YZ
+	Sweep Disc Filename:				DRADIS_Cyl_Sweep
++Afterburner Energy: 
+	Position:					(633, 384)
+	Slew:						yes
+	Filename:					Energy_Cylon
+	Foreground Clip Height:				150
++Flight Path Marker:
+	Filename: 					Flight_Path_Cylon
+	Center Offsets: 				(32, 16)
++Text Warnings: 
+	Position:					(512, 275)
++Center Reticle: 
+	Position:					(480, 353)
+	Filename:					Reticle_Center_Cylon
++Mini Target Shields:
+	Position:					(497, 470)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Throttle: 
+	Position:					(651, 380)
+	Slew:						yes
+	Filename:					Throttle_Cylon
+	Foreground Clip Bottom Y-offset:		128
+	Foreground Clip Width:				128
+	Foreground Clip Height:				128
+	Afterburner Clip Height:			8
+	Show Background:				no
+	Max Speed Label Offsets:			(75, -5)
+	Min Speed Label Offsets:			(23, 87)
+	Orbit Center Offsets:				(173, 80)
+	Orbit Radius:					166
++Threat Indicator: 
+	Position:					(256, 383)
+	Slew:						yes
+	Arc Filename:					Threat_Arc_Cylon
+	Dumbfire Filename:				Threat_Dumb_Cylon
+	Lock Filename:					Threat_Lock_Cylon
+	Dumbfire Offsets:				(145, 148)
+	Lock Offsets:					(313, 148)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(896, 5)
++Lag:
+	Position:					(627, 529)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets: 
+
++Lead Indicator:
+	Filename:					Lead_Ind_Default
+	Center Offsets:					(13, 13)
+
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(28, 25)
+	Locked Center Offsets:				(50, 52)
+
++Offscreen Indicator:
++Hostile Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
++Weapon Energy: 
+	Position:					(245, 384)
+	Slew:						yes
+	Filename:					Energy_Cylon
+	Foreground Clip Height:				150
+	Text Offsets:					(43, 85)
++Mission Time: 
+	Position:					(615, 716)
+	Slew:						no
+	Filename:					Time_Cylon
+	Text Offsets:					(4, 4)
+	Value Offsets:					(26, 12)
++Kills: 
+	Position:					(490, 227)
+	Slew:						no
+	Filename:					Time_Cylon
+	Text Offsets:					(4, 4)
+	Value Offsets:					(24, 12)
++Custom:
+	Position:					(10, 90)
+	 Name:						Left_Border
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Left_Border
++Custom:
+	Position:					(10, 678)
+	 Name:						Left_Border_bottom
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Left_Border_bottom
++Custom:
+	 Position:					(502, 90)
+	 Name:						Right_Border
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Right_Border
++Custom:
+	 Position:					(502, 678)
+	 Name:						Right_Border_bottom
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Right_Border_bottom
++Custom:
+	 Position:					(380, 495)
+	 Name:						Left_bottomarc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					left_bottomarc
++Custom:
+	 Position:					(525, 495)
+	 Name:						right_bottomarc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					right_bottomarc
++Custom:
+	 Position:					(284, 235)
+	 Name:						Left_toparc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					left_toparc
++Custom:
+	 Position:					(619, 235)
+	 Name:						right_toparc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					right_toparc
++Custom:
+	 Position:					(5, 150)
+	 Name:						left_bracket_small
+	 Text: 
+	 Gauge Type:					WINGMEN_STATUS 
+	 Slew:						yes
+	 Filename:					left_bracket_small
++Custom:
+	 Position:					(5, 330)
+	 Name:						left_bracket_small2
+	 Text: 
+	 Gauge Type:					ESCORT_VIEW 
+	 Slew:						yes
+	 Filename:					left_bracket_small2
++Custom:
+	 Position:					(895, 150)
+	 Name:						right_bracket_small
+	 Text: 
+	 Gauge Type:					WEAPONS_GAUGE 
+	 Slew:						yes
+	 Filename:					right_bracket_small
++Custom:
+	 Position:					(895, 300)
+	 Name:						right_bracket_small2
+	 Text: 
+	 Gauge Type:					DIRECTIVES_VIEW 
+	 Slew:						yes
+	 Filename:					right_bracket_small2
++Custom:
+	 Position:					(895, 455)
+	 Name:						right_bracket_large
+	 Text: 
+	 Gauge Type:					TARGET_MONITOR 
+	 Slew:						yes
+	 Filename:					right_bracket_large
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+
+#End
+
+#Gauge Config
+
+$Ship:							Heavy Raider
+$Color: ( 255,40,60 )
+$Font:                                                  3
+$Base:							(1024, 768)				
+$Gauges:
++Messages: 
+	Position:					(5, 5)
++Training Messages: 
+	Position:					(379, 125)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(459, 534)
+	Slew:						no
+	Filename:					Support_Cylon
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(440, 61)
+	Slew:						no
+	Top Background Filename:			Damage_Top_Cylon
+	Entry Background Filename:			Damage_Entry_Cylon
+	Bottom Background Filename:			Damage_Bottom_Cylon
+	Header Offsets:					(3, 2)
+	Hull Integrity Offsets:				(4, 15)
+	Hull Integrity Value X-offset:			142
+	Top Background Height:				25
+	Subsystem Entry Height:				9
+	Subsystem List Start Offsets:			(4, 27)
+	Subsystem Entry Value X-offset:			142
++Wingman Status: 
+	Position:					(30, 160)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Cylon
+	Entry Background Filename:			Wingman_Entry_Cylon
+	Right Background Filename:			Wingman_Right_Cylon
+	Dot Filename:					Wingman_Dot_Cylon
+	Header Offsets:					(2, 2)
+	Left Background Width:				71
+        Entry Width:					35
+	Single Wing Offsets:				(28, 15)
+	Multiple Wing Start Offsets:			(46, 15)
+        ;Dot Offsets: 					(11, 0) (4, 8) (18, 8) (11, 16) (0, 16) (22, 16)
++Auto Speed:
+	Position:					(625, 544)
+	Slew:						no
+	Filename:					Dummy
+	Auto Offsets:					(13, 2)
+	Speed Offsets:					(10, 10)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Auto Target:
+	Position:					(350, 544)
+	Slew:						no
+	Filename:					Dummy
+	Auto Offsets:					(13, 2)
+	Target Offsets:					(7, 10)
+	On Text Color:					(-1, -1, -1, -1)
+	Off Text Color:					(0, 0, 0, 0)
++Countermeasures:
+	Position:					(845, 220)
+	Slew:						no
+	Filename:					CMeasure_Cylon
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Directives: 
+	Position:					(845, 310)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Cylon
+	Entry Background Filename:			Direct_Entry_Cylon
+	Bottom Background Filename:			Direct_Bottom_Cylon
+	Header Offsets:					(2, 2)
+	Top Background Height:				12
+	List Start Offsets:				(3, 13)
+	Entry Height:					9
++Weapons: 
+	Position:					(845, 160)
+        Slew:						no
+	Primary List Top Background Filename:		Weapon_P_Top_Cylon
+	Alt Ballistic Filename:				weapons1_b
+	Primary List Middle Background Filename:	Weapon_P_Entry_Cylon
+	Alt Ballistic Filename:				weapons2_b
+	Primary List Bottom Background Filename:	Weapon_P_Bottom_Cylon
+	Alt Ballistic Filename:				weapons2_b
+	Secondary List Top Background Filename:		Weapon_S_Top_Cylon
+	Alt Ballistic Filename:				weapons3_b
+	Secondary List Entry Background Filename:	Weapon_S_Entry_Cylon
+	Alt Ballistic Filename:				weapons4_b
+	Secondary List Bottom Background Filename:	Weapon_S_Bottom_Cylon
+	Alt Ballistic Filename:				weapons5_b
+	Header Offsets:					(21, 2)
+	Alt Ballistic Offsets:				(-10, 2)
+	Top Primary Background X-offset:		12
+	Alt Ballistic X-offset:				-12
+	Text X-offset:					0
+	Alt Ballistic X-offset:				-12
+	Top Primary Frame Height:			20
+	Top Secondary Frame Height:			12
+	Primary List Start Y-offset:			12
+	Secondary List Start Y-offset:			4
+	Primary Weapon Ammo X-offset:			28
+	Primary Weapon Link X-offset:			33
+	Primary Weapon Name X-offset:			39
+	Secondary Weapon Ammo X-offset:			28
+	Secondary Weapon Unlinked X-offset:		33
+	Secondary Weapon Linked X-offset:		28
+	Secondary Weapon Name X-offset:			39
+	Secondary Weapon Reload X-offset:		160
+	Primary Weapon Entry Height:			12
+	Secondary Weapon Entry Height:			9
++Objective Notify: 
+	Position:					(436, 184)
+	Slew:						no
+	Filename:					Objective_Cylon
+	Objective Text Y-offset:			2
+	Objective Value Y-offset:			11
+	Subspace Text Y-offset:				2
+	Subspace Value Y-offset:			10
+	Red Alert Text Y-offset:			2
+	Red Alert Value Y-offset:			10
++Squad Message: 
+	Position:					(600, 5)
+	Slew:						no
+	Top Background Filename:			Message_Top_Cylon
+	Entry Background Filename:			Message_Entry_Cylon
+	Bottom Background Filename:			Message_Bottom_Cylon
+	Header Offsets:					(2, 1)
+	List Start Offsets:				(4, 13)
+	Top Background Height:				12
+	Entry Height:					10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Escort View: 
+	Position:					(30, 340)
+	Slew:						no
+	Top Background Filename:			Escort_Top_Cylon
+	Entry Background Filename:			Escort_Entry_Cylon
+	Bottom Background Filename:			Escort_Bottom_Cylon
+	Entry Height:					11
+	Header Text:					monitoring
+	Header Offsets:					(3, 2)
+	List Start Offsets:				(0, 13)
+	;Hull X-offset:					(116, 0)
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Target Monitor: 
+	Position:					(830, 470)
+	Monitor Filename:				TargetMon_Main_Cylon
+	Integrity Bar Filename:				TargetMon_Bar_Cylon
+	Viewport Offsets:				(3, 39)
+	Viewport Size:					(150, 120)
+	Integrity Bar Offsets:				(133, 52)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(107, 53)
+	Name Offsets:					(8, -3)
+	Class Offsets:					(8, 7)
+	;Distance Offsets:				(8, 18)
+	Speed Offsets:					(85, 18)
+	Hull Offsets:					(134, 42)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(2, 45)
+	Cargo Scan Size:				(130, 109)
+	Desaturate:						yes
+;+Extra Target Data:
+;	Position:					(5, 552)
+;	Position:					(7, 647)
+;	Slew:						no
+;	Filename:					targetview3
+;	Bracket Offsets:				(0, 3)
+;	Dock Offsets:					(7, 18)
+;	Order Offsets:					(7, 0)
++Radar BSG:
+	Position:					(384, 595)
+	Size:						(256, 256)
+	XY Disc Filename:				DRADIS_Cyl_XY
+	XZ YZ Disc Filename:				DRADIS_Cyl_XY_YZ
+	Sweep Disc Filename:				DRADIS_Cyl_Sweep
+;+Radar: 
+;	Position:					(411, 590)
+;	Filename:					2_radar1
+;	Infinity Distance Offsets:			(185, 150)
+;	Long Distanace Offsets:				(181, 150)
+;       Short Distance Offsets:				(184, 150)		
++Afterburner Energy: 
+	Position:					(633, 384)
+	Slew:						yes
+	Filename:					Energy_Cylon
+	Foreground Clip Height:				150
++Flight Path Marker:
+	Filename: 					Flight_Path_Cylon
+	Center Offsets: 				(32, 16)
++Text Warnings: 
+	Position:					(512, 275)
++Center Reticle: 
+	Position:					(480, 353)
+	Filename:					Reticle_Center_Cylon
++Mini Target Shields:
+	Position:					(497, 470)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Throttle: 
+	Position:					(651, 380)
+	Slew:						yes
+	Filename:					Throttle_Cylon
+	Foreground Clip Bottom Y-offset:		128
+	Foreground Clip Width:				128
+	Foreground Clip Height:				128
+	Afterburner Clip Height:			8
+	Show Background:				no
+	Max Speed Label Offsets:			(75, -5)
+	Min Speed Label Offsets:			(23, 87)
+	Orbit Center Offsets:				(173, 80)
+	Orbit Radius:					166
++Threat Indicator: 
+	Position:					(256, 383)
+	Slew:						yes
+	Arc Filename:					Threat_Arc_Cylon
+	Dumbfire Filename:				Threat_Dumb_Cylon
+	Lock Filename:					Threat_Lock_Cylon
+	Dumbfire Offsets:				(145, 148)
+	Lock Offsets:					(313, 148)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(896, 5)
++Lag:
+	Position:					(627, 529)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets: 
+
++Lead Indicator:
+	Filename:					Lead_Ind_Default
+	Center Offsets:					(13, 13)
+
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(28, 25)
+	Locked Center Offsets:				(50, 52)
+
++Offscreen Indicator:
++Hostile Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
++Weapon Energy: 
+	Position:					(245, 384)
+	Slew:						yes
+	Filename:					Energy_Cylon
+	Foreground Clip Height:				150
+	Text Offsets:					(43, 85)
++Mission Time: 
+	Position:					(615, 716)
+	Slew:						no
+	Filename:					Time_Cylon
+	Text Offsets:					(4, 4)
+	Value Offsets:					(26, 12)
++Kills: 
+	Position:					(490, 227)
+	Slew:						no
+	Filename:					Time_Cylon
+	Text Offsets:					(4, 4)
+	Value Offsets:					(24, 12)
++Custom:
+	Position:					(10, 90)
+	 Name:						Left_Border
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Left_Border
++Custom:
+	Position:					(10, 678)
+	 Name:						Left_Border_bottom
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Left_Border_bottom
++Custom:
+	 Position:					(502, 90)
+	 Name:						Right_Border
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Right_Border
++Custom:
+	 Position:					(502, 678)
+	 Name:						Right_Border_bottom
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					Right_Border_bottom
++Custom:
+	 Position:					(380, 495)
+	 Name:						Left_bottomarc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					left_bottomarc
++Custom:
+	 Position:					(525, 495)
+	 Name:						right_bottomarc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					right_bottomarc
++Custom:
+	 Position:					(284, 235)
+	 Name:						Left_toparc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					left_toparc
++Custom:
+	 Position:					(619, 235)
+	 Name:						right_toparc
+	 Text: 
+	 Gauge Type:					CENTER_RETICLE
+	 Slew:						yes
+	 Filename:					right_toparc
++Custom:
+	 Position:					(5, 150)
+	 Name:						left_bracket_small
+	 Text: 
+	 Gauge Type:					WINGMEN_STATUS 
+	 Slew:						yes
+	 Filename:					left_bracket_small
++Custom:
+	 Position:					(5, 330)
+	 Name:						left_bracket_small2
+	 Text: 
+	 Gauge Type:					ESCORT_VIEW 
+	 Slew:						yes
+	 Filename:					left_bracket_small2
++Custom:
+	 Position:					(895, 150)
+	 Name:						right_bracket_small
+	 Text: 
+	 Gauge Type:					WEAPONS_GAUGE 
+	 Slew:						yes
+	 Filename:					right_bracket_small
++Custom:
+	 Position:					(895, 300)
+	 Name:						right_bracket_small2
+	 Text: 
+	 Gauge Type:					DIRECTIVES_VIEW 
+	 Slew:						yes
+	 Filename:					right_bracket_small2
++Custom:
+	 Position:					(895, 455)
+	 Name:						right_bracket_large
+	 Text: 
+	 Gauge Type:					TARGET_MONITOR 
+	 Slew:						yes
+	 Filename:					right_bracket_large
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+
+#End
+
+
+#Gauge Config
+$Base:							(1024, 768)				
+$Gauges:		
++Messages: 
+	Position:					(5, 5)
++Training Messages: 
+	Position:					(379, 125)
++Multiplayer Messages:
+	Position:					(8, 240)
++Support: 
+	Position:					(459, 534)
+	Slew:						no
+	Filename:					Support_Default
+	Header Offsets:					(3, 2)
+	Text Y-offset:					12
+	Dock Status X-offset:				6
+	Dock Time X-offset:				65
++Damage: 
+	Position:					(440, 61)
+	Slew:						no
+	Top Background Filename:			Damage_Top_Default
+	Entry Background Filename:			Damage_Entry_Default
+	Bottom Background Filename:			Damage_Bottom_Default
+	Header Offsets:					(3, 2)
+	Hull Integrity Offsets:				(4, 15)
+	Hull Integrity Value X-offset:			142
+	Top Background Height:				25
+	Subsystem Entry Height:				9
+	Subsystem List Start Offsets:			(4, 27)
+	Subsystem Entry Value X-offset:			142
++Wingman Status: 
+	Position:					(932, 144)
+	Slew:						no
+	Left Background Filename:			Wingman_Left_Default
+	Entry Background Filename:			Wingman_Entry_Default
+	Right Background Filename:			Dummy
+	Dot Filename:					Wingman_Dot_Default
+	Header Offsets:					(2, 2)
+	Left Background Width:				71
+        Entry Width:					35
+	Single Wing Offsets:				(28, 15)
+	Multiple Wing Start Offsets:			(46, 15)
+        ;Dot Offsets:					(11, 0) (4, 8) (18, 8) (11, 16) (0, 16) (22, 16)
++Auto Speed:
+	Position:					(960, 672)
+	Slew:						no
+	Filename:					toggle1
+	Auto Offsets:					(13, 2)
+	Speed Offsets:					(10, 10)
++Auto Target:
+	Position:					(960, 648)
+	Slew:						no
+	Filename:					toggle1
+	Auto Offsets:					(13, 2)
+	Target Offsets:					(7, 10)
++Countermeasures:
+	Position:					(850, 595)
+	Slew:						no
+	Filename:					CMeasure_Default
+	Text Offsets:					(36, 4)
+	Value Offsets:					(9, 4)
++Weapon Energy: 
+	Position: 					(682, 336)
+	Slew: yes
+	Filename: 					Energy_Big_Default
+	Foreground Clip Height: 			130
+	Text Offsets: 					(15, -15)
+	Text Alignment: 					Right
+	Always Show Text: 				true
+	Text Follows: 					true
+	Show Ballistic Ammo: 				true
+	Armed Guns List Offsets: 				(15, -45)
+	Armed Guns List Alignment: 					Right
++Weapon Energy:
+	Position: 					(701, 372)
+	Slew: 						yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
+	Text Offsets: 					(15, 6)
+	Always Show Text: 				true
++Afterburner Energy: 
+	Position: 					(304, 372)
+	Slew: yes
+	Filename: 					Energy_Default
+	Foreground Clip Height: 			94
++Directives: 
+	Position:					(5, 278)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Direct_Entry_Default
+	Bottom Background Filename:			Dummy
+	Header Offsets:					(2, 2)
+	Top Background Height:				12
+	List Start Offsets:				(3, 13)
+	Entry Height:					9
++Weapons: 
+	Position:					(805, 525)
+        Slew:						no
+	Primary List Top Background Filename:		Weapon_P_Top_Default
+	Alt Ballistic Filename:				weapons1_b
+	Primary List Middle Background Filename:	Weapon_P_Entry_Default
+	Alt Ballistic Filename:				weapons2_b
+	Primary List Bottom Background Filename:	Weapon_P_Bottom_Default
+	Alt Ballistic Filename:				weapons2_b
+	Secondary List Top Background Filename:		Weapon_S_Top_Default
+	Alt Ballistic Filename:				weapons3_b
+	Secondary List Entry Background Filename:	Weapon_S_Entry_Default
+	Alt Ballistic Filename:				weapons4_b
+	Secondary List Bottom Background Filename:	Weapon_S_Bottom_Default
+	Alt Ballistic Filename:				weapons5_b
+	Header Offsets:					(21, 2)
+	Alt Ballistic Offsets:				(-10, 2)
+	Top Primary Background X-offset:		12
+	Alt Ballistic X-offset:				-12
+	Text X-offset:					0
+	Alt Ballistic X-offset:				-12
+	Top Primary Frame Height:			20
+	Top Secondary Frame Height:			12
+	Primary List Start Y-offset:			12
+	Secondary List Start Y-offset:			4
+	Primary Weapon Ammo X-offset:			28
+	Primary Weapon Link X-offset:			33
+	Primary Weapon Name X-offset:			39
+	Secondary Weapon Ammo X-offset:			28
+	Secondary Weapon Unlinked X-offset:		33
+	Secondary Weapon Linked X-offset:		28
+	Secondary Weapon Name X-offset:			39
+	Secondary Weapon Reload X-offset:		180
+	Primary Weapon Entry Height:			12
+	Secondary Weapon Entry Height:			9
++Objective Notify: 
+	Position:					(436, 184)
+	Slew:						no
+	Filename:					Objective_Default
+	Objective Text Y-offset:			2
+	Objective Value Y-offset:			11
+	Subspace Text Y-offset:				2
+	Subspace Value Y-offset:			10
+	Red Alert Text Y-offset:			2
+	Red Alert Value Y-offset:			10
++Squad Message: 
+	Position:					(827, 5)
+	Slew:						no
+	Top Background Filename:			Message_Top_Default
+	Entry Background Filename:			Message_Entry_Default
+	Bottom Background Filename:			Message_Bottom_Default
+	Header Offsets:					(2, 1)
+	List Start Offsets:				(4, 13)
+	Top Background Height:				12
+	Entry Height:					10
+	Command X-offset:				17
+	Page Up Offsets:				(110, 5)
+	Page Down Offsets:				(110, 115)
++Escort View: 
+	Position:					(865, 330)
+	Slew:						no
+	Top Background Filename:			Direct_Top_Default
+	Entry Background Filename:			Escort_Entry_Default
+	Bottom Background Filename:			Escort_Entry_Default
+	Entry Height:					11
+	Header Text:					monitoring
+	Header Offsets:					(3, 2)
+	List Start Offsets:				(0, 13)
+	;Hull X-offset:					(116, 0)
+	;Name X-offset:					(4, 0)
+	;Status X-offset:				(-11, 0)
++Target Monitor: 
+	Position:					(5, 590)
+	Monitor Filename:				TargetMon_Main_Default
+	Integrity Bar Filename:				TargetMon_Bar_Default
+	Viewport Offsets:				(3, 39)
+	Viewport Size:					(131, 112)
+	Integrity Bar Offsets:				(133, 52)
+	;Integrity Bar Foreground Clip Height:		88
+	Status Offsets:					(107, 53)
+	Name Offsets:					(8, -3)
+	Class Offsets:					(8, 7)
+	;Distance Offsets:				(8, 18)
+	Speed Offsets:					(85, 18)
+	Hull Offsets:					(134, 42)
+	Cargo Contents Offsets:				(8, 30)
+	Cargo Scan Start Offsets:			(2, 45)
+	Cargo Scan Size:				(130, 109)
+	Desaturate:						yes
++Radar BSG:
+	Position:					(411, 590)
+	Size:						(290, 256)
++Text Warnings: 
+	Position:					(512, 275)
++Center Reticle: 
+	Position:					(493, 376)
+	Filename:					Reticle_Center_Default
++Mini Target Shields:
+	Position:					(497, 470)
+	Slew:						yes
+	Filename:					targhit1
+	3 Digit Hull Offsets:				(5, 7)
+	2 Digit Hull Offsets:				(9, 7)
+	1 Digit Hull Offsets:				(14, 7)
++Throttle: 
+	Position:					(346, 269)
+	Slew:						yes
+	Filename:					Throttle_Default
+	Foreground Clip Bottom Y-offset:		222
+	Foreground Clip Width:				78
+	Foreground Clip Height:				80
+	Afterburner Clip Height:			27
+	Show Background:				no
+	Max Speed Label Offsets:			(31, 137)
+	Min Speed Label Offsets:			(57, 216)
+	Orbit Center Offsets:				(166, 118)
+	Orbit Radius:					166
++Threat Indicator: 
+	Position:					(574, 269)
+	Slew:						yes
+	Arc Filename:					Threat_Arc_Default
+	Dumbfire Filename:				Threat_Dumb_Default
+	Lock Filename:					Threat_Lock_Default
+	Dumbfire Offsets:				(66, 124)
+	Lock Offsets:					(57, 150)
++Voice Status: 
+	Position:					(5, 165)
++Ping: 
+	Position:					(896, 5)
++Lag:
+	Position:					(627, 529)
++Supernova: 
+	Position:					(170, 170)
++Target Brackets:
++Lead Indicator:
+	Filename:					Lead_Ind_Default
+	Center Offsets:					(13, 13)
++Lock Indicator:
+	Lock Filename:					Lock_Ind_Default
+	Locked Filename:				Locked_Ind_Default
+	Lock Center Offsets:				(28, 25)
+	Locked Center Offsets:				(50, 52)
++Offscreen Indicator:
++Hostile Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Target Triangle: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Missile Triangles: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
+	Triangle Base:					9.5
+	Triangle Height:				11.0
++Orientation Tee: 
+	Position:					(512, 387)
+	Slew:						yes
+	Radius:						166
++Mission Time: 
+	Position:					(615, 716)
+	Slew:						no
+	Filename:					Time_Default
+	Text Offsets:					(4, 4)
+	Value Offsets:					(26, 12)
++Kills: 
+	Position:					(930, 595)
+	Slew:						no
+	Filename:					Time_Default
+	Text Offsets:					(4, 4)
+	Value Offsets:					(26, 12)
++Fixed Messages:
+	Position: (32768, 50)
+	Font: 2
+$End Gauges
+
+#End

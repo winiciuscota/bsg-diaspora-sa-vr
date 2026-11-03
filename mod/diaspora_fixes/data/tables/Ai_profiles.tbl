@@ -1,0 +1,70 @@
+#AI Profiles
+   
+$Default Profile:			Diaspora_default
+   
+$Profile Name:				Diaspora_default
+ 
+$Player Afterburner Recharge Scale:	5.0,	3.0,	2.0,	1.5,	1.0
+$Max Beam Friendly Fire Damage:		  0,	  5,	 10,	 20,	 30
+$Player Countermeasure Life Scale:	3.0,	2.0,	1.5,	1.25,	1.0
+$AI Countermeasure Firing Chance:	0.2,	0.3,	0.5,	0.9,	1.1
+$AI In Range Time:			2.0,	1.4,	0.75,	0.0,   -1.0
+$AI Always Links Ammo Weapons:		 30,	 30,	 30,	 30,	 30
+$AI Maybe Links Ammo Weapons:		 10,	 10,	 10,	 10,	 10
+$Primary Ammo Burst Multiplier:		0.3,	0.5,	0.7,	0.9,	1.0
+$AI Always Links Energy Weapons:	100,	 80,	 60,	 40,	 20
+$AI Maybe Links Energy Weapons:		 90,	 60,	 40,	 20,	 10
+$Max Missles Locked on Player:		  2,	  3,	  4,	  7,	 99
+$Max Player Attackers:			  2,	  3,	  4,	  5,	 99
+$Max Incoming Asteroids:		  3,	  4,	  5,	  7,	 10
+$Player Damage Factor:			0.25,	0.5,	0.65,	0.85,	1.0
+$Player Subsys Damage Factor:		0.2,	0.4,	0.6,	0.8,	1.0
+$Predict Position Delay:		2.0,	1.5,	1.33,	0.5,	0.1
+$AI Shield Manage Delay:		5.0,	4.0,	2.5,	1.2,	0.1
+$Friendly AI Fire Delay Scale:		1.0,	1.0,	1.0,	1.0,	1.0
+$Hostile AI Fire Delay Scale:		1.0,	1.0,	1.0,	1.0,	1.0
+$AI Turn Time Scale:			3.0,	2.2,	1.6,	1.3,	1.0
+$Glide Attack Percent:			  0,	 20,	 33,	 50,	 75
+$Circle Strafe Percent:			  0,	 20,	 33,	 50,	 75
+$Glide Strafe Percent:			  0,	 20,	 33,	 50,	 75
+$Stalemate Time Threshold:		 10,	 10,	 10,	 10,	 10
+$Stalemate Distance Threshold:		300,	300,	300,	300,	300
+$Chance AI Has to Fire Missiles at Player: 1, 5, 10, 20, 25
+$Max Aim Update Delay: .85,	.75,	 .65,		.55,		.45
+$Player Shield Recharge Scale:		4.0,	2.0,	1.5,	1.25,	1.0
+$Player Weapon Recharge Scale:	       10.0,	4.0,	2.5,	2.0,	1.5
+$Max Turret Target Ownage:		 500,	 500,	 500,	 500,	 500
+$Max Turret Player Ownage:		  8,	 12,	 16,	 20,	 24
+$Player Autoaim FOV: 			  10, 	 2, 	 0, 	 0, 	 0
+;Not tied to difficulty
+$Detail Distance Multiplier:		1.0,    2.0,	3.0,	4.0,	5.0	
+
+$big ships can attack beam turrets on untargeted ships:	NO
+$smart primary weapon selection:			YES
+$smart secondary weapon selection:			YES
+$smart shield management:				NO
+$allow rapid secondary dumbfire:			YES
+$huge turret weapons ignore bombs: 			YES
+$don't insert random turret fire delay:			YES
+$hack improve non-homing swarm turret fire accuracy:	YES
+$shockwaves damage small ship subsystems:		NO
+$navigation subsystem governs warpout capability:	NO
+$ignore lower bound for minimum speed of docked ship:	NO
+$disable linked fire penalty:				YES
+$disable weapon damage scaling:				YES
+$use additive weapon velocity:				YES
+$use newtonian dampening:				YES
+$multi allow empty secondaries:				YES
+$allow vertical dodge:					YES
+$prevent turrets targeting too distant bombs:		YES
+$smart subsystem targeting for turrets:			YES
+$allow turrets target weapons freely:			YES
+$fix AI class bug:					YES
+$advanced turret fov edge checks:			YES
+$require turrets to have target in fov:			YES
+$ai aims from ship center:				YES
+$allow primary link at mission start:				YES
+
+$ai path mode: 						alt1
+
+#End

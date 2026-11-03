@@ -1,0 +1,278 @@
+;; 	Format
+;;
+;;	$Bind Name:  	name of default FS2 bind 	string	required
+;;	$Key Default: 	key to set as default 		string	optional
+;;	$Joy Default: 	joystick to set as default 	int	optional
+;;	$Key Mod Shift:	shift key needed 		logical	optional
+;;	$Key Mod Alt:	alt key needed			logical	optional
+;;	$Key Mod Ctrl:	ctrl key needed			logical optional
+;;	$Category:	tab in which it appears		string	optional
+;;	$Has XStr:	has entry in tstrings		logical optional
+;;	$Type:		continous or not		string	optional
+;;
+;;
+;;	Valid $Category: entires	TARGET_TAB, SHIP_TAB, WEAPON_TAB, COMPUTER_TAB
+;;	Valid $Type: entries		CC_TYPE_TRIGGER, CC_TYPE_CONTINUOUS
+;;
+;;	Example - changes Clear Escort List from Alt-Shift-E to Alt-Shift-Q
+;;	
+;;	$Bind Name:		Clear Escort List
+;;	$Key Default:		KEY_Q
+;;	$Key Mod Shift:		1
+;;	$Key Mod Alt:		1
+;;
+
+
+#ControlConfigOverride
+
+;; we don't need shield keys so move them to shif-arrow
+$Bind Name:			Augment Forward Shield
+	$Key Mod Shift:		1
+$Bind Name:			Augment Rear Shield
+	$Key Mod Shift:		1
+$Bind Name:			Augment Left Shield
+	$Key Mod Shift:		1
+$Bind Name:			Augment Right Shield
+	$Key Mod Shift:		1
+
+$Bind Name: Target Target's Nearest Attacker
+	$Key Default:	KEY_T
+	$Key Mod Shift:		1
+	$Key Mod Alt:		1
+$Bind Name: Target Next Escort Ship 
+	$Key Default:		KEY_P
+	$Key Mod Shift:		0
+	$Key Mod Alt:		0
+$Bind Name: Target Next Uninspected Cargo
+	$Key Default:	KEY_C
+	$Key Mod Shift:		0
+	$Key Mod Alt:		1
+$Bind Name: Target Previous Uninspected Cargo 
+	$Key Default:	KEY_C
+	$Key Mod Shift:		1
+	$Key Mod Alt:		1
+$Bind Name: Target Next Subsystem
+	$Key Default: KEY_U
+	$Key Mod Shift:		0
+	$Key Mod Alt:		0
+$Bind Name: Target Previous Subsystem
+	$Key Default: KEY_U
+	$Key Mod Shift:		1
+	$Key Mod Alt:		0
+$Bind Name: Turn Off Targeting of Subsystems
+	$Key Default: KEY_U
+	$Key Mod Shift:		0
+	$Key Mod Alt:		1
+
+$Bind Name: Launch Countermeasure
+$Key Default:		KEY_RAPOSTRO
+
+;; WASD for main movement
+$Bind Name: Forward Thrust
+	$Key Default:		KEY_W
+$Bind Name: Reverse Thrust
+	$Key Default:		KEY_S
+$Bind Name:			Bank Left
+	$Key Default:		KEY_Q
+$Bind Name:			Bank Right
+	$Key Default:		KEY_E
+$Bind Name:			Pitch Forward
+	$Key Default:		KEY_UP
+$Bind Name:			Pitch Backward
+	$Key Default:		KEY_DOWN
+$Bind Name:			Turn Left
+	$Key Default:		KEY_LEFT
+$Bind Name:			Turn Right
+	$Key Default:		KEY_RIGHT
+$Bind Name:			Up Thrust
+	$Key Default:		KEY_Z
+$Bind Name:			Down Thrust
+	$Key Default:		KEY_X
+$Bind Name:			Left Thrust
+	$Key Default:		KEY_A
+$Bind Name:			Right Thrust
+	$Key Default:		KEY_D
+
+
+;; bind Q to glide, W to toggle glide, and move equalize shields to Alt-Q
+$Bind Name:			Glide When Pressed
+	$Key Default:		KEY_G
+	$Key Mod Alt:		0
+$Bind Name:			Toggle Gliding
+	$Key Default:		KEY_G
+	$Key Mod Alt:		1
+$Bind Name:			Equalize Shields
+	$Key Default:		KEY_Q
+	$Key Mod Alt:		1
+
+$Bind Name:			Cycle Radar Range 
+$Key Default:		KEY_RAPOSTRO
+	$Key Mod Shift:		1
+
+$Bind Name:			Add or Remove Escort
+	$Key Default:		KEY_P
+	$Key Mod Shift:		0
+	$Key Mod Alt:		1
+$Bind Name:			Clear Escort List
+	$Key Default:		KEY_P
+	$Key Mod Shift:		1
+	$Key Mod Alt:		1
+
+;; Target Padlock view
+$Bind Name:			Target Padlock View
+	$Key Default:		KEY_D
+	$Key Mod Shift:		1
+	$Key Mod Alt:		1
+
+
+;; Saitek X52 buttons (SDL numbering = Windows button number - 1). The FS2 defaults already fit the stick:
+;;   0 trigger = fire primary, 1 Fire (flip cover) = fire secondary, 2 A = next hostile, 3 B = countermeasure,
+;;   4 C = target in reticle, 5 pinkie = afterburner, 6 D = closest attacker, 7 E = equalize shields.
+;; The rest of the X52 (so a VR pilot needs no keyboard). 23-25 (mode rotary) are held down permanently: never bind them.
+;; Toggles T1/T2, T3/T4, T5/T6 = weapon / shield / engine energy up/down
+$Bind Name:			Increase Weapon Energy
+	$Joy Default:		8
+$Bind Name:			Decrease Weapon Energy
+	$Joy Default:		9
+$Bind Name:			Increase Shield Energy
+	$Joy Default:		10
+$Bind Name:			Decrease Shield Energy
+	$Joy Default:		11
+$Bind Name:			Increase Engine Energy
+	$Joy Default:		12
+$Bind Name:			Decrease Engine Energy
+	$Joy Default:		13
+;; second stick hat (15 up, 16 right, 17 down, 18 left): ships and subsystems
+$Bind Name:			Target Next Ship
+	$Joy Default:		15
+$Bind Name:			Target Next Subsystem
+	$Joy Default:		16
+$Bind Name:			Target Previous Ship
+	$Joy Default:		17
+$Bind Name:			Target Previous Subsystem
+	$Joy Default:		18
+;; throttle hat (19 up, 20 right, 21 down, 22 left): weapons and speed
+$Bind Name:			Cycle Forward Primary Weapon
+	$Joy Default:		19
+$Bind Name:			Cycle Secondary Weapon Firing Rate
+	$Joy Default:		20
+$Bind Name:			Cycle Secondary Weapon Bank
+	$Joy Default:		21
+$Bind Name:			Match Target Speed
+	$Joy Default:		22
+;; MFD buttons (26 Function, 27 Start/Stop, 28 Reset): wingman orders
+$Bind Name:			Attack My Target
+	$Joy Default:		26
+$Bind Name:			Cover Me
+	$Joy Default:		27
+$Bind Name:			Rearm Me
+	$Joy Default:		28
+;; clutch "i" = jump out (end mission), throttle mouse button = subsystem in reticle, scroll-wheel press = auto targeting
+$Bind Name:			Enter Subspace (End Mission)
+	$Joy Default:		29
+$Bind Name:			Target Subsystem in Reticle
+	$Joy Default:		30
+$Bind Name:			Toggle Auto Targeting
+	$Joy Default:		31
+;; mode rotary 1 (button 23): Toggle HUD (also hides the VR HUD layer), for testing the HUD artifacts
+$Bind Name:			Toggle HUD
+	$Joy Default:		23
+
+;; Saitek X52 (evdev axis order: X=roll, Y=pitch, Z=throttle lever, RX/RY=rotaries, RZ=twist) -- diaspora_fixes
+$Bind: JOY_BANK_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE
+    $Input: X_AXIS
+$Bind: JOY_PITCH_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE
+    $Input: Y_AXIS
+$Bind: JOY_HEADING_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE
+    $Input: RZ_AXIS
+$Bind: JOY_ABS_THROTTLE_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS
+    $Input: Z_AXIS
+
+
+;; Hat (X52 stick hat / gamepad D-pad): padlock view. Hat positions are buttons 128 up, 129 right, 130 down, 131 left.
+$Bind: PADLOCK_UP
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 128
+$Bind: PADLOCK_RIGHT
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 129
+$Bind: PADLOCK_DOWN
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 130
+$Bind: PADLOCK_LEFT
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 131
+
+#End
+
+;; Gamepad preset (SDL axis order: LX LY RX RY LT RT) -- cycle with Next Preset in the Controls screen
+#ControlConfigPreset
+$Name: Gamepad
+$Bind: JOY_HEADING_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE
+    $Input: X_AXIS
+$Bind: JOY_PITCH_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE
+    $Input: Y_AXIS
+$Bind: JOY_BANK_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE
+    $Input: RX_AXIS
+$Bind: JOY_REL_THROTTLE_AXIS
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_AXIS | CCF_RELATIVE | CCF_INVERTED
+    $Input: RY_AXIS
+$Bind: JOY_ABS_THROTTLE_AXIS
+  $Primary:
+    $Controller: CID_NONE
+
+
+;; Hat (X52 stick hat / gamepad D-pad): padlock view. Hat positions are buttons 128 up, 129 right, 130 down, 131 left.
+$Bind: PADLOCK_UP
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 128
+$Bind: PADLOCK_RIGHT
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 129
+$Bind: PADLOCK_DOWN
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 130
+$Bind: PADLOCK_LEFT
+  $Primary:
+    $Controller: CID_JOY0
+    $Flags: CCF_HAT
+    $Input: 131
+
+#End

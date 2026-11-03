@@ -1,0 +1,153 @@
+$Name: Thunderlords Patrol Log
+$Type: single
++Description:
+ XSTR("Missions added by the Linux/VR port: Vigil at the Ashen Veil, a fuel convoy, a mining mover lost in an asteroid field, a frigate shepherding refugee liners, the evacuation of Armistice Station, a hunt for lost medicine, a Raptor recon run, a last stand while Theseus repairs her FTL, a frigate used as bait and an ambush on a nuclear strike.", -1)
+$end_multi_text
+$Flags: 0
+
+
++Starting Ships: ( "Viper Mark VII"  "Viper Mark VIIe"  "Assault Raptor" )
+
++Starting Weapons: ( "MEC-A6"  "Training MEC-A6"  "GBK-6"  "HD-70 Lightning Javelin"  "TM-7 Pyro Javelin"  "HD-51 Arbalest"  "CTD-17 Jester"  "HS-24 Lance"  "HS-48 Spear"  "AGM-41 Whiplash"  "GBU-102 Tercio"  "TGB-102 Petardo"  "N4 Nessus" )
+
+$Mission: XM-Vigil.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Tylium.fs2" ) )
+)
+
++Level: 0
++Position: 0
+
+$Mission: XM-Tylium.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Hollow.fs2" ) )
+)
+
++Level: 1
++Position: 0
+
+$Mission: XM-Hollow.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Shepherd.fs2" ) )
+)
+
++Level: 2
++Position: 0
+
+$Mission: XM-Shepherd.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Station.fs2" ) )
+)
+
++Level: 3
++Position: 0
+
+$Mission: XM-Station.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Reckoning.fs2" ) )
+)
+
++Level: 4
++Position: 0
+
+$Mission: XM-Reckoning.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-DeepLook.fs2" ) )
+)
+
++Level: 5
++Position: 0
+
+$Mission: XM-DeepLook.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Firebreak.fs2" ) )
+)
+
++Level: 6
++Position: 0
+
+$Mission: XM-Firebreak.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Hunter.fs2" ) )
+)
+
++Level: 7
++Position: 0
+
+$Mission: XM-Hunter.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Anvil.fs2" ) )
+)
+
++Level: 8
++Position: 0
+
+$Mission: XM-Anvil.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Picket.fs2" ) )
+)
+
++Level: 9
++Position: 0
+
+$Mission: XM-Picket.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Tow.fs2" ) )
+)
+
++Level: 10
++Position: 0
+
+$Mission: XM-Tow.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Ghost.fs2" ) )
+)
+
++Level: 11
++Position: 0
+
+$Mission: XM-Ghost.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Fleet.fs2" ) )
+)
+
++Level: 12
++Position: 0
+
+$Mission: XM-Fleet.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( end-of-campaign ) )
+)
+
++Level: 13
++Position: 0
+
+#End

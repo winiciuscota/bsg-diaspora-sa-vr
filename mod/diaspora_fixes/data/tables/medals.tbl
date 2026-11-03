@@ -1,0 +1,87 @@
+#Medals
+
+$Name:			Colonial Defense Citation
+$Bitmap:		Medal_Col_Defense.png
+$Num mods:		1
+
+$Name:			Parma of Ares
+$Bitmap:		Medal_Parma_Ares.png
+$Num mods:		1
+
+$Name:			Flying Cross
+$Bitmap:		Medal_Flying_Cross.png
+$Num mods:		1
+
+$Name:			Legion of Merit
+$Bitmap:		Medal_Legion_Merit.png
+$Num mods:		1
+
+$Name:			Elysian Heart
+$Bitmap:		Medal_Elysian_Heart.png
+$Num mods:		1
+
+$Name:			Cimtar Shield
+$Bitmap:		Medal_Cimtar_Shield.png
+$Num mods:		1
+
+$Name:			Medal of Distinction
+$Bitmap:		Medal_Distinction.png
+$Num mods:		1
+
+$Name:			Medal of Valor
+$Bitmap:		Medal_Valor.png
+$Num mods:		1
+
+$Name:			Star of Kobol
+$Bitmap:		Medal_Star_Kobol.png
+$Num mods:		1
+
+$Name:			Fasces of the Lords
+$Bitmap:		Medal_Fasces_Lords.png
+$Num mods:		1
+
+$Name:			Honorable Conduct
+$Bitmap:		Medal_Honor_Conduct.png
+$Num mods:		1
+
+$Name:			Fleet Reserve Medal
+$Bitmap:		Medal_Fleet_Reserve.png
+$Num mods:		1
+
+$Name:			Rank
+$Bitmap:		Medal_Rank.png
+$Num mods:		10
+
+$Name:			Pilot Qualification Wings
+$Bitmap:		Medal_Wings.png
+$Num mods:		2
+
+$Name:			Ace
+$Bitmap:		Medal_Ace.png
+$Num mods:		1
++Num Kills:		50
+$Wavefile Base:		Medal_Ace.ogg
+$Promotion Text:	XSTR("You are hereby awarded the status of ace, for your number of confirmed kills.", 1420)
+$end_multi_text
+
+$Name:			Double Ace
+$Bitmap:		Medal_Ace_2X.png
+$Num mods:		1
++Num Kills:		100
+$Wavefile Base:		Medal_Ace_2X.ogg
+$Promotion Text:	XSTR("For your outstanding number of recorded kills, I hereby award you the status of double ace.", 1421)
+$end_multi_text
+
+$Name:			Triple Ace
+$Bitmap:		Medal_Ace_3X.png
+$Num mods:		1
++Num Kills:		250
+$Wavefile Base:		Medal_Ace_3X.ogg
+$Promotion Text:	XSTR("Your record of confirmed kills is extraordinary, and I am honored to award you the status of triple ace.", 1422)
+$end_multi_text
+
+$Name:			Colonial Intelligence Star
+$Bitmap:		Medal_Col_Int_Star.png
+$Num mods:		1
+
+#End

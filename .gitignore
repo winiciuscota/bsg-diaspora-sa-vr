@@ -1,0 +1,4 @@
+# release assets, not tracked
+mod/diaspora_fixes/data/maps/
+mod/diaspora_fixes/data/voice/
+__pycache__/

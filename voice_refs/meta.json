@@ -1,0 +1,47 @@
+{
+ "command": {
+  "wav": "ref/command.wav",
+  "text": "Theseus to Blue lead, we are reading inbound warheads and three wings of Cylon raiders. Intercept and destroy, we are scrambling other squadrons for launch.",
+  "dur": 8.6
+ },
+ "lantern": {
+  "wav": "ref/lantern.wav",
+  "text": "This is Red 2 to Theseus. We have established contact with the Indart and she has tylium. We have neutralized a Cylon recon wing, but more might appear at any moment.",
+  "dur": 9.0
+ },
+ "shadow": {
+  "wav": "ref/shadow.wav",
+  "text": "That's what I wanted to hear. I know you're worried about your sister. As soon as we can re-establish contact with the fleet, you'll be the first to know about what's happening on Virgon.",
+  "dur": 9.6
+ },
+ "flask": {
+  "wav": "ref/flask.wav",
+  "text": "Jump complete. I'm reading two DRADIS contacts, Cylon raiders. Might be a rear guard. They haven't detected our emissions yet. As long as we don't shoot or get too close we should be fine.",
+  "dur": 10.9
+ },
+ "captain": {
+  "wav": "ref/captain.wav",
+  "text": "A battlestar? The Indart doesn't have an FTL drive, so you'll need to bring your ship here. With baseships jumping into orbit you'll be taking one hell of a risk.",
+  "dur": 10.3
+ },
+ "civilian": {
+  "wav": "ref/civilian.wav",
+  "text": "We... we found someone... We've been jumping all over the system, looking for anyone else still alive.",
+  "dur": 6.7
+ },
+ "hauler": {
+  "wav": "ref/hauler.wav",
+  "text": "New contact! Cylon baseship! They've been toying with us the whole time... FTL is still down... We don't stand a chance!",
+  "dur": 9.3
+ },
+ "ghost": {
+  "wav": "ref/ghost.wav",
+  "text": "Hang in there. We'll double back with an SAR bird. You have enough air for at least twelve hours, conserve it.",
+  "dur": 6.4
+ },
+ "rook": {
+  "wav": "ref/rook.wav",
+  "text": "Don't be thanking them so soon. Prometheus, we're going to need as much space on deck for those Evac Raptors as possible. Let's hope your drives are spooled before the toasters make a comeback.",
+  "dur": 11.1
+ }
+}

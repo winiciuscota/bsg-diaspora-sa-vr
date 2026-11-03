@@ -1,0 +1,10 @@
+#Debriefing_info
+
+$Num stages:		1
+
+$Formula:		( true ) 
+$Multi text		XSTR("You have been found guilty of committing acts of high treason against the Twelve Colonies of Kobol. There is but one punishment for these crimes, summary execution. Guard, give me your sidearm.", 146)
+$end_multi_text
+$Voice:			Traitor.ogg
+$Recommendation text:	XSTR("Do not open fire on friendly targets.", 147)
+$end_multi_text

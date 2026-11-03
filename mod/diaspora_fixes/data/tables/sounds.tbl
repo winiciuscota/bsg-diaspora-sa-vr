@@ -1,0 +1,425 @@
+; Diaspora Sounds Table
+
+#Game Sounds Start						
+; Misc sounds section
+$Name:	0	Weapons_Missile_Tracking.ogg,	0, 0.40, 0			;; Missile tracking target (loop)
+$Name:	1	Weapons_Missile_Locked.ogg,	0, 0.50, 0			;; Missile locked on target	
+$Name:	2	Weapons_Col_Primary_Cycle.ogg,	0, 0.50, 0			;; Primary weapon cycle	
+$Name:	3	Weapons_Col_Secondary_Cycle.ogg,0, 0.50, 0			;; Secondary weapon cycle
+$Name:	4	Engines_CP_Default.ogg,		0, 1.00, 0			;; Engine sound in cockpit	
+$Name:	5	Cargo_Revealed.ogg,		0, 0.60, 0			;; cargo revealed
+$Name:	6	Fighter_Death_Roll.ogg,        	0, 0.40, 1, 200, 400		;; Fighter Death roll
+$Name:	7	Exp_Fighter.ogg,		0, 0.40, 1, 250, 500	        ;; Small explosions before blow
+$Name:	8	Select_Target_Click.ogg,	0, 0.35, 0			;; target acquired
+$Name:	9	Interface_Menu_Click3.ogg,	0, 0.50, 0			;; energy level change success
+$Name:	10	Interface_Error.ogg,		0, 0.50, 0			;; energy level change fail
+$Name:	11	Interface_Menu_Click3.ogg,	0, 0.50, 0			;; energy transfer success
+$Name:	12	Interface_Error.ogg,		0, 0.50, 0			;; energy transfer fail
+$Name:	13	Engines_Throttle_Full.ogg,	0, 0.50, 0			;; Generic Full Throttle	
+$Name:	14	Engines_Throttle_Off.ogg,	0, 0.50, 0			;; Generic Zero Throttle
+$Name:	15	Engines_Throttle_Up.ogg,	0, 0.40, 0			;; Generic Increase Throttle
+$Name:	16	Engines_Throttle_Down.ogg,	0, 0.40, 0			;; Generic Decrease Throttle
+$Name:	17	Engines_Throttle_Glide.ogg,     0, 0.90, 0      		;; Generic glide sound
+$Name:	18	Dock.ogg,			0, 1.00, 1, 500, 1200		;; dock 
+$Name:	19	Undock.ogg,			0, 1.00, 1, 500, 1200		;; undock
+$Name:	20	RCS_Start_Forward.ogg,      	0, 0.90, 0	        	;; Not used
+$Name:	21	Engines_AB_Default.ogg,		0, 1.00, 0			;; Generic Afterburner Engaged sound
+$Name:	22	Engines_ABL_Default.ogg,	0, 1.00, 0			;; Generic Afterburner Loop sound
+$Name:	23	Exp_Ship_Vapor.ogg,  		0, 0.50, 1, 250, 600	        ;; Fighter vaporized
+$Name:	24	Engines_ABF_Default.ogg,	0, 1.00, 0			;; Generic Afterburner out of fuel sound	
+$Name:	25	Weapons_Missile_Warning.ogg,	0, 1.00, 0			;; Heat seaker launch warning
+$Name:	26	Weapons_Secondary_Fail.ogg,	0, 1.00, 0			;; missile fire failed
+$Name:	27	Weapons_Primary_Fail.ogg,	0, 0.60, 0			;; primary fire failed
+$Name:	28	Interface_Menu_Click5.ogg,	0, 0.90, 0			;; targeting failed
+$Name:	29	Interface_Menu_Click1.ogg,	0, 0.50, 0			;; comm menu open
+$Name:	30	Interface_Menu_Click1.ogg,	0, 0.50, 0			;; comm menu close
+$Name:	31	Debris_Loop_Metal.ogg,		0, 0.50, 2, 80, 150		;; debris loop sound
+$Name:	32	Exp_Subsystem.ogg,		0, 0.95, 0			;; subsystem destroyed
+$Name:	33	Interface_Menu_Click3.ogg,	0, 0.60, 1, 10, 50		;; missile reload start
+$Name:	34	Interface_Menu_Click3.ogg,	0, 0.50, 1, 10, 50		;; missile reload end
+$Name:	35	Repair_Ship.ogg,		0, 0.50, 0			;; ship repair loop
+$Name:	36	Exp_Impact_Primary.ogg,		0, 0.80, 1, 300, 600		;; ship hit by primary
+$Name:	37	Exp_Impact_Missile.ogg,		0, 1.00, 1, 500, 800		;; ship hit by missile
+$Name:	38	Weapons_Cycle_CM.ogg,		0, 0.80, 0			;; Cycle countermeasure		
+$Name:	39	Exp_Impact_Primary.ogg,		0, 0.90, 1, 300, 600		;; Shield hit
+$Name:	40	Exp_Impact_Primary.ogg,		0, 0.90, 1, 300, 600		;; player shield hit
+$Name:	41	Interface_Menu_Click1.ogg,	0, 0.60, 0			;; mouse click
+$Name:	42	Weapons_Missile_Warning2.ogg,	0, 0.50, 0			;; aspect launch warning
+$Name:	43	Interface_Menu_Click1.ogg,	0, 0.60, 0			;; shield quadrant transfer
+$Name:	44	Engine_Wash.ogg,        	0, 0.80, 1, 200, 400		;; engine wash
+$Name:	45	FTL_Arrival.ogg,		0, 0.50, 2, 500, 1500		;; FTL Jump Arrival
+$Name:	46	FTL_Jump.ogg,			0, 0.50, 2, 500, 1500		;; FTL Jump Depart
+$Name:	47	Engines_ABF_Default.ogg,	0, 1.00, 0			;; FTL Fail
+$Name:	48	EMP_Interference.ogg,		0, 0.40, 0		        ;; EMP static
+$Name:	49	Exp_Ship_Small.ogg,		0, 0.70, 1, 400, 800		;; Small ship Explosion 
+$Name:	50	FTL_Jump_3rd.ogg,		0, 1.00, 0		        ;; FTL Jump 3rd person view
+$Name:	51	Collision_Big_Ship.ogg, 	0, 1.00, 1, 100, 200		;; heavy ship colliosion
+$Name:	52	Collision_Small_Ship.ogg,	0, 0.80, 1, 100, 200		;; Small ship collision
+$Name:	53	Collision_Small_Ship.ogg,	0, 0.60, 1, 100, 200	 	;; shielded ship collision
+$Name:	54	Weapons_Missile_Warning2.ogg,	0, 0.50, 0			;; Missile threat indicator
+$Name:	55	Weapons_Missile_Warning.ogg,	0, 0.50, 0			;; Missile proximity warning - heat
+$Name:	56	Weapons_Missile_Warning.ogg,	0, 0.50, 0			;; Missile proximity warning - aspect
+$Name:	57	Directive_Complete.ogg,		0, 0.70, 0			;; directive complete
+$Name:	58	Exp_Subsystem_Frigate.ogg,     	0, 0.65, 1,  350, 700		;; other ship subsystem destroyed
+$Name:	59	Exp_Ship_Capital.ogg,	        0, 1.00, 2, 2000, 8000		;; capital ship explosion
+$Name:	60	Exp_Subsystem_Cap.ogg,	       	0, 0.60, 1, 400, 800		;; capital ship subsystem destroyed
+$Name:	61	FTL_Jump.ogg,			0, 1.00, 1, 1500, 2000		;; FTL Jump large ship (obsolete)	
+$Name:	62	EXP_Big_Ast.ogg,		0, 1.00, 2, 750, 1500		;; large asteroid explosion
+$Name:	63	EXP_Small_Ast.ogg,		0, 0.85, 2, 500, 1000		;; small asteroid explosion
+$Name:	64	Comm_Voice_Start.ogg,		0, 0.90, 0			;; Comm Voice start cue
+$Name:	65	Comm_Voice_Start.ogg,		0, 0.90, 0			;; comm voice end
+$Name:	66	Cargo_Scan.ogg,			0, 0.60, 0			;; cargo scanning loop
+$Name:	67	Weapons_Flyby.ogg,		0, 0.90, 2, 70, 250  		;; weapon flyby	
+$Name:	68	Engines_Colonial.ogg,		0, 0.50, 1, 200, 700		;; asteroid (obsolete)
+$Name:	69	FTL_Cap_Arrival.ogg,		0, 0.90, 2, 2000, 6000		;; FTL Jump Cap Arrival
+$Name:	70	FTL_Cap_Depart.ogg,		0, 0.90, 2, 2000, 6000		;; FTL Jump Cap Depart
+$Name:	71	Engines_Large_Ambient.ogg,	0, 0.70, 1, 600, 1000		;; large engine ambient
+$Name:	72	Engines_Large_Ambient.ogg,	0, 0.30, 0			;; subspace left looping
+$Name:	73	Engines_Large_Ambient.ogg,	0, 0.30, 0			;; subspace right looping
+$Name:	74	Weapons_Missile_Evaded.ogg,	0, 0.50, 0			;; Missile Evaded		
+$Name:	75	Engines_Large_Ambient.ogg,	0, 0.70, 1, 600, 1000		;; huge engine ambient
+
+; Weapons section
+$Name:	76    	Weapons_Col_KEW_Standard.ogg,	0, 0.50, 1,  10, 200		;; Colonial KEW Standard launchsnd
+$Name:	77	Weapons_Col_KEW_Start.ogg,	0, 0.75, 1,  10, 400		;; Colonial KEW Standard firesnd
+$Name:	78    	Weapons_Col_KEW_Heavy.ogg,	0, 0.50, 1,  10, 200		;; Colonial KEW Heavy launchsnd	
+$Name:	79	Weapons_Col_KEW_Heavy_Start.ogg,0, 0.75, 1,  10, 200		;; Colonial KEW Heavy firesnd
+$Name:	80	Weapons_Col_KEW_Training.ogg,   0, 0.35, 1,  10, 400		;; Colonial KEW Laser Training launchsnd
+$Name:	81	Weapons_Col_Train_KEW_Start.ogg,0, 0.50, 1,  10, 400	        ;; Colonial KEW Laser Training firesnd
+$Name:	82	Weapons_Col_KEW_Standard.ogg,	0, 0.65, 1,  10, 400		;; free slot
+$Name:	83	Exp_Impact_Heavy.ogg,          	0, 0.65, 1, 800, 1600		;; Heavy Conventional bomb impact explosion
+$Name:	84	Exp_Impact_Dumb.ogg,            0, 0.40, 1, 400, 800		;; Dumbfire Missile impact explosion
+$Name:	85	Exp_Impact_Primary.ogg,		0, 0.40, 1, 50, 150		;; KEW impact
+$Name:	86	Exp_Impact_Torpedo.ogg,	        0, 0.50, 1, 700, 1400		;; Torpedo Missile impact explosion
+$Name:	87	Exp_Impact_Medium.ogg,        	0, 0.50, 1, 600, 1200		;; Medium Missile impact explosion
+$Name:	88	Exp_Impact_Light.ogg,         	0, 0.40, 1, 400, 800		;; Light Missile impact explosion
+$Name:	89	Exp_Impact_Nuke.ogg,            0, 1.00, 1, 1500, 4000		;; Nuke impact explosion
+$Name:	90	Exp_Impact_EMP.ogg,            	0, 0.50, 1, 700, 2500		;; Emp Missile impact explosion
+$Name:	91	Weapons_Col_Missile_Launch.ogg,	0, 0.70, 1, 100, 200		;; Colonial Missile launchsnd
+$Name:	92	Weapons_Cyl_Missile_Launch.ogg,	0, 0.70, 1, 100, 200		;; Cylon Missile Launchsnd
+$Name:	93	Weapons_Launch_Dart.ogg,        0, 0.80, 1, 100, 200		;; Cylon Dart sound
+$Name:	94	Weapons_Launch_Pilum.ogg,	0, 0.90, 1, 100, 200		;; Cylon Pilum sound
+$Name:	95	Weapons_Launch_Voulge.ogg,	0, 0.95, 1, 150, 300		;; Cylon Voulge sound
+$Name:	96	Weapons_Launch_Shipwreck.ogg,   0, 0.90, 1, 200, 500		;; Cylon Shipwreck sound
+$Name:	97	Weapons_Launch_Scythe.ogg,	0, 0.95, 1, 300, 600		;; Cylon Scythe sound
+$Name:	98	Weapons_Launch_Mangonel.ogg,	0, 0.95, 1, 300, 600		;; Cylon Mangonel sound
+$Name:	99	Weapons_Countermeasure.ogg,	0, 1.00, 1,  50, 200		;; Countermeasure launch
+$Name:	100	Weapons_Launch_Siren.ogg, 	0, 0.60, 1,  50, 400 		;; Cylon Siren sound
+$Name:	101	Exp_Ship_Initial.ogg,	 	0, 0.40, 1, 350, 600		;; initial ship explosion
+$Name:	102	Weapons_Launch_Lance.ogg,	0, 0.80, 1, 100, 200		;; clonial lance sound
+$Name:	103	Weapons_Launch_Javelin.ogg,	0, 1.10, 1, 100, 200		;; colonial javelin sound
+$Name:	104	Weapons_Launch_Arbalest.ogg,	0, 0.90, 1, 150, 300		;; colonial arbalest sound
+$Name:	105	Weapons_Launch_Whiplash.ogg,    0, 1.00, 1, 200, 400		;; colonial whiplash sound
+$Name:	106	Weapons_Launch_Jester.ogg,      0, 0.80, 1, 200, 400		;; colonial jester sound
+$Name:	107	Weapons_Launch_Tercio.ogg,	0, 0.90, 1, 300, 600		;; colonial tercio sound
+$Name:	108	Weapons_Launch_Nesseus.ogg,     0, 0.90, 1, 300, 600 		;; colonial nesseus sound
+$Name:	109	Exp_Impact_Shockwave.ogg,	0, 0.95, 1,  50, 800		;; shockwave impact sound
+$Name:	110	Weapons_Col_KEW_Standard.ogg,	0, 0.30, 2, 200, 700		;; free slot
+$Name:	111	Weapons_Col_KEW_Phalanx.ogg,   	0, 0.25, 2, 200, 400		;; colonial phalanx guns
+$Name:	112	Weapons_Col_KEW_ShipMount.ogg, 	0, 0.20, 2, 150, 300		;; colonial ship mounted KEW
+$Name:	113	Weapons_Col_Flak_Launch.ogg,	0, 0.50, 2, 450, 1250		;; Colonial Flak Turret launchsnd
+$Name:	114	Exp_Weapon_Flak.ogg,		0, 0.65, 2, 250, 500	        ;; Flak Impactsnd
+$Name:	115	Weapons_Missile_Tracking.ogg,	0, 0.60, 1, 50, 200		;; targeting laser loop
+$Name:	116	Weapons_Launch_Col_Turret.ogg,	0, 0.60, 1, 500, 1500		;; Colonial Turret Artillery launchsnd
+$Name:	117	Exp_Weapon_Artillery.ogg,	0, 0.90, 1, 1000, 2000		;; Artillery Impactsnd
+$Name:	118	Weapons_Col_KEW_Standard.ogg,	0, 0.20, 1, 200, 400		;; free slot
+$Name:	119	Engines_Drone.ogg,		0, 0.30, 1, 150, 400		;; escape pod
+$Name:	120	Exp_Fighter.ogg,		0, 0.40, 1, 250, 500		;; beam hit
+$Name:	121	Weapons_Col_Spinal_Launch.ogg,	0, 0.70, 2, 600, 1700		;; Spinal mount arty launchsnd
+$Name:	122	Exp_Weapon_Spinal_Arty.ogg,	0, 0.95, 2, 1200, 2500		;; Spinal mount arty impactsnd
+$Name:	123	Exp_Weapon_Flak1.ogg,		0, 0.80, 2, 300, 800	        ;; Flak Impactsnd1
+$Name:	124	Exp_Weapon_Flak2.ogg,		0, 0.45, 2, 200, 300	        ;; Flak Impactsnd2
+$Name:	125	Exp_Weapon_Flak3.ogg,		0, 0.50, 2, 450, 950	        ;; Flak Impactsnd3
+$Name:	126	Engines_Col_Viper_MK2.ogg,	0, 0.70, 2, 200, 750 		;; Viper MKII  engine
+$Name:	127	Engines_Col_Viper_MK7e.ogg,	0, 0.75, 2, 250, 800            ;; Viper MKVII-E engine
+$Name:	128	Engines_Colonial.ogg,		0, 0.60, 2, 1500, 3000		;; Colonial Fleet Engines
+$Name:	129	Engines_Col_Viper_MK7.ogg,     	0, 0.70, 2, 200, 750 	        ;; Viper MKVII engine
+$Name:	130	Engines_Col_Raptor.ogg,		0, 0.75, 2, 350, 800 	        ;; Raptors engine
+$Name:	131	Engines_Cyl_Raider.ogg,		0, 0.60, 2, 200, 800 	        ;; Raider engine
+$Name:	132	Engines_Cyl_Raider_Adv.ogg,	0, 0.70, 2, 200, 850	        ;; Advanc. Raider engine
+$Name:	133	Engines_Cyl_Raider_Hvy.ogg,	0, 0.75, 2, 250, 900            ;; Heavy Rider engine
+$Name:	134	Engines_Cylon.ogg,		0, 0.70, 2, 450, 1000           ;; Cylon Fleet Engines
+$Name:	135	Engines_Drone.ogg,		0, 0.30, 2, 250, 400	        ;; Cylotron and Trainig Viper engine
+$Name:	136	Engines_Col_Capital.ogg,   	0, 1.00, 2, 3000, 7000	        ;; Colonial Capital engine
+$Name:	137	Engines_Cyl_Capital.ogg,      	0, 1.00, 2, 1500, 3000	        ;; Cylon Capital engine
+$Name:	138	Engines_Cylon.ogg,		0, 0.90, 2, 1500, 3000		;; Cylon Fleet Engines
+$Name:	139	Debris_Arc_01.ogg,		0, 0.30, 2, 200, 500		;; debris sound
+$Name:	140	Debris_Arc_02.ogg,		0, 0.30, 2, 200, 500		;; debris sound
+$Name:	141	Debris_Arc_03.ogg,		0, 0.30, 2, 200, 500		;; debris sound
+$Name:	142	Debris_Arc_04.ogg,		0, 0.30, 2, 200, 500		;; debris sound
+$Name:	143	Debris_Arc_05.ogg,		0, 0.30, 2, 200, 500		;; debris sound
+$Name:	144	Weapons_Flyby_Col_Miss.ogg,     0, 0.70, 2, 200, 400		;; colonial missile flyby sound
+$Name:	145	Weapons_Flyby_cyl_Miss.ogg,     0, 0.70, 2, 300, 400		;; cylon missile flyby sound
+$Name:	146	Weapons_Launch_Col_Turret.ogg,	0, 0.70, 2, 1500, 3000		;; free slot		
+$Name:	147	Weapons_Launch_Col_Turret.ogg,	0, 0.70, 2, 1500, 3000		;; free slot	
+$Name:	148	Weapons_Launch_Col_Turret.ogg,	0, 0.70, 2, 1500, 3000		;; free slot	
+$Name:	149	Weapons_Launch_Col_Turret.ogg,	0, 0.70, 2, 1500, 3000		;; free slot	
+$Name:	150	Weapons_Launch_Col_Turret.ogg,	0, 0.60, 2, 1500, 3000		;; free slot	
+$Name:	151	Weapons_Launch_Col_Turret.ogg,	0, 0.60, 2, 1500, 3000		;; free slot	
+$Name:	152	Weapons_Launch_Col_Turret.ogg,	0, 0.60, 2, 1500, 3000		;; free slot	
+$Name:	153	Weapons_Launch_Col_Turret.ogg,	0, 0.60, 2, 1500, 3000		;; free slot	
+$Name:	154	Weapons_Launch_Col_Turret.ogg,	0, 0.60, 2, 1500, 3000		;; free slot	
+$Name:	155	Weapons_CYl_Missile_Track.ogg,	0, 0.90, 0              	;; Cylon Missile tracking target (loop) 	
+$Name:	156	Weapons_Cyl_Missile_Locked.ogg,	0, 0.90, 0                      ;; Cylon locked on target	
+$Name:	157	Weapons_Cyl_Primary_Cycle.ogg, 	0, 0.30, 0		        ;; Cylon Primary weapon cycle		
+$Name:	158	Weapons_Cyl_Secondary_Cycle.ogg,0, 0.40, 0		        ;; Cylon Secondary weapon cycle	
+$Name:	159	Weapons_Cyl_Missile_Warn.ogg,	0, 0.70, 0	           	;; Cylon Heat seaker launch warning
+$Name:	160	Weapons_Cyl_Missile_Warn2.ogg,	0, 0.60, 0	        	;; Cylon aspect launch warning		
+$Name:	161	Weapons_Cyl_Missile_Warn3.ogg,	0, 0.70, 0	        	;; Cylon Missile threat indicator	
+$Name:	162	Weapons_Cyl_Missile_Evaded.ogg,	0, 0.70, 0	          	;; Cylon Missile Evaded
+$Name:	163	Weapons_Cyl_KEW_Standard.ogg,	0, 0.55, 1, 15, 400  		;; Cylon KEW Standard launchsnd
+$Name:	164	Weapons_Cyl_KEW_Start.ogg,	0, 0.70, 1, 10, 400             ;; Cylon KEW Standard firesnd
+$Name:	165	Weapons_Cyl_KEW_Heavy.ogg,	0, 0.60, 1, 10, 400             ;; Cylon KEW Heavy lainchsnd
+$Name:	166	Weapons_Cyl_KEW_Heavy_Start.ogg,0, 0.75, 1, 10, 400             ;; Cylon KEW Heavy firesnd
+$Name:	167	Weapons_Cyl_KEW_Standard.ogg,	0, 0.60, 1, 50, 400		;; free slot             
+$Name:	168	Weapons_Cyl_KEW_Standard.ogg,	0, 0.60, 1, 50, 400		;; free slot
+$Name:	169	Weapons_Flyby_Cyl_Torpedo.ogg,	0, 0.60, 1, 50, 400             ;; Basestar Torpedo flyby sounds	
+$Name:	170	Weapons_Launch_Pilum.ogg,	0, 0.80, 1, 100, 300		;; Basestar Pilum sound
+$Name:	171	Weapons_Launch_Voulge.ogg,	0, 0.85, 1, 350, 700		;; Basestar Voulge sound  
+$Name:	172	Weapons_Launch_Mangonel.ogg,	0, 0.95, 1, 400, 800		;; Basestar Mangonel sound
+$Name:	173	SupNova1.wav,			0, 1.00, 0			;; supernova distant
+$Name:	174	SupNova2.wav,			0, 1.00, 0			;; supernova shockwave
+$Name:	175	Engines_Large_Ambient.ogg,	0, 0.80, 2, 400, 800		;; cylon large engine
+$Name:	176	Engines_Large_Ambient.ogg,	0, 0.80, 2, 400, 1000		;; cylon large engine
+$Name:	177	Weapons_Cyl_KEW_Standard.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	178	Weapons_Cyl_KEW_Standard.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	179	Weapons_Cyl_KEW_Standard.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	180	Thunder_01.ogg,			0, 0.80, 0			;; nebula thunder 1
+$Name:	181	Thunder_02.ogg,			0, 0.80, 0			;; nebula thunder 2
+$Name:	182	Weapons_Cyl_KEW_Standard.ogg,	0, 0.60, 2, 1500, 3000		;; free slot
+$Name:	183	Weapons_Cyl_KEW_Standard.ogg,	0, 0.60, 2, 1500, 3000		;; free slot
+$Name:	184	Weapons_Cyl_KEW_Standard.ogg,	0, 0.60, 2, 1500, 3000		;; free slot
+$Name:	185	Engines_Large_Ambient.ogg,	0, 0.60, 1, 200,  500		;; free slot
+$Name:	186	Engines_Large_Ambient.ogg,	0, 0.60, 2, 400,  1000		;; free slot
+$Name:	187	Weapons_Cyl_KEW_Standard.ogg,	0, 0.70, 2, 2000, 3000		;; free slot
+$Name:	188	Weapons_Cyl_KEW_Standard.ogg,	0, 0.70, 2, 2000, 3000		;; free slot
+$Name:	189	Weapons_Cyl_KEW_Standard.ogg,	0, 0.70, 2, 2000, 3000		;; free slot
+$Name:	190	Cyl_Inst.ogg,           	0, 0.80, 2, 800, 2000		;; Cylon Big station
+$Name:	191	Col_Inst.ogg,	                0, 0.80, 2, 800, 2000		;; Colonial Big station
+
+; Turret rotation and elevation
+$Name:	192	Ship_Turret_Rotate_Small.ogg,   0, 0.60, 1, 80, 120		; Small turret base rotation
+$Name:	193	Ship_Turret_Elevate_Small.ogg,  0, 0.60, 1, 80, 120		; Small turret barrel elevation
+$Name:	194	Ship_Turret_Rotate_Large.ogg,	0, 0.70, 1, 120, 180		; Large turret base rotation
+$Name:	195	Ship_Turret_Elevate_Large.ogg,	0, 0.70, 1, 120, 180		; Large turret barrel elevation
+
+; Rcs thrusters sounds
+$Name:	196	RCS_Start_Forward.ogg,     	0, 0.40, 1, 40, 80		;; rcs forward start
+$Name:	197	RCS_Loop_Forward.ogg,       	0, 0.20, 1, 40, 80		;; rcs forward loop
+$Name:	198	RCS_Start_Right.ogg,      	0, 0.60, 1, 40, 80		;; rcs back start
+$Name:	199	RCS_Loop_Right.ogg,       	0, 0.40, 1, 40, 80		;; rcs back loop
+$Name:	200	RCS_Start_Left.ogg,      	0, 0.60, 1, 40, 80		;; rcs left start
+$Name:	201	RCS_Loop_Left.ogg,       	0, 0.40, 1, 40, 80		;; rcs left loop
+$Name:	202	RCS_Start_Backward.ogg,      	0, 0.40, 1, 40, 80		;; rcs back start
+$Name:	203	RCS_Loop_Backward.ogg,         	0, 0.30, 1, 40, 80		;; rcs back loop
+
+; Landings
+$Name: 	204	Landing_Skid_Loop.ogg,	        0, 1.00, 1, 100, 300		; Touchdown skid sound
+
+; Glide Modes
+$Name:	205	Glide_Col_Viper_MK7_On.ogg,	0, 0.70, 0      		;; MK VII Glide on sound
+$Name:	206	Glide_Col_Viper_MK7_Off.ogg,	0, 0.70, 0      		;; MK VII Glide off sound
+$Name:	207	Glide_Col_Viper_MK7e_On.ogg,	0, 0.70, 0      		;; MK VII-E Glide on sound
+$Name:	208	Glide_Col_Viper_MK7e_Off.ogg,	0, 0.70, 0      		;; MK VII-E Glide off sound
+$Name:	209	Glide_Col_Raptor_On.ogg,	0, 0.60, 0      		;; Raptor Glide on sound
+$Name:	210	Glide_Col_Raptor_Off.ogg,	0, 0.60, 0      		;; Raptor Glide off sound
+$Name:	211	Glide_Cyl_Raider_On.ogg,	0, 0.60, 0      		;; Raider Glide on sound
+$Name:	212	Glide_Cyl_Raider_Off.ogg,	0, 0.60, 0      		;; Raider Glide off sound
+$Name:	213	Glide_Cyl_Raider_Adv_On.ogg,	0, 0.65, 0      		;; Adv Raider Glide on sound
+$Name:	214	Glide_Cyl_Raider_Adv_Off.ogg,	0, 0.65, 0      		;; Adv Raider Glide off sound
+$Name:	215	Glide_Cyl_Raider_Hvy_On.ogg,	0, 0.70, 0      		;; Heavy Raider Glide on sound
+$Name:	216	Glide_Cyl_Raider_Hvy_Off.ogg,	0, 0.70, 0      		;; Heavy Raider Glide off sound
+
+; Ships In Cockpit Engine Sounds
+$Name:	217	Engines_CP_Col_Viper_MK2.ogg,	0, 0.70, 0      		;; Viper MK II Engine sound in cockpit
+$Name:	218	Engines_CP_Col_Viper_MK7.ogg,	0, 0.80, 0      		;; Viper MK VII Engine sound in cockpit
+$Name:	219	Engines_CP_Col_Raptor.ogg,	0, 0.70, 0      		;; Raptor Engine sound in cockpit
+$Name:	220	Engines_CP_Col_Viper_MK7e.ogg,	0, 0.75, 0      		;; Viper MK VII-E Engine sound in cockpit
+$Name:	221	Engines_CP_Cyl_Raider.ogg,	0, 0.80, 0      		;; Raider Engine sound in cockpit
+$Name:	222	Engines_CP_Cyl_Raider_Adv.ogg,	0, 0.80, 0      		;; Advanced Raider Engine sound in cockpit
+$Name:	223	Engines_CP_Cyl_Raider_Hvy.ogg,	0, 0.90, 0      		;; Heavy Raider Engine sound in cockpit
+
+; Ships Afterburner Sounds
+$Name:	224	Engines_AB_Col_Viper_MK2.ogg,	0, 0.80, 0      		;; Viper MK II afterburner engage sound
+$Name:	225	Engines_ABL_Col_Viper_MK2.ogg,	0, 0.80, 0      		;; Viper MK II afterburner loop sound
+$Name:	226	Engines_ABF_Col_Viper_MK2.ogg,	0, 0.70, 0      		;; Viper MK II afterburner out of fuel sound
+$Name:	227	Engines_AB_Col_Viper_MK7.ogg,	0, 0.80, 0      		;; Viper MK VII afterburner engage sound
+$Name:	228	Engines_ABL_Col_Viper_MK7.ogg,	0, 0.80, 0      		;; Viper MK VII afterburner loop sound
+$Name:	229	Engines_ABF_Col_Viper_MK7.ogg,	0, 0.70, 0      		;; Viper MK VII afterburner out of fuel sound
+$Name:	230	Engines_AB_Col_Viper_MK7e.ogg,	0, 0.80, 0      		;; Viper MK VII-E afterburner engage sound
+$Name:	231	Engines_ABL_Col_Viper_MK7e.ogg,	0, 0.80, 0      		;; Viper MK VII-E afterburner loop sound
+$Name:	232	Engines_ABF_Col_Viper_MK7e.ogg,	0, 0.70, 0      		;; Viper MK VII-E afterburner out of fuel sound
+$Name:	233	Engines_AB_Col_Raptor.ogg,	0, 0.90, 0      		;; Raptor afterburner engage sound
+$Name:	234	Engines_ABL_Col_Raptor.ogg,	0, 0.80, 0      		;; Raptor afterburner loop sound
+$Name:	235	Engines_ABF_Col_Raptor.ogg,	0, 0.80, 0      		;; Raptor afterburner out of fuel sound
+$Name:	236	Engines_AB_Cyl_Raider.ogg,	0, 0.90, 0      		;; Raider afterburner engage sound
+$Name:	237	Engines_ABL_Cyl_Raider,		0, 0.90, 0      		;; Raider afterburner loop sound
+$Name:	238	Engines_ABF_Cyl_Raider.ogg,	0, 0.80, 0      		;; Raider afterburner out of fuel sound
+$Name:	239	Engines_AB_Cyl_Raider_Adv.ogg,	0, 0.90, 0      		;; Advanced Raider afterburner engage sound
+$Name:	240	Engines_ABL_Cyl_Raider_Adv.ogg,	0, 0.90, 0      		;; Advanced Raider afterburner loop sound
+$Name:	241	Engines_ABF_Cyl_Raider_Adv.ogg,	0, 0.80, 0      		;; Advanced Raider afterburner out of fuel sound
+$Name:	242	Engines_AB_Cyl_Raider_Hvy.ogg,	0, 0.90, 0      		;; Heavy Raider afterburner engage sound
+$Name:	243	Engines_ABL_Cyl_Raider_Hvy.ogg,	0, 0.90, 0      		;; Heavy Raider afterburner loop sound
+$Name:	244	Engines_ABF_Cyl_Raider_Hvy.ogg,	0, 0.80, 0      		;; Heavy Raider afterburner out of fuel sound
+
+; Dradis sounds
+$Name:	245	DRADIS_Loop.ogg,		0, 0.90, 0                      ;; Colonial DRADIS in-cockpit sound loop 
+$Name:	246	DRADIS_Contact.ogg,		0, 0.50, 0                      ;; Colonial DRADIS contact beep
+$Name:	247	DRADIS_Cylon_Eye_Loop.ogg,	0, 0.35, 0                      ;; Cylon roving eye loop 
+$Name:	248	DRADIS_Contact.ogg,	0, 0.50, 0                      ;; Cylon DRADIS contact beep  
+$Name:	249	DRADIS_Stealth.ogg,		0, 0.35, 0                      ;; Dradis jammed signal sound
+$Name:	250	DRADIS_Disappear.ogg,		0, 0.30, 0                      ;; Colonial DRADIS object disapperar
+$Name:	251	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	252	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	253	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	254	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	255	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	256	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	257	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	258	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	259	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+
+; Ships custom explosion sounds
+$Name:	260	Exp_Ship_Battlestar.ogg,        0, 1.20, 2, 6000, 12000		;; Battlestar explosion
+$Name:	261	Exp_Ship_Cruiser.ogg,	        0, 1.00, 2, 4200, 8000		;; Cruiser ship explosion
+$Name:	262	Exp_Ship_Bigcap.ogg,	        0, 0.95, 2, 4600, 10500		;; Big capital ship explosion
+$Name:	263	Exp_Ship_Smallcap.ogg,	        0, 0.90, 2, 1500, 5000		;; Small capital ship explosion
+$Name:	264	Exp_Ship_Basestar.ogg,	        0, 1.20, 2, 6000, 12000		;; Basestar explosion
+$Name:	265	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	266	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	267	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	268	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	269	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	270	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	271	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	272	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	273	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	274	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	275	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	276	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	277	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	278	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	279	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+
+; Ships custom throttle sounds
+$Name:	280	Throttle_Col_Viper_Full.ogg,	0, 0.55, 0                      ;; Viper full throttle
+$Name:	281	Throttle_Col_Viper_Up.ogg,	0, 0.50, 0                      ;; viper increase throttle
+$Name:	282	Throttle_Col_Viper_Down.ogg,	0, 0.50, 0                      ;; viper decrease throttle
+$Name:	283	Throttle_Col_Viper_Off.ogg,	0, 0.50, 0                      ;; Viper zero throttle
+$Name:	284	Throttle_Col_Raptor_Full.ogg,	0, 0.60, 0                      ;; Raptor full throttle
+$Name:	285	Throttle_Col_Raptor_Up.ogg,	0, 0.50, 0                      ;; Raptor increase throttle
+$Name:	286	Throttle_Col_Raptor_Down.ogg,	0, 0.50, 0                      ;; Raptor decrease throttle
+$Name:	287	Throttle_Col_Raptor_Off.ogg,	0, 0.50, 0                      ;; Raptor zero throttle
+$Name:	288	Throttle_Cyl_Raider_Full.ogg,	0, 0.70, 0                      ;; Raider full throttle
+$Name:	289	Throttle_Cyl_Raider_Up.ogg,	0, 0.60, 0                      ;; Raider increase throttle
+$Name:	290	Throttle_Cyl_Raider_Down.ogg,	0, 0.60, 0                      ;; Raider decrease throttle
+$Name:	291	Throttle_Cyl_Raider_Off.ogg,	0, 0.60, 0                      ;; Raider zero throttle
+$Name:	292	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	293	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	294	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	295	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	296	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	297	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	298	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+$Name:	299	Weapons_Col_Turret_Launch.ogg,	0, 0.70, 2, 1500, 3000		;; free slot
+
+
+;; Sounds used by events (SEXPs)
+$Name:	300	Event_Launch_Tube_Start.ogg,	0, 1.20, 2   500,  510           ;; Viper Launch tube run
+$Name:	301	Event_Launch_Tube_Exit,		0, 1.20, 2   500,  510           ;; Viper exit from launch tube
+$Name:	302	Event_Launch_Standby,		0, 1.20, 2   500,  510           ;; Viper standby launch tube procedures
+$Name:	303	Event_Raptor_Standby,		0, 1.20, 2   500,  510           ;; Raptor stanby take off procedure
+$Name:	304	Event_Raptor_Take_Off,		0, 1.20, 2   500,  510           ;; Raptor take off from landing bay
+$Name:	305	Event_Viper_Standby,		0, 1.20, 2   500,  510           ;; Viper stanby take off procedure
+$Name:	306	Event_Viper_Take_Off,		0, 1.20, 2   500,  510           ;; Viper take off from landing bay
+
+
+#Game Sounds End
+
+
+#Interface Sounds Start
+
+$Name:	0	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; Mouse click	
+$Name:	1	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; Pick up ship icon
+$Name:	2	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; Drop a ship icon on slot
+$Name:	3	Interface_Menu_Click3.ogg,	0, 1.00, 0		;; Drop a ship icon on list
+$Name:	4	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; Brief, ship select, weapons bar
+$Name:	5	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; switch to new screen except commit
+$Name:	6	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; help
+$Name:	7	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; commit
+$Name:	8	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; prev/next
+$Name:	9	Interface_Menu_Click4.ogg,	0, 0.60, 0		;; scroll 
+$Name:	10	Interface_Error.ogg,		0, 0.70, 0		;; Error sound
+$Name:	11	Interface_Text_Write.ogg,	0, 0.70, 0		;; ship animation starts
+$Name:	12	Interface_Pilot_Select_Load.ogg,0, 0.50, 0		;; ambient Colonial hall
+$Name:	13	Interface_Pilot_Cyl_Load.ogg,   0, 0.50, 0		;; ambient Cylon hall
+$Name:	14	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; brief stage change
+$Name:	15	Interface_Menu_Click5.ogg,	0, 1.00, 0		;; brief change fail
+$Name:	16	Interface_Menu_Click4.ogg,	0, 0.70, 0		;; select brief icon
+$Name:	17	Interface_Menu_Click2.ogg,	0, 1.00, 0		;; mouse over
+$Name:	18	Interface_Menu_Click2.ogg,	0, 1.00, 0		;; mouse click
+$Name:	19	Interface_Menu_Click4.ogg,	0, 0.70, 0		;; reset
+$Name:	20	Interface_Text_Write.ogg,	0, 0.60, 0		;; briefing text wipe
+$Name:	21	Interface_Menu_Click1.ogg,	0, 0.70, 0		;; elevator
+$Name:	22	Interface_Text_Write.ogg,	0, 0.70, 0		;; weapon animation starts
+$Name:	23	Interface_Menu_Click1.ogg,	0, 0.00, 0		;; door opens
+$Name:	24	Interface_Menu_Click3.ogg,	0, 0.00, 0		;; door closes
+$Name:	25	Interface_Menu_Click1.ogg,	0, 0.70, 0		;; glow opens
+$Name:	26	Interface_Menu_Click1.ogg,	0, 0.00, 0		;; crane
+$Name:	27	Interface_Pilot_Select_Load.ogg,0, 0.00, 0		;; ambient for non main all menus
+$Name:	28	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; popup appears
+$Name:	29	Interface_Menu_Click3.ogg,	0, 1.00, 0		;; popup disappears
+$Name:	30	Interface_Menu_Click4.ogg,	0, 0.70, 0		;; voulme slider sample
+$Name:	31	Interface_Menu_Click1.ogg,	0, 0.00, 0		;; crane 2
+$Name:	32	Interface_Menu_Click2.ogg,	0, 0.70, 0		;; options mouse on
+$Name:	33	Interface_Menu_Click2.ogg,	0, 0.70, 0		;; options mouse off
+$Name:	34	Interface_Menu_Click2.ogg,	0, 0.70, 0		;; tech room mouse on
+$Name:	35	Interface_Menu_Click2.ogg,	0, 0.70, 0		;; tech room mouse off
+$Name:	36	Interface_Menu_Click2.ogg,	0, 0.60, 0		;; exit open
+$Name:	37	Interface_Menu_Click2.ogg,	0, 0.60, 0		;; exit close
+$Name:	38	Interface_Menu_Click1.ogg,	0, 0.00, 0		;; intercom 1
+$Name:	39	Interface_Menu_Click1.ogg,	0, 0.00, 0		;; intercom 2
+$Name:	40	Interface_Menu_Click1.ogg,	0, 0.00, 0		;; intercom 3
+$Name:	41	Interface_Menu_Click2.ogg,	0, 1.00, 0		;; spinning briefing highlight
+$Name:	42	Interface_Text_Write.ogg,	0, 0.70, 0		;; briefing stage static
+$Name:	43	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; mouse on
+$Name:	44	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; mouse off
+$Name:	45	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall exit open
+$Name:	46	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall exit close
+$Name:	47	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall hatch open
+$Name:	48	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall hatch close
+$Name:	49	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall lift up
+$Name:	50	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall lift down
+$Name:	51	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall glow on
+$Name:	52	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall glow off
+$Name:	53	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall skiff loop
+$Name:	54	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall screen on
+$Name:	55	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall screen off
+$Name:	56	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall greeting
+$Name:	57	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall bye
+$Name:	58	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall pa1
+$Name:	59	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall pa2
+$Name:	60	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall pa3
+$Name:	61	Interface_Menu_Click4.ogg,	0, 0.60, 0		;; bup
+$Name:	62	Interface_Menu_Click4.ogg,	0, 0.60, 0		;; thankyou
+$Name:	63	Interface_Menu_Click1.ogg,	0, 0.60, 0		;; cylon hall exit open
+$Name:	64	Interface_Menu_Click3.ogg,	0, 0.60, 0		;; cylon hall exit close
+
+#Interface Sounds End
+
+
+#Flyby Sounds Start
+
+$Colonial:		0	Flyby_Colonial.ogg,	0, 0.65, 1, 200, 400	
+$Colonial:		1	Flyby_Colonial2.ogg,	0, 0.75, 1, 200, 400	
+
+$Cylon:			0	Flyby_Cylon2.ogg,	0, 0.65, 1, 200, 400	
+$Cylon:			1	Flyby_Cylon.ogg,	0, 0.75, 1, 200, 400	
+
+$Civilian:		0	Flyby_Colonial.ogg,	0, 0.75, 1, 200, 400	
+$Civilian:		1	Flyby_Colonial2.ogg,	0, 0.75, 1, 200, 400	
+
+$Object:		0	Flyby_Colonial.ogg,	0, 0.75, 1, 200, 400	
+$Object:		1	Flyby_Colonial2.ogg,	0, 0.75, 1, 200, 400	
+
+#Flyby Sounds End

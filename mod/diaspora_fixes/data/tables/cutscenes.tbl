@@ -1,0 +1,67 @@
+; Cutscene.tbl 
+; Will contain data for :
+; 1.) cutscene names
+; 2.) cutscene descriptions
+; 3.) cutscene location on CD
+;
+; Do not change the ordering of the sections in this table. Also do not add items to the list
+
+#Cutscenes
+
+;;
+;; INTRO
+;;
+
+$Filename:		Intro.ogg
+$Name:			Introduction Movie
+$Description:		XSTR("Diaspora Game Introduction", 4)
+$end_multi_text
+$cd:			1
+
+
+
+;;
+;; INTRO R1
+;;
+
+$Filename:		SP_R1_Background
+$Name:			Shattered Armistice: Intro
+$Description:		XSTR("After 40 years of silence the Cylons return.", 8)
+$end_multi_text
+$cd:			1
+
+
+
+;;
+;; INTRO R1
+;;
+
+$Filename:		SP_R1_Intro.ogg
+$Name:			Shattered Armistice: Flight
+$Description:		XSTR("The Battlestar Theseus fights for survival as the twelve worlds fall.", 9)
+$end_multi_text
+$cd:			1
+
+;;
+;; ENDING R1 A
+;;
+
+$Filename:		SP_R1_Ending1.ogg
+$Name:			Shattered Armistice: Ragnar
+$Description:		XSTR("The Prometheus arrives to the safety of Galactica at Ragnar Anchorage.", 12)
+$end_multi_text
+$cd:			1
+
+
+;;
+;; ENDING R1 B
+;;
+
+$Filename:		SP_R1_Ending2.ogg
+$Name:			Shattered Armistice: Last Stand
+$Description:		XSTR("The surviving pilots of the Battlestar Theseus make their last stand at Virgon.", 14)
+$end_multi_text
+$cd:			1
+
+
+#End
