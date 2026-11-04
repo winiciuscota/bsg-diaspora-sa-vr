@@ -17,6 +17,7 @@ ap.add_argument("--pof", required=True)
 ap.add_argument("--length", type=float, required=True)
 ap.add_argument("--axes", default="auto")
 ap.add_argument("--flip-front", action="store_true")
+ap.add_argument("--tech", help="text for the Tech Room: also lists the ship there")
 a = ap.parse_args()
 
 tex = a.pof + "_hull"
@@ -36,5 +37,8 @@ with tempfile.TemporaryDirectory() as w:
 rad = a.length / 2
 tbm = TBM_HEAD + TBM_SHIP.format(cls=a.cls, short=a.short, pof=a.pof + ".pof", rad=rad * 0.5, rad2=rad, hp=2000000,
                                  close=a.length * 1.6) + "#End\n"
+if a.tech:
+    tbm = tbm.replace("$Species:\t\t\t\tCivilian\n", "$Species:\t\t\t\tCivilian\n+Tech Description:\t\t\t%s\n$end_multi_text\n" % a.tech, 1)
+    tbm = tbm.replace('( "dont collide invisible" )', '( "dont collide invisible" "in tech database" )', 1)
 open(os.path.join(DATA, "tables", a.pof + "-shp.tbm"), "w").write(tbm)
 print("added", a.cls, "->", a.pof + ".pof,", tex + ".dds,", a.pof + "-shp.tbm")
