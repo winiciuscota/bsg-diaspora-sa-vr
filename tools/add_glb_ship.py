@@ -17,6 +17,7 @@ ap.add_argument("--pof", required=True)
 ap.add_argument("--length", type=float, required=True)
 ap.add_argument("--axes", default="auto")
 ap.add_argument("--flip-front", action="store_true")
+ap.add_argument("--ref", help="the picture the model was generated from: colour-match and upscale the texture to it (enhance_texture.py)")
 ap.add_argument("--tech", help="text for the Tech Room: also lists the ship there")
 a = ap.parse_args()
 
@@ -30,6 +31,10 @@ with tempfile.TemporaryDirectory() as w:
     if a.flip_front:
         cmd.append("--flip-front")
     subprocess.run(cmd, check=True)
+    if a.ref:
+        enh = os.path.join(w, tex + ".png")
+        subprocess.run([sys.executable, os.path.join(ROOT, "tools", "enhance_texture.py"), img, a.ref, enh], check=True)
+        img = enh
     from PIL import Image
     wd, ht = Image.open(img).size
     subprocess.run(["magick", img, "-define", "dds:compression=dxt1", "-define", "dds:mipmaps=%d" % int(math.log2(max(wd, ht))),
