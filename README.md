@@ -82,8 +82,16 @@ NVIDIA driver, the Vulkan loader) comes from your system. The first start needs 
 
 ## VR settings
 
-Press **F9** in the main hall or in the Options screen for the in-game VR settings (HUD distance, size, height and placement,
-menu size, flash and glare strength, sun light shafts, camera shake, padlock, look-to-target). Changes are saved in
+Press **F9** in the main hall or in the Options screen for the in-game VR settings: a **graphics preset**, the **render
+scale**, HUD distance, size, height and placement, menu size, flash and glare strength, sun light shafts, camera shake,
+padlock and look-to-target. The preset and the render scale apply at the next start.
+
+- **Graphics preset**: *Low* (no shadows, no anti-aliasing, no bloom), *Default* (the engine's own settings, what you set in
+  the Options screen), *High* (SMAA, bloom, soft particles) and *Ultra* (High plus shadow maps and cockpit lighting). Ray-traced
+  shadows are never used by a preset. A preset overrides the matching options while it is active; pick *Default* to hand them
+  back to the Options screen.
+- **Render scale** (0.5 to 1.5): multiplies the VR render resolution (`DIASPORA_VR_RES`). Lower it if your GPU can't keep up,
+  raise it for a sharper picture. Changes are saved in
 `diaspora_vr_settings.ini` in your profile data folder. The same options can be forced with environment variables
 (put them in `vr.env` next to `launch-example.sh`, one `VAR=value` per line); what you save in the menu wins:
 
@@ -91,7 +99,8 @@ Environment variables (put them in `vr.env` next to `launch-example.sh`, one `VA
 
 | Variable | Default | What it does |
 |---|---|---|
-| `DIASPORA_VR_RES` | 1600x1800 | Window / render size in VR |
+| `DIASPORA_VR_RES` | 1600x1800 | Window / render size in VR (the render scale of the F9 screen multiplies it) |
+| `FSO_VR_GFX_PRESET`, `FSO_VR_RENDER_SCALE` | 1 (Default), 1.0 | Graphics preset (0 Low, 1 Default, 2 High, 3 Ultra) and render scale; apply at start |
 | `FSO_VR_HUD_DISTANCE`, `FSO_VR_HUD_ZOOM` | 10, 0.9 | HUD layer distance (m) and size |
 | `FSO_VR_HUD_STORES_DX/DY`, `FSO_VR_HUD_LEFT_DX/DY` | 0/-150, 60/-150 | Move the lower-right / lower-left gauge groups (1024-wide HUD units) |
 | `FSO_VR_HUD_SHIP_DX`, `FSO_VR_HUD_WEAPONS_DX` | 0, 25 | Nudge the ship outline / the weapon stores text |
