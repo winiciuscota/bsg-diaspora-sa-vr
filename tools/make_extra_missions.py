@@ -771,7 +771,7 @@ def fleet_anchorage():
            flags=idle, flags2=still, shields=0, score=0)
     m.ship("Sabazius", "Frigate Bolitho Class", "Friendly", (-1300.0, 250.0, 900.0), (0.0, 0.0, 5000.0), arrival="( true )",
            flags=idle, flags2=still, shields=0, score=0)
-    m.ship("Prometheus", "Prometheus", "Friendly", (1500.0, -200.0, 1400.0), (0.0, 0.0, 5000.0), arrival="( true )",
+    m.ship("Prometheus", "Prometheus", "Friendly", (1500.0, -200.0, 1400.0), (1500.0, -200.0, 5400.0), arrival="( true )",
            flags=idle, flags2=still, shields=0, score=0)
     for name, cls, pos in [("Keplaw", "Gemenon Freighter", (-2100.0, -300.0, -700.0)), ("Pixie", "Gemenon Freighter", (2300.0, 400.0, -500.0)),
                            ("Boa's Journey", "Colonial Mover", (400.0, 600.0, 2200.0)), ("Allsop", "Colonial Mover", (-700.0, -500.0, 2600.0)),
@@ -790,21 +790,23 @@ def fleet_anchorage():
     m.message("HQ Welcome", "Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, "
               "stretch the Viper's legs. Jump out whenever you want.")
     m.event("Welcome Msg", '( when ( true ) ( send-message "#Command" "High" "HQ Welcome" ) )')
-    # Landing: the Theseus has two open landing strips; the port one starts 550 m astern of the ship and runs forward at 162 m
-    # to the left of the centre line, 28 m below it (the same strip the tutorial uses). Touch down there slowly and the
-    # flight ends. Positions are in the ship's own frame; the Theseus sits at the origin facing +Z, so they are world coordinates.
-    m.waypoint_list("Landing Approach", [(-162.0, -28.0, -550.0)])
-    m.waypoint_list("Landing Deck", [(-162.0, -28.0, 120.0)])
-    m.message("HQ Landing", "Red 1, Theseus. If you want to come home, line up astern of the port landing strip, bring your speed "
-              "under forty and set her down on the deck. We'll catch you.")
+    # Landing: the Theseus has a landing bay on each side (the model's $Bay paths end at x = +-165, y = -28..-50, z = 65..90) and
+    # the Prometheus has one bay at the stern (its $fighterbay path ends at 0, 12, -180). Touch down slowly inside a bay and the
+    # flight ends. Ship positions below are chosen so both ships face +Z: model coordinates are then offsets from the ship.
+    m.waypoint_list("Deck Port", [(-165.0, -30.0, 80.0)])
+    m.waypoint_list("Deck Starboard", [(165.0, -30.0, 80.0)])
+    m.waypoint_list("Deck Prometheus", [(1500.0, -188.0, 1215.0)])
+    m.message("HQ Landing", "Red 1, Theseus. If you want to come home, take a landing bay on either side of the Theseus or the rear "
+              "bay of the Prometheus. Bring your speed under forty and set her down. We'll catch you.")
     m.message("HQ Down", "Red 1, you're down. Welcome back aboard. Deck crew will take it from here.")
     m.event("Landing Msg", '( when ( is-event-true-delay "Welcome Msg" 40 ) ( send-message "#Command" "Low" "HQ Landing" ) )')
-    m.event("Landed", '( when ( and ( < ( distance "Red 1" "Landing Deck:1" ) 80 ) ( < ( current-speed "Red 1" ) 45 ) ) ( do-nothing ) )')
+    m.event("Landed", '( when ( and ( < ( current-speed "Red 1" ) 45 ) ( or ( < ( distance "Red 1" "Deck Port:1" ) 70 ) '
+            '( < ( distance "Red 1" "Deck Starboard:1" ) 70 ) ( < ( distance "Red 1" "Deck Prometheus:1" ) 45 ) ) ) ( do-nothing ) )')
     m.event("Landed Msg", '( when ( is-event-true-delay "Landed" 1 ) ( send-message "#Command" "High" "HQ Down" ) )')
     win_end(m, "Landed")
     m.goal("Secondary", "Fly around the fleet", "Fly past the battlestar, the frigate and the tanker (optional)",
            '( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "Sabazius" ) 400 ) ( < ( distance "Red 1" "Prometheus" ) 400 ) )', 10)
-    m.goal("Secondary", "Land on the Theseus", "Touch down on the port landing strip below forty metres per second (ends the mission)",
+    m.goal("Secondary", "Land on a carrier", "Touch down in a landing bay of the Theseus or the Prometheus below forty-five metres per second (ends the mission)",
            '( is-event-true-delay "Landed" 0 )', 10)
     m.goal("Secondary", "Target practice", "Shoot the four parked training drones to the east (optional)",
            '( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )', 10)

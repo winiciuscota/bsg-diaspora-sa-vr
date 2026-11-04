@@ -179,9 +179,9 @@ $Class: Prometheus
 $Team: Friendly
 $Location: 1500.000000, -200.000000, 1400.000000
 $Orientation:
-	0.923077, -0.000000, 0.384615,
-	0.019698, 0.998688, -0.047275,
-	-0.384111, 0.051215, 0.921866
+	1.000000, 0.000000, 0.000000,
+	0.000000, 1.000000, 0.000000,
+	0.000000, 0.000000, 1.000000
 $AI Behavior: None
 $Cargo 1:  XSTR("Nothing", 150)
 +Initial Hull: 100
@@ -645,7 +645,7 @@ $Formula: ( when ( is-event-true-delay "Welcome Msg" 40 ) ( send-message "#Comma
 +Repeat Count: 1
 +Interval: 1
 
-$Formula: ( when ( and ( < ( distance "Red 1" "Landing Deck:1" ) 80 ) ( < ( current-speed "Red 1" ) 45 ) ) ( do-nothing ) )
+$Formula: ( when ( and ( < ( current-speed "Red 1" ) 45 ) ( or ( < ( distance "Red 1" "Deck Port:1" ) 70 ) ( < ( distance "Red 1" "Deck Starboard:1" ) 70 ) ( < ( distance "Red 1" "Deck Prometheus:1" ) 45 ) ) ) ( do-nothing ) )
 +Name: Landed
 +Repeat Count: 1
 +Interval: 1
@@ -675,8 +675,8 @@ $Formula: ( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "
 +Score: 10
 
 $Type: Secondary
-+Name: Land on the Theseus
-$MessageNew:  XSTR("Touch down on the port landing strip below forty metres per second (ends the mission)", -1)
++Name: Land on a carrier
+$MessageNew:  XSTR("Touch down in a landing bay of the Theseus or the Prometheus below forty-five metres per second (ends the mission)", -1)
 $end_multi_text
 $Formula: ( is-event-true-delay "Landed" 0 )
 +Score: 10
@@ -688,16 +688,21 @@ $end_multi_text
 $Formula: ( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )
 +Score: 10
 
-#Waypoints		;! 2 lists total
+#Waypoints		;! 3 lists total
 
-$Name: Landing Approach
+$Name: Deck Port
 $List: (		;! 1 points in list
-	( -162.000000, -28.000000, -550.000000 )
+	( -165.000000, -30.000000, 80.000000 )
 )
 
-$Name: Landing Deck
+$Name: Deck Starboard
 $List: (		;! 1 points in list
-	( -162.000000, -28.000000, 120.000000 )
+	( 165.000000, -30.000000, 80.000000 )
+)
+
+$Name: Deck Prometheus
+$List: (		;! 1 points in list
+	( 1500.000000, -188.000000, 1215.000000 )
 )
 
 #Messages		;! 3 total
@@ -712,7 +717,7 @@ $end_multi_text
 
 $Name: HQ Landing
 $Team: -1
-$MessageNew:  XSTR("Red 1, Theseus. If you want to come home, line up astern of the port landing strip, bring your speed under forty and set her down on the deck. We'll catch you.", -1)
+$MessageNew:  XSTR("Red 1, Theseus. If you want to come home, take a landing bay on either side of the Theseus or the rear bay of the Prometheus. Bring your speed under forty and set her down. We'll catch you.", -1)
 $end_multi_text
 
 $Name: HQ Down
