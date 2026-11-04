@@ -56,6 +56,7 @@ def main():
     ap.add_argument("--flip-front", action="store_true")
     ap.add_argument("--hard", type=float, default=60.0)
     ap.add_argument("--image", help="write the base colour image here")
+    ap.add_argument("--glow", help="json file with glow point banks: {\"banks\": [{\"texture\": name, \"points\": [[x,y,z,nx,ny,nz,radius], ...]}]}")
     ap.add_argument("--faces-per-part", type=int, default=20000)
     ap.add_argument("--max-parts", type=int, default=0, help="debug: keep only the first N parts")
     ap.add_argument("--empty-root", action="store_true", help="debug: empty root submodel + all parts as children (the engine runs out of memory loading that layout)")
@@ -148,6 +149,17 @@ def main():
     hdr2 = struct.pack("<fii", rad, 0, nsub) + struct.pack("<6f", *mins, *maxs) + struct.pack("<ii", 1, 0) + struct.pack("<i", 0)
     hdr2 += struct.pack("<f3f9f", mass, 0.0, 0.0, 0.0, inertia, 0, 0, 0, inertia, 0, 0, 0, inertia) + struct.pack("<ii", 0, 0)
     pof = b"PSPO" + struct.pack("<i", 2117) + chunk(b"TXTR", struct.pack("<i", 1) + string(a.texture)) + chunk(b"HDR2", hdr2)
+    if a.glow:
+        banks = json.load(open(a.glow))["banks"]
+        g = struct.pack("<i", len(banks))
+        for b in banks:       # always on: disp_time, on_time, off_time = 0; parent submodel 0; LOD 0; type 0 (omni)
+            g += struct.pack("<6i", 0, 0, 0, 0, 0, 0) + struct.pack("<i", len(b["points"])) + string("$glow_texture=" + b["texture"])
+            for pt in b["points"]:
+                g += struct.pack("<7f", *pt)
+        glow_chunk = chunk(b"GLOW", g)
+    else:
+        glow_chunk = b""
+    pof += glow_chunk
     pof += (b"" if a.root_geometry else chunk(b"OBJ2", root)) + b"".join(objs) + chunk(b"PINF", b"glb2pof.py (Diaspora VR port)\0")
     open(a.dst, "wb").write(pof)
     print("%s: %d submodels, %d bytes, %.0f m long, radius %.0f" % (a.dst, nsub, len(pof), (maxs - mins)[2], rad))
