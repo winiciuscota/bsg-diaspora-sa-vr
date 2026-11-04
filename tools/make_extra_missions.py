@@ -24,6 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fsmission import Mission, offset, CYLON_FLAGS  # noqa: E402
 
 TEST = "--test" in sys.argv
+# the generated Tylium Refinery model is not part of the public mod yet (set DIASPORA_REFINERY=1 to put it in Tylium Run)
+USE_REFINERY = os.environ.get("DIASPORA_REFINERY") == "1"
 OUT = [a for a in sys.argv[1:] if not a.startswith("--")][0]
 CIVIL_FLAGS = '( "cargo-known" "no-shields" "escort" "no-arrival-warp" "don\'t-collide-invisible" )'
 CAPITAL_FLAGS = '( "cargo-known" "no-shields" "escort" "no-arrival-warp" "don\'t-collide-invisible" )'
@@ -63,6 +65,11 @@ def tylium_run():
            cargo="Tylium")
     m.ship("Halyard", "Frigate Bolitho Class", "Friendly", HALYARD, END, arrival="( true )", departure=jump,
            ai_goals='ai-guard "Cassia" 80', flags=CAPITAL_FLAGS, shields=0, score=500)
+    # the Ragnar refinery the convoy just left: the generated Tylium Refinery model, parked off to the left behind the convoy
+    if USE_REFINERY:
+      m.ship("Ragnar Refinery", "Tylium Refinery", "Friendly", (-1900.0, -350.0, -900.0), (-1900.0, -350.0, 3100.0), arrival="( true )",
+             flags='( "invulnerable" "hidden-from-sensors" "no-shields" "don\'t-collide-invisible" "cargo-known" )',
+             flags2='( "immobile" )', shields=0, score=0)
     m.waypoint_list("Convoy Lane", [(0.0, 0.0, 1500.0), (500.0, 150.0, 4500.0), (300.0, 200.0, 8500.0)])
 
     m.cylon_wing("Jackal", "Raider", 4, (3200.0, 400.0, 2200.0), CASSIA, '( is-event-true-delay "Jackal Cue" 0 )',

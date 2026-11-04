@@ -102,7 +102,7 @@ def make_pof(out_v, out_n, polys, texture, mass=None):
     pts = b"".join(struct.pack("<3f", *out_v[i]) + struct.pack("<3f", *out_n[i]) for i in range(nv))
     defpoints = bytearray(head + bytes([1]) * nv + pts)
     struct.pack_into("<i", defpoints, 4, len(defpoints))
-    bsp = bytes(defpoints)
+    bsp = bytes(defpoints) + struct.pack("<ii6f", 5, 32, *mins, *maxs)   # leaf: BOUNDBOX, then its polygons, then EOF
     for n, tri, uvs in polys:
         pv = out_v[tri]
         ctr = pv.mean(0)
@@ -111,7 +111,6 @@ def make_pof(out_v, out_n, polys, texture, mass=None):
         for i, (u, w) in zip(tri, uvs):
             body += struct.pack("<hhff", i, i, u, -w)
         bsp += struct.pack("<ii", 3, 8 + len(body)) + body
-    bsp += struct.pack("<ii6f", 5, 32, *mins, *maxs)
     bsp += struct.pack("<ii", 0, 0)
 
     mass = mass or max(1000.0, rad ** 3 * 0.4)
