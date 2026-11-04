@@ -7,6 +7,9 @@ src = open(root + "/fs2open/code/parse/sexp.cpp", encoding="latin-1").read()
 arity = {m.group(1): (int(m.group(2)), int(m.group(3))) for m in re.finditer(r'\{\s*"([^"]+)",\s*OP_\w+,\s*(-?\d+),\s*(-?\d+)', src)}
 inf = {m.group(1): int(m.group(2)) for m in re.finditer(r'\{\s*"([^"]+)",\s*OP_\w+,\s*(-?\d+),\s*INT_MAX', src)}
 classes = set(re.findall(r'^\$Name:[ \t]*(.+?)\s*$', open(root + "/extracted/R1.1_Patch/data/tables/ships.tbl", encoding="latin-1").read(), re.M))
+import glob as _glob
+for _tbm in _glob.glob(root + "/overlay/diaspora_fixes/data/tables/*-shp.tbm"):
+    classes |= set(re.findall(r'^\$Name:[ \t]*(.+?)\s*$', open(_tbm, encoding="latin-1").read(), re.M))
 
 
 def parse(t, i):

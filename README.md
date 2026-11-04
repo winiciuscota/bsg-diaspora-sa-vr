@@ -25,10 +25,10 @@ The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr]
   HUD with long green streaks, worst with the sun in view).
 
 **Mod (`mod/diaspora_fixes`)**
-- 19 extra missions in the *Thunderlords Patrol Log* campaign (also in the Mission Simulator, which shows the estimated
+- 20 extra missions in the *Thunderlords Patrol Log* campaign (also in the Mission Simulator, which shows the estimated
   duration and difficulty of each): Vigil, Tylium Run, Hollow Rock, Iron Shepherd, Station Keeping, Dead Reckoning, Deep
   Look (Raptor), Firebreak, Hunter's Moon, Hammer and Anvil, Picket Line, Long Tow, Ghost Light, **five long missions of
-  25 to 30 minutes** (The Long Watch, Cold Convoy, Dead Hulks, Hammerfall, Last Stand at Armistice), and Fleet Anchorage
+  25 to 30 minutes** (The Long Watch, Cold Convoy, Dead Hulks, Hammerfall, Last Stand at Armistice), Gunnery Qualification (a range on the old Cylotron training drones), and Fleet Anchorage
   (a peaceful free flight to test your controls).
 - HUD layout tweaks for VR (smaller ship outline, stores and target box placement).
 - Saitek X52 default bindings.

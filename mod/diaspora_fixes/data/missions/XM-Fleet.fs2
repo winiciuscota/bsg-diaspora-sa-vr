@@ -92,7 +92,7 @@ $Ship Choices: (
 	"HD-51 Arbalest"	32
 )
 
-#Objects		;! 16 total
+#Objects		;! 20 total
 
 $Name: Red 1		;! Object #0
 $Class: Viper Mark VII
@@ -512,6 +512,110 @@ $Determination: 10
 +Use Table Score:
 +Score: 0
 
+$Name: Drone 1		;! Object #16
+$Class: Cylotron Mark IX Drone
+$Team: Neutral
+$Location: 2900.000000, 100.000000, -2500.000000
+$Orientation:
+	0.707107, -0.000000, 0.707107,
+	0.000000, 1.000000, 0.000000,
+	-0.707107, 0.000000, 0.707107
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 150)
++Initial Hull: 100
++Initial Shields: 0
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "no-arrival-warp" "don't-collide-invisible" )
++Flags2: ( "immobile" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Drone 2		;! Object #17
+$Class: Cylotron Mark IX Drone
+$Team: Neutral
+$Location: 3100.000000, 200.000000, -2300.000000
+$Orientation:
+	0.707107, -0.000000, 0.707107,
+	0.000000, 1.000000, 0.000000,
+	-0.707107, 0.000000, 0.707107
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 150)
++Initial Hull: 100
++Initial Shields: 0
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "no-arrival-warp" "don't-collide-invisible" )
++Flags2: ( "immobile" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Drone 3		;! Object #18
+$Class: Cylotron Mark IX Drone
+$Team: Neutral
+$Location: 3300.000000, 0.000000, -2100.000000
+$Orientation:
+	0.707107, -0.000000, 0.707107,
+	0.000000, 1.000000, 0.000000,
+	-0.707107, 0.000000, 0.707107
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 150)
++Initial Hull: 100
++Initial Shields: 0
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "no-arrival-warp" "don't-collide-invisible" )
++Flags2: ( "immobile" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
+$Name: Drone 4		;! Object #19
+$Class: Cylotron Mark IX Drone
+$Team: Neutral
+$Location: 3500.000000, 150.000000, -1900.000000
+$Orientation:
+	0.707107, -0.000000, 0.707107,
+	0.000000, 1.000000, 0.000000,
+	-0.707107, 0.000000, 0.707107
+$AI Behavior: None
+$Cargo 1:  XSTR("Nothing", 150)
++Initial Hull: 100
++Initial Shields: 0
++Subsystem: Pilot
+$Arrival Location: Hyperspace
+$Arrival Cue: ( true )
+$Departure Location: Hyperspace
+$Departure Cue: ( false )
+$Determination: 10
++Flags: ( "cargo-known" "no-shields" "no-arrival-warp" "don't-collide-invisible" )
++Flags2: ( "immobile" )
++Respawn priority: 0
++Orders Accepted: 0		;! note that this is a bitfield!!!
++Group: 0
++Use Table Score:
++Score: 0
+
 #Wings		;! 1 total
 
 $Name: Red
@@ -536,13 +640,20 @@ $Formula: ( when ( true ) ( send-message "#Command" "High" "HQ Welcome" ) )
 +Repeat Count: 1
 +Interval: 1
 
-#Goals		;! 1 total
+#Goals		;! 2 total
 
 $Type: Secondary
 +Name: Fly around the fleet
 $MessageNew:  XSTR("Fly past the battlestar, the frigate and the tanker (optional)", -1)
 $end_multi_text
 $Formula: ( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "Sabazius" ) 400 ) ( < ( distance "Red 1" "Prometheus" ) 400 ) )
++Score: 10
+
+$Type: Secondary
++Name: Target practice
+$MessageNew:  XSTR("Shoot the four parked training drones to the east (optional)", -1)
+$end_multi_text
+$Formula: ( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )
 +Score: 10
 
 #Waypoints		;! 0 lists total

@@ -784,11 +784,16 @@ def fleet_anchorage():
                              (0.0, 1500.0, -3300.0), (600.0, -1600.0, 3600.0)]):
         m.ship("Rock %d" % (i + 1), "Asteroid R1", "Friendly", pos, offset(pos, 0.5, 0.3, 0.8), arrival="( true )",
                flags=rock_flags, score=0)
+    for i, pos in enumerate([(2900.0, 100.0, -2500.0), (3100.0, 200.0, -2300.0), (3300.0, 0.0, -2100.0), (3500.0, 150.0, -1900.0)]):
+        m.ship("Drone %d" % (i + 1), "Cylotron Mark IX Drone", "Neutral", pos, offset(pos, -1.0, 0.0, 1.0), arrival="( true )",
+               flags=idle, flags2=still, hull=100, shields=0, score=0)
     m.message("HQ Welcome", "Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, "
               "stretch the Viper's legs. Jump out whenever you want.")
     m.event("Welcome Msg", '( when ( true ) ( send-message "#Command" "High" "HQ Welcome" ) )')
     m.goal("Secondary", "Fly around the fleet", "Fly past the battlestar, the frigate and the tanker (optional)",
            '( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "Sabazius" ) 400 ) ( < ( distance "Red 1" "Prometheus" ) 400 ) )', 10)
+    m.goal("Secondary", "Target practice", "Shoot the four parked training drones to the east (optional)",
+           '( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )', 10)
     m.debrief('( true )', "Quiet flight. The deck crew say the Viper came back without a scratch, as usual.",
               "Nothing to fix. Come back any time you want to test the controls.")
     return m
@@ -1069,7 +1074,7 @@ META = {
     "XM-Station.fs2": ("~14 min", "Medium"), "XM-Reckoning.fs2": ("~13 min", "Medium"), "XM-DeepLook.fs2": ("~11 min", "Hard"),
     "XM-Firebreak.fs2": ("~10 min", "Hard"), "XM-Hunter.fs2": ("~13 min", "Medium"), "XM-Anvil.fs2": ("~12 min", "Hard"),
     "XM-Picket.fs2": ("~8 min", "Easy"), "XM-Tow.fs2": ("~11 min", "Medium"), "XM-Ghost.fs2": ("~8 min", "Medium"),
-    "XM-Fleet.fs2": ("no time limit", "None"),
+    "XM-Fleet.fs2": ("no time limit", "None"), "XM-Range.fs2": ("~10 min", "Easy"),
     "XM-Watch.fs2": ("~28 min", "Hard"), "XM-Convoy.fs2": ("~25 min", "Hard"), "XM-Hulks.fs2": ("~26 min", "Medium"),
     "XM-Hammerfall.fs2": ("~24 min", "Hard"), "XM-Armistice.fs2": ("~32 min", "Very Hard"),
 }
@@ -1084,6 +1089,7 @@ if __name__ == "__main__":
                 ("XM-Watch.fs2", long_missions.long_watch()), ("XM-Convoy.fs2", long_missions.cold_convoy()),
                 ("XM-Hulks.fs2", long_missions.dead_hulks()), ("XM-Hammerfall.fs2", long_missions.hammerfall()),
                 ("XM-Armistice.fs2", long_missions.last_stand()),
+                ("XM-Range.fs2", long_missions.gunnery_range()),
                 ("XM-Fleet.fs2", fleet_anchorage())]
     manifest_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overlay", "diaspora_fixes", "data", "voice",
                                  "special", "voice_manifest.json")

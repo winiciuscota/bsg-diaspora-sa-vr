@@ -36,6 +36,53 @@ def blue_wing(m, pos, face, arrival):
     m.wing("Blue", ["Blue 1", "Blue 2"], arrival, goals="ai-chase-any 60")
 
 
+
+# --- wreckage: drifting hull plates and wrecks (models generated with the assetgen queue, see make_wrecks.py) -----------
+_orig_ship = Mission.ship
+
+
+def _recording_ship(self, name, cls, team, pos, *a, **k):
+    self.__dict__.setdefault("_placed", []).append(pos)
+    return _orig_ship(self, name, cls, team, pos, *a, **k)
+
+
+Mission.ship = _recording_ship
+# The generated wreck models (tools/make_wrecks.py) are not part of a release yet: while this is False the missions use the
+# stock civilian hulks and no wreckage props.
+USE_WRECKS = False
+HULK_CLASSES = (["Wreck Hauler", "Wreck Station", "Wreck Hauler", "Wreck Battlestar"] if USE_WRECKS else
+                ["Gemenon Traveler", "Gemenon Freighter", "Colonial Mover", "Intersun Passenger Cruiser"])
+PROP_FLAGS = '( "invulnerable" "hidden-from-sensors" "no-shields" "don\'t-collide-invisible" )'
+
+
+def _free(m, pos, clearance):
+    return all(sum((a - b) ** 2 for a, b in zip(pos, q)) > clearance ** 2 for q in m.__dict__.get("_placed", []))
+
+
+def wreckage(m, tag, center, plates=6, spread=900.0, seed=1, big=None, big_at=None):
+    """Scatter inert hull plates around `center` (never closer than 500 m to anything already in the mission) and optionally
+    one large wreck (class `big`, at `big_at`)."""
+    if not USE_WRECKS:
+        return
+    import random
+    r = random.Random(seed)
+    if big:
+        pos = big_at
+        m.ship("Remnant %s" % tag, big, "Friendly", pos, offset(pos, r.uniform(-1, 1), r.uniform(-0.3, 0.3), r.uniform(-1, 1)),
+               arrival="( true )", flags=PROP_FLAGS, score=0)
+    n = 0
+    for _ in range(plates * 20):
+        if n >= plates:
+            break
+        pos = offset(center, r.uniform(-spread, spread), r.uniform(-spread * 0.4, spread * 0.4), r.uniform(-spread, spread))
+        if not _free(m, pos, 500.0):
+            continue
+        n += 1
+        m.ship("Debris %s%d" % (tag, n), "Hull Plate", "Friendly", pos,
+               offset(pos, r.uniform(-1, 1), r.uniform(-1, 1), r.uniform(-1, 1)),
+               arrival="( true )", flags=PROP_FLAGS, score=0)
+
+
 # ==============================================================================================================
 def long_watch():
     TEST, CIVIL, CAPITAL, win_end, fail_end = _setup()
@@ -116,6 +163,7 @@ def long_watch():
     m.debrief('( or ( is-event-true-delay "Cassia Lost" 0 ) ( is-event-true-delay "Halyard Lost" 0 ) )',
               "The station fell and the tylium with it. The reserve will be short this month.",
               "Keep your wing close to Cassia and take the Heavy Raiders before they release their torpedoes.")
+    wreckage(m, "W", offset(H, 1800.0, 200.0, 2600.0), plates=7, spread=1100.0, seed=11, big="Wreck Battlestar", big_at=(3600.0, 500.0, 4800.0))
     return m
 
 
@@ -214,7 +262,7 @@ def dead_hulks():
     m.waypoint_list("Leg 4", [offset(S[3], 0, 0, 450)])
     m.waypoint_list("Home", [(0.0, 0.0, -2600.0)])
     hulk_flags = ('( "protect-ship" "no-shields" "invulnerable" "hidden-from-sensors" "don\'t-collide-invisible" )')
-    for i, (pos, cls) in enumerate(zip(S, ["Gemenon Traveler", "Gemenon Freighter", "Colonial Mover", "Intersun Passenger Cruiser"])):
+    for i, (pos, cls) in enumerate(zip(S, HULK_CLASSES)):
         m.ship("Hulk %s" % "ABCD"[i], cls, "Friendly", pos, offset(pos, 0.3, 0.8, 0.2), arrival="( true )", flags=hulk_flags, score=0)
     blue_wing(m, (-1300.0, 250.0, -1900.0), S[0], '( is-event-true-delay "Blue Cue" 0 )')
 
@@ -268,6 +316,8 @@ def dead_hulks():
               "The Raptor is slow and unarmed, always fly between it and the Raiders.")
     m.debrief('( is-event-true-delay "Lantern Lost" 0 )', "We lost the Raptor and her data in the belt.",
               "Stay within a kilometre of Lantern at every wreck, the Heavies come on a timer.")
+    for i, pos in enumerate(S):
+        wreckage(m, "S%d_" % (i + 1), pos, plates=4, spread=700.0, seed=20 + i)
     return m
 
 
@@ -331,6 +381,7 @@ def hammerfall():
     m.debrief('( or ( is-event-true-delay "Halyard Lost" 0 ) ( is-event-true-delay "Theseus Lost" 0 ) )',
               "We lost a capital ship and the strike with her.",
               "Keep the Heavy Raiders off the Halyard and bring the Theseus in at the right moment.")
+    wreckage(m, "H", offset(A, -1500.0, -200.0, -2800.0), plates=8, spread=1500.0, seed=31, big="Wreck Hauler", big_at=(-3400.0, -300.0, 6800.0))
     return m
 
 
@@ -418,4 +469,59 @@ def last_stand():
     m.debrief('( or ( is-event-true-delay "Armistice Lost" 0 ) ( is-event-true-delay "Allsop Lost" 0 ) ( is-event-true-delay "Keplaw Lost" 0 ) ( is-event-true-delay "Pixie Lost" 0 ) ( is-event-true-delay "Halyard Lost" 0 ) )',
               "The station fell, and the people who were still aboard went with it.",
               "Kill the Heavy Raiders first. They go for the movers.")
+    wreckage(m, "L", S, plates=9, spread=1700.0, seed=41, big="Wreck Battlestar", big_at=(-4300.0, 600.0, 3900.0))
+    return m
+
+
+# ==============================================================================================================
+def gunnery_range():
+    """Gunnery qualification on the old Cylotron training drones (Mark IX and Mark X, as in the tutorial missions)."""
+    TEST, CIVIL, CAPITAL, win_end, fail_end = _setup()
+    m = Mission("Gunnery Qualification",
+                "The Theseus's deck boss wants every pilot's gunnery on record. The Cylotron drones are out on the range: "
+                "first a row of parked Mark IX targets, then Mark X drones on a run, then a fast pass. Nothing shoots back.",
+                True)
+    m.load_screen = "Load_SP-R1-M1.tga"
+    m.background["sun_angles"] = "5.100000 2.200000 0.700000"
+    m.player_wing("Red", (400.0, 100.0, -1500.0), (0.0, 0.0, 0.0), [], guard="ai-chase-any 50")
+    idle = '( "cargo-known" "no-shields" "no-arrival-warp" "don\'t-collide-invisible" )'
+    m.ship("Theseus", "Battlestar Sobek Class", "Friendly", (0.0, 0.0, 0.0), (0.0, 0.0, 5000.0), arrival="( true )",
+           flags=idle, flags2='( "immobile" )', shields=0, score=0)
+    drone_flags = '( "cargo-known" "no-shields" "don\'t-collide-invisible" )'
+    C = (2400.0, 0.0, 2000.0)
+    for i in range(6):                                   # parked row of Mark IX drones
+        pos = offset(C, (i - 2.5) * 260.0, ((i % 2) * 2 - 1) * 90.0, 0.0)
+        m.ship("Target %d" % (i + 1), "Cylotron Mark IX Drone", "Neutral", pos, offset(pos, 0.0, 0.0, -3000.0),
+               arrival="( true )", flags=drone_flags, flags2='( "immobile" )', hull=100, shields=0, score=10)
+    m.waypoint_list("Run A", [(-2200.0, 300.0, 3600.0), (2600.0, 500.0, 4200.0), (2800.0, -300.0, 2400.0), (-1600.0, -200.0, 2200.0)])
+    m.waypoint_list("Run B", [(3400.0, 200.0, 700.0), (700.0, 700.0, 2600.0), (-3000.0, 100.0, 4600.0)])
+    m.event("Start", '( when ( true ) ( do-nothing ) )')
+    say(m, "Start", 2, "#Command", "R Welcome", "Red 1, Theseus. Gunnery range is yours. Six Mark IX drones are parked on the far side. "
+        "Kill them all, guns or missiles, I don't care which.")
+    m.event("Row Done", '( when ( is-destroyed-delay 0 "Target 1" "Target 2" "Target 3" "Target 4" "Target 5" "Target 6" ) ( do-nothing ) )')
+    say(m, "Row Done", 4, "#Command", "R Row", "Clean row. Next, six Mark X drones on a run. They don't dodge, but they don't hold still either. "
+        "Lead them.")
+    m.event("Runners Go", '( when ( is-event-true-delay "Row Done" 12 ) ( do-nothing ) )')
+    for i in range(6):
+        pos = offset((-2800.0, 100.0, 3200.0), i * 90.0, (i % 3) * 60.0, i * 70.0)
+        m.ship("Runner %d" % (i + 1), "Cylotron Mark X Drone", "Neutral", pos, (2600.0, 500.0, 4200.0),
+               arrival='( is-event-true-delay "Runners Go" 0 )', flags=drone_flags, hull=100, shields=0, score=10,
+               ai_goals='ai-waypoints-once "Run A" 60', velocity=60)
+    m.event("Runners Done", '( when ( is-destroyed-delay 0 "Runner 1" "Runner 2" "Runner 3" "Runner 4" "Runner 5" "Runner 6" ) ( do-nothing ) )')
+    say(m, "Runners Done", 4, "#Command", "R Run", "Good shooting. Last pass: four drones at full throttle. If you can hit those you can hit a Raider.")
+    m.event("Sprint Go", '( when ( is-event-true-delay "Runners Done" 12 ) ( do-nothing ) )')
+    for i in range(4):
+        pos = offset((3600.0, 250.0, 500.0), 0.0, i * 70.0, i * 110.0)
+        m.ship("Sprint %d" % (i + 1), "Cylotron Mark X Drone", "Neutral", pos, (-3000.0, 100.0, 4600.0),
+               arrival='( is-event-true-delay "Sprint Go" 0 )', flags=drone_flags, hull=100, shields=0, score=15,
+               ai_goals='ai-waypoints-once "Run B" 80', velocity=90)
+    m.event("Sprint Done", '( when ( is-destroyed-delay 0 "Sprint 1" "Sprint 2" "Sprint 3" "Sprint 4" ) ( do-nothing ) )')
+    say(m, "Sprint Done", 4, "#Command", "R Done", "Range cleared. I'm logging that qualification. Come home whenever you like.")
+    win_end(m, "Sprint Done")
+    m.goal("Primary", "Parked drones", "Destroy the six Mark IX drones", '( is-event-true-delay "Row Done" 0 )', 100)
+    m.goal("Primary", "Running drones", "Destroy the six Mark X drones on their run", '( is-event-true-delay "Runners Done" 0 )', 100)
+    m.goal("Primary", "Fast pass", "Destroy the four sprinting drones", '( is-event-true-delay "Sprint Done" 0 )', 100)
+    m.debrief('( is-event-true-delay "Sprint Done" 0 )',
+              "Sixteen drones down, none of them shot back. Your gunnery is on the board.",
+              "Nothing to fix. Come back any time to practise your lead.")
     return m
