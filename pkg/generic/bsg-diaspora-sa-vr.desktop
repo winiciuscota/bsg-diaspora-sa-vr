@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Battlestar Galactica: Diaspora
+Comment=Diaspora on a modern FreeSpace Open engine (flat screen)
+Exec=AppRun
+Icon=bsg-diaspora-sa-vr
+Categories=Game;
+Terminal=false
+Actions=vr;
+
+[Desktop Action vr]
+Name=VR
+Exec=AppRun --vr

@@ -53,6 +53,23 @@ build (5 GB installed) and takes 10 to 30 minutes depending on your CPU. Run `bs
 (`DIASPORA_RES=1920x1080`, `DIASPORA_FULLSCREEN=1` to change it) or `bsg-diaspora-sa-vr --vr` with an OpenXR runtime
 active. Tested on a clean Arch + KDE Plasma (Wayland) install.
 
+## Install on any other Linux distribution
+
+Download `bsg-diaspora-sa-vr-<version>-linux-x86_64.tar.zst` from the releases, extract it anywhere and run it:
+
+```sh
+tar --zstd -xf bsg-diaspora-sa-vr-*-linux-x86_64.tar.zst && cd bsg-diaspora-sa-vr
+./bsg-diaspora-sa-vr --install-menu   # optional: adds the menu entries (flat screen and VR)
+./bsg-diaspora-sa-vr                  # first start downloads Diaspora R1, the patches and the mod (about 4 GB)
+./bsg-diaspora-sa-vr --vr             # VR with the active OpenXR runtime
+```
+
+The engine ships with its own C library, so it runs on distributions with an older glibc; the graphics stack (Mesa or the
+NVIDIA driver, the Vulkan loader) comes from your system. The first start needs `curl`, `tar`, `xz`, `sha256sum` and one of
+`unzip` / `bsdtar` / `python3`, and about 9 GB of free disk while it installs. The game goes to
+`~/.local/share/bsg-diaspora-sa-vr` (`BSG_DIASPORA_DATA` moves it). `pkg/generic/` holds the scripts that build the tarball
+(`make-tarball.sh`) and an AppImage (`make-appimage.sh`, needs `appimagetool`).
+
 ## Installing by hand
 
 1. Install Diaspora R1 and its patches as usual.

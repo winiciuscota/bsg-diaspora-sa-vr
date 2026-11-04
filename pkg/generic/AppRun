@@ -1,0 +1,51 @@
+#!/bin/sh
+# Battlestar Galactica: Diaspora on a modern FreeSpace Open engine.
+#   bsg-diaspora-sa-vr            flat screen        bsg-diaspora-sa-vr --vr    VR through the active OpenXR runtime
+# Per-user settings: ~/.config/bsg-diaspora-sa-vr/vr.env (VAR=value lines). The game data is downloaded on first start
+# into ~/.local/share/bsg-diaspora-sa-vr (set BSG_DIASPORA_DATA to move it). Pilots and logs: ~/.local/share/HardLightProductions.
+HERE=$(dirname "$(readlink -f "$0")")
+DATA=${BSG_DIASPORA_DATA:-${XDG_DATA_HOME:-$HOME/.local/share}/bsg-diaspora-sa-vr}
+CONF="${XDG_CONFIG_HOME:-$HOME/.config}/bsg-diaspora-sa-vr/vr.env"
+VERSION=$(sed -n 's/^# version //p' "$HERE/usr/share/bsg-diaspora-sa-vr/sources.txt")
+if [ "$1" = "--install-menu" ]; then
+  # adds "Battlestar Galactica: Diaspora" (flat screen and VR) to the application menu
+  APPS="${XDG_DATA_HOME:-$HOME/.local/share}/applications"; ICONS="${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor/256x256/apps"
+  mkdir -p "$APPS" "$ICONS"; cp "$HERE/bsg-diaspora-sa-vr.png" "$ICONS/bsg-diaspora-sa-vr.png"
+  sed "s|^Exec=AppRun|Exec=$HERE/AppRun|" "$HERE/bsg-diaspora-sa-vr.desktop" > "$APPS/bsg-diaspora-sa-vr.desktop"
+  echo "Menu entry added to $APPS"; exit 0
+fi
+[ -f "$CONF" ] && { set -a; . "$CONF"; set +a; }
+
+say() { echo "bsg-diaspora-sa-vr: $*" >&2; command -v notify-send >/dev/null 2>&1 && notify-send -a "Diaspora VR" "Diaspora VR" "$*"; }
+
+if [ ! -f "$DATA/.installed-$VERSION" ]; then
+  if [ -t 1 ]; then
+    "$HERE/usr/share/bsg-diaspora-sa-vr/install-data" "$DATA" || exit 1
+  else
+    # started from a menu: show the download in a terminal window
+    for t in xdg-terminal-exec x-terminal-emulator konsole gnome-terminal xfce4-terminal xterm; do
+      command -v "$t" >/dev/null 2>&1 || continue
+      case "$t" in gnome-terminal|xfce4-terminal) run="$t --" ;; konsole|xterm) run="$t -e" ;; *) run="$t" ;; esac
+      $run sh -c "\"$HERE/usr/share/bsg-diaspora-sa-vr/install-data\" \"$DATA\" || { echo; echo 'Install failed. Press Enter.'; read x; exit 1; }"
+      break
+    done
+    [ -f "$DATA/.installed-$VERSION" ] || { say "First start downloads the game (about 4 GB). Run bsg-diaspora-sa-vr from a terminal to install it."; exit 1; }
+  fi
+fi
+
+cd "$DATA/game" || exit 1
+ENGINE="$HERE/usr/engine/fs2_open"
+if [ "$1" = "--vr" ]; then
+  shift
+  if [ -z "$XR_RUNTIME_JSON" ] && [ ! -e "${XDG_CONFIG_HOME:-$HOME/.config}/openxr/1/active_runtime.json" ] \
+     && [ ! -e /etc/xdg/openxr/1/active_runtime.json ]; then
+    say "No OpenXR runtime is active. Start WiVRn, Monado or SteamVR (and set it as the active OpenXR runtime), then run again."
+    exit 1
+  fi
+  exec "$ENGINE" -mod diaspora_fixes -vr -vulkan -res "${DIASPORA_VR_RES:-1600x1800}" -no_unfocused_pause "$@"
+fi
+# flat screen: DIASPORA_RES=WxH (default 1600x900), DIASPORA_FULLSCREEN=1 for borderless fullscreen, DIASPORA_RENDERER=vulkan
+[ "${DIASPORA_RENDERER:-opengl}" = vulkan ] && set -- -vulkan "$@"
+if [ "${DIASPORA_FULLSCREEN:-0}" = 1 ]; then set -- -fullscreen_window "$@"; else set -- -window "$@"; fi
+export SDL_VIDEO_X11_FORCE_EGL=${SDL_VIDEO_X11_FORCE_EGL:-1}
+exec "$ENGINE" -mod diaspora_fixes -res "${DIASPORA_RES:-1600x900}" "$@"

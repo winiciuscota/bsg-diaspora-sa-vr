@@ -1,0 +1,54 @@
+#!/bin/sh
+# Downloads Diaspora R1 (+ patches 1.1 and 1.1.1) and the mod, HD textures and voices into $1/game.
+# Used by the AppImage on first start. Needs: curl tar xz sha256sum and one of unzip / bsdtar / python3. About 5 GB free disk during the install.
+set -eu
+DEST=${1:?usage: install-data <folder>}
+HERE=$(dirname "$(readlink -f "$0")")
+SOURCES="$HERE/sources.txt"
+VERSION=$(sed -n 's/^# version //p' "$SOURCES")
+
+for c in curl tar xz sha256sum; do
+  command -v "$c" >/dev/null 2>&1 || { echo "Missing tool: $c. Install it with your package manager and start again." >&2; exit 1; }
+done
+if command -v unzip >/dev/null 2>&1; then unzip_to() { unzip -qo "$1" -d "$2"; }
+elif command -v bsdtar >/dev/null 2>&1; then unzip_to() { bsdtar -xf "$1" -C "$2"; }
+elif command -v python3 >/dev/null 2>&1; then unzip_to() { python3 -m zipfile -e "$1" "$2"; }
+else echo "Missing tool: unzip (or bsdtar or python3). Install one with your package manager and start again." >&2; exit 1; fi
+free_kb=$(df -Pk "$(dirname "$DEST")" 2>/dev/null | awk 'NR==2 {print $4}')
+[ "${free_kb:-9999999}" -gt 9000000 ] || { echo "Not enough free disk space (need about 9 GB while installing)." >&2; exit 1; }
+
+DL="$DEST/download"; TMP="$DEST/tmp"
+mkdir -p "$DL"; rm -rf "$TMP"; mkdir -p "$TMP"
+echo "Downloading Diaspora and the VR mod (about 4 GB, resumable)..."
+while read -r sum name url; do
+  case "$sum" in '#'*|'') continue ;; esac
+  if [ ! -f "$DL/$name" ] || ! echo "$sum  $DL/$name" | sha256sum -c --status 2>/dev/null; then
+    echo "  $name"
+    curl -fL -# --retry 3 -C - -o "$DL/$name" "$url"
+    echo "$sum  $DL/$name" | sha256sum -c --status || { echo "Checksum mismatch for $name. Delete $DL and try again." >&2; exit 1; }
+  fi
+done < "$SOURCES"
+
+echo "Unpacking..."
+tar -xf "$DL/Diaspora_R1_Linux.tar.lzma" -C "$TMP"
+GAME="$TMP/Diaspora_R1_Linux/Diaspora"
+for p in Diaspora_R1_Patch_1.1 Diaspora_R1_Patch_1.1.1; do
+  mkdir -p "$TMP/$p"; tar -xf "$DL/$p.tar.lzma" -C "$TMP/$p"
+  tar -xf "$(find "$TMP/$p" -name 'Patch_Files.*.tar' | head -1)" -C "$GAME"
+done
+# the mod tarball and the texture / voice zips all unpack into a diaspora_fixes folder
+mkdir -p "$TMP/mod"
+tar -xzf "$DL/diaspora-vr-mod.tar.gz" -C "$TMP/mod"
+for z in "$DL"/*.zip; do unzip_to "$z" "$TMP/mod"; done
+
+rm -rf "$DEST/game"; mkdir -p "$DEST/game"
+cp -a "$GAME"/*.vp "$DEST/game/"
+[ -d "$GAME/data" ] && cp -a "$GAME/data" "$DEST/game/"
+cp -a "$TMP/mod/diaspora_fixes" "$DEST/game/"
+[ -f "$DEST/game/diaspora_fixes/icon-256.png" ] && mv "$DEST/game/diaspora_fixes/icon-256.png" "$DEST/icon.png"
+# Diaspora's old command line file lists flags the modern engine no longer knows
+rm -f "$DEST/game/data/cmdline_fso.cfg"
+
+rm -rf "$TMP" "$DL"
+touch "$DEST/.installed-$VERSION"
+echo "Done."
