@@ -19,6 +19,7 @@ ap.add_argument("--axes", default="auto")
 ap.add_argument("--flip-front", action="store_true")
 ap.add_argument("--ref", help="the picture the model was generated from: colour-match and upscale the texture to it (enhance_texture.py)")
 ap.add_argument("--glow", help="glow point banks json for glb2pof.py (engine lights); the glow sprite is made as <pof>_glow.dds")
+ap.add_argument("--glow-color", default="110,165,255", help="R,G,B of the engine glow sprite")
 ap.add_argument("--tech", help="text for the Tech Room: also lists the ship there")
 a = ap.parse_args()
 
@@ -33,7 +34,7 @@ with tempfile.TemporaryDirectory() as w:
         cmd.append("--flip-front")
     if a.glow:
         cmd += ["--glow", a.glow]
-        subprocess.run([sys.executable, os.path.join(ROOT, "tools", "make_engine_glow.py"), os.path.join(DATA, "maps", a.pof + "_glow.dds")], check=True)
+        subprocess.run([sys.executable, os.path.join(ROOT, "tools", "make_engine_glow.py"), os.path.join(DATA, "maps", a.pof + "_glow.dds"), a.glow_color], check=True)
     subprocess.run(cmd, check=True)
     if a.ref:
         enh = os.path.join(w, tex + ".png")
