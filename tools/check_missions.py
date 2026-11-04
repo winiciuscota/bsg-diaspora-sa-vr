@@ -34,7 +34,8 @@ for f in sorted(glob.glob(sys.argv[1] + "/*.fs2")):
         if not line.startswith(('$Formula:', '$Arrival Cue:', '$Departure Cue:', '$AI Goals:')):
             continue
         body = line.split(':', 1)[1]
-        unres |= {r for r in re.findall(r'"([^"]+)"', body) if r not in known}
+        unres |= {r for r in re.findall(r'"([^"]+)"', body) if r not in known and not re.fullmatch(r'(.+):\d+', r) or
+                  (re.fullmatch(r'(.+):\d+', r) and re.fullmatch(r'(.+):\d+', r).group(1) not in known)}
         if line.startswith('$AI Goals:'):
             continue
         tree, _ = parse(re.findall(r'\(|\)|"[^"]*"|[^\s()]+', body), 0)

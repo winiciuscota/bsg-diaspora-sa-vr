@@ -633,14 +633,39 @@ $Ships: (		;! 1 total
 $AI Goals: ( goals ( ai-chase-any 50 ) )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" )
 
-#Events		;! 1 total
+#Events		;! 6 total
 
 $Formula: ( when ( true ) ( send-message "#Command" "High" "HQ Welcome" ) )
 +Name: Welcome Msg
 +Repeat Count: 1
 +Interval: 1
 
-#Goals		;! 2 total
+$Formula: ( when ( is-event-true-delay "Welcome Msg" 40 ) ( send-message "#Command" "Low" "HQ Landing" ) )
++Name: Landing Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( < ( distance "Red 1" "Landing Deck:1" ) 80 ) ( < ( current-speed "Red 1" ) 45 ) ) ( do-nothing ) )
++Name: Landed
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Landed" 1 ) ( send-message "#Command" "High" "HQ Down" ) )
++Name: Landed Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Landed" 7 ) ( fade-out 1000 ) )
++Name: Fade out
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Fade out" 2 ) ( end-mission ) )
++Name: Finish
++Repeat Count: 1
++Interval: 1
+
+#Goals		;! 3 total
 
 $Type: Secondary
 +Name: Fly around the fleet
@@ -650,15 +675,32 @@ $Formula: ( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "
 +Score: 10
 
 $Type: Secondary
++Name: Land on the Theseus
+$MessageNew:  XSTR("Touch down on the port landing strip below forty metres per second (ends the mission)", -1)
+$end_multi_text
+$Formula: ( is-event-true-delay "Landed" 0 )
++Score: 10
+
+$Type: Secondary
 +Name: Target practice
 $MessageNew:  XSTR("Shoot the four parked training drones to the east (optional)", -1)
 $end_multi_text
 $Formula: ( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )
 +Score: 10
 
-#Waypoints		;! 0 lists total
+#Waypoints		;! 2 lists total
 
-#Messages		;! 1 total
+$Name: Landing Approach
+$List: (		;! 1 points in list
+	( -162.000000, -28.000000, -550.000000 )
+)
+
+$Name: Landing Deck
+$List: (		;! 1 points in list
+	( -162.000000, -28.000000, 120.000000 )
+)
+
+#Messages		;! 3 total
 
 $Command Sender: Theseus
 
@@ -667,6 +709,16 @@ $Team: -1
 $MessageNew:  XSTR("Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, stretch the Viper's legs. Jump out whenever you want.", -1)
 $end_multi_text
 +Wave Name: XM-Fleet-01.ogg
+
+$Name: HQ Landing
+$Team: -1
+$MessageNew:  XSTR("Red 1, Theseus. If you want to come home, line up astern of the port landing strip, bring your speed under forty and set her down on the deck. We'll catch you.", -1)
+$end_multi_text
+
+$Name: HQ Down
+$Team: -1
+$MessageNew:  XSTR("Red 1, you're down. Welcome back aboard. Deck crew will take it from here.", -1)
+$end_multi_text
 
 #Reinforcements		;! 0 total
 

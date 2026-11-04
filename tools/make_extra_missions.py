@@ -790,8 +790,22 @@ def fleet_anchorage():
     m.message("HQ Welcome", "Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, "
               "stretch the Viper's legs. Jump out whenever you want.")
     m.event("Welcome Msg", '( when ( true ) ( send-message "#Command" "High" "HQ Welcome" ) )')
+    # Landing: the Theseus has two open landing strips; the port one starts 550 m astern of the ship and runs forward at 162 m
+    # to the left of the centre line, 28 m below it (the same strip the tutorial uses). Touch down there slowly and the
+    # flight ends. Positions are in the ship's own frame; the Theseus sits at the origin facing +Z, so they are world coordinates.
+    m.waypoint_list("Landing Approach", [(-162.0, -28.0, -550.0)])
+    m.waypoint_list("Landing Deck", [(-162.0, -28.0, 120.0)])
+    m.message("HQ Landing", "Red 1, Theseus. If you want to come home, line up astern of the port landing strip, bring your speed "
+              "under forty and set her down on the deck. We'll catch you.")
+    m.message("HQ Down", "Red 1, you're down. Welcome back aboard. Deck crew will take it from here.")
+    m.event("Landing Msg", '( when ( is-event-true-delay "Welcome Msg" 40 ) ( send-message "#Command" "Low" "HQ Landing" ) )')
+    m.event("Landed", '( when ( and ( < ( distance "Red 1" "Landing Deck:1" ) 80 ) ( < ( current-speed "Red 1" ) 45 ) ) ( do-nothing ) )')
+    m.event("Landed Msg", '( when ( is-event-true-delay "Landed" 1 ) ( send-message "#Command" "High" "HQ Down" ) )')
+    win_end(m, "Landed")
     m.goal("Secondary", "Fly around the fleet", "Fly past the battlestar, the frigate and the tanker (optional)",
            '( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "Sabazius" ) 400 ) ( < ( distance "Red 1" "Prometheus" ) 400 ) )', 10)
+    m.goal("Secondary", "Land on the Theseus", "Touch down on the port landing strip below forty metres per second (ends the mission)",
+           '( is-event-true-delay "Landed" 0 )', 10)
     m.goal("Secondary", "Target practice", "Shoot the four parked training drones to the east (optional)",
            '( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )', 10)
     m.debrief('( true )', "Quiet flight. The deck crew say the Viper came back without a scratch, as usual.",
