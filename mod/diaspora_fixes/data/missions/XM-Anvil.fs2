@@ -59,7 +59,23 @@ $Variables:
 
 #Briefing
 $start_briefing
-$num_stages: 0
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("Raptor recon caught six Cylon Heavy Raiders massing at the edge of the Ilion system, loaded for a strike on the fleet. The frigate Halyard will jump into their path as the anvil, Red and Blue flights are the hammer. Kill the Heavy Raiders before they jump away. Objectives. Destroy at least four of the six Heavy Raiders.", -1)
+$end_multi_text
+$voice: XM-Anvil-B-01.ogg
+$camera_pos: 0.000000, 3000.000000, -9000.000000
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 0.939693, 0.342020,
+	0.000000, -0.342020, 0.939693,
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 1
+$Formula: ( true ) 
+$end_stage
 $end_briefing
 
 #Debriefing_info
@@ -749,7 +765,7 @@ $Ships: (		;! 3 total
 $AI Goals: ( goals ( ai-chase "Halyard" 70 ) )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" )
 
-#Events		;! 23 total
+#Events		;! 27 total
 
 $Formula: ( when ( true ) ( send-message "#Command" "High" "HQ Orders" ) )
 +Name: Orders Msg
@@ -866,6 +882,26 @@ $Formula: ( when ( and ( is-event-true-delay "One Minute" 30 ) ( not ( is-destro
 +Repeat Count: 1
 +Interval: 1
 
+$Formula: ( when ( and ( is-event-true-delay "Orders Msg" 130 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 1" ) )
++Name: More 1 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Orders Msg" 280 ) ( not ( is-destroyed-delay 0 "Red 3" ) ) ) ( send-message "Red 3" "Normal" "More 2" ) )
++Name: More 2 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Orders Msg" 430 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) ) ( send-message "Halyard" "Normal" "More 3" ) )
++Name: More 3 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Orders Msg" 560 ) ( send-message "#Command" "Normal" "More 4" ) )
++Name: More 4 Msg
++Repeat Count: 1
++Interval: 1
+
 #Goals		;! 3 total
 
 $Type: Primary
@@ -897,7 +933,7 @@ $List: (		;! 2 points in list
 	( 400.000000, 400.000000, 14000.000000 )
 )
 
-#Messages		;! 16 total
+#Messages		;! 20 total
 
 $Command Sender: Theseus
 
@@ -996,6 +1032,30 @@ $Team: -1
 $MessageNew:  XSTR("Thirty seconds to their jump. Whatever you have left, use it now!", -1)
 $end_multi_text
 +Wave Name: XM-Anvil-16.ogg
+
+$Name: More 1
+$Team: -1
+$MessageNew:  XSTR("Hammer and anvil. I'd like to know who the hammer is.", -1)
+$end_multi_text
++Wave Name: XM-Anvil-17.ogg
+
+$Name: More 2
+$Team: -1
+$MessageNew:  XSTR("Six Heavies and a nuke on every one. Don't miss.", -1)
+$end_multi_text
++Wave Name: XM-Anvil-18.ogg
+
+$Name: More 3
+$Team: -1
+$MessageNew:  XSTR("Halyard to Red flight, we are the anvil, you are the hammer. Strike clean.", -1)
+$end_multi_text
++Wave Name: XM-Anvil-19.ogg
+
+$Name: More 4
+$Team: -1
+$MessageNew:  XSTR("Theseus to Red flight, keep them off the line. We cannot absorb a nuke.", -1)
+$end_multi_text
++Wave Name: XM-Anvil-20.ogg
 
 #Reinforcements		;! 0 total
 

@@ -59,7 +59,23 @@ $Variables:
 
 #Briefing
 $start_briefing
-$num_stages: 0
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("A Cylon missile cracked Theseus' FTL coolant lines during the last jump. Engineering needs four minutes to bypass them, and the Cylons have found us. Red and Blue flights hold the line until the battlestar can jump. Objectives. Hold the line until Theseus jumps.", -1)
+$end_multi_text
+$voice: XM-Firebreak-B-01.ogg
+$camera_pos: 0.000000, 3000.000000, -9000.000000
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 0.939693, 0.342020,
+	0.000000, -0.342020, 0.939693,
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 1
+$Formula: ( true ) 
+$end_stage
 $end_briefing
 
 #Debriefing_info
@@ -810,7 +826,7 @@ $Ships: (		;! 4 total
 $AI Goals: ( goals ( ai-chase-any 60 ) )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" )
 
-#Events		;! 23 total
+#Events		;! 27 total
 
 $Formula: ( when ( true ) ( send-message "#Command" "High" "HQ Orders" ) )
 +Name: Orders Msg
@@ -927,6 +943,26 @@ $Formula: ( when ( and ( is-event-true-delay "FTL Ready" 4 ) ( not ( is-destroye
 +Repeat Count: 1
 +Interval: 1
 
+$Formula: ( when ( and ( is-event-true-delay "Orders Msg" 110 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 1" ) )
++Name: More 1 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Orders Msg" 240 ) ( not ( is-destroyed-delay 0 "Red 3" ) ) ) ( send-message "Red 3" "Normal" "More 2" ) )
++Name: More 2 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Orders Msg" 380 ) ( send-message "#Command" "Normal" "More 3" ) )
++Name: More 3 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Orders Msg" 500 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 4" ) )
++Name: More 4 Msg
++Repeat Count: 1
++Interval: 1
+
 #Goals		;! 3 total
 
 $Type: Primary
@@ -952,7 +988,7 @@ $Formula: ( percent-ships-destroyed 75 "Ember" "Soot" "Slag" )
 
 #Waypoints		;! 0 lists total
 
-#Messages		;! 16 total
+#Messages		;! 20 total
 
 $Command Sender: Theseus
 
@@ -1051,6 +1087,30 @@ $Team: -1
 $MessageNew:  XSTR("Rook to all Vipers, last one to the hangar buys the drinks.", -1)
 $end_multi_text
 +Wave Name: XM-Firebreak-16.ogg
+
+$Name: More 1
+$Team: -1
+$MessageNew:  XSTR("Fire on the line. I'd rather it be fuel than us.", -1)
+$end_multi_text
++Wave Name: XM-Firebreak-17.ogg
+
+$Name: More 2
+$Team: -1
+$MessageNew:  XSTR("Burn them back before they reach the tankers, that's all there is to it.", -1)
+$end_multi_text
++Wave Name: XM-Firebreak-18.ogg
+
+$Name: More 3
+$Team: -1
+$MessageNew:  XSTR("Theseus to Red flight, hold the firebreak. Nothing gets past you.", -1)
+$end_multi_text
++Wave Name: XM-Firebreak-19.ogg
+
+$Name: More 4
+$Team: -1
+$MessageNew:  XSTR("If we win this one, the deck crew owes us a week of coffee.", -1)
+$end_multi_text
++Wave Name: XM-Firebreak-20.ogg
 
 #Reinforcements		;! 0 total
 

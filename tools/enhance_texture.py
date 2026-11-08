@@ -16,7 +16,7 @@ a = ap.parse_args()
 tex = np.asarray(Image.open(a.texture).convert("RGB"), dtype=np.float64)
 ref_im = Image.open(a.reference).convert("RGBA")
 ref = np.asarray(ref_im, dtype=np.float64)
-mask = (ref[..., 3] > 200) & (ref[..., :3].min(-1) < 235)          # the ship, not the white background
+mask = (ref[..., 3] > 200) & (ref[..., :3].min(-1) < 235) & (ref[..., :3].max(-1) > 30)   # the ship, not the white or black background
 rp = ref[mask][:, :3]
 t_mean, t_std = tex.reshape(-1, 3).mean(0), tex.reshape(-1, 3).std(0)
 r_mean, r_std = rp.mean(0), rp.std(0)

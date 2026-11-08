@@ -20,16 +20,18 @@ import sys
 VOICE = {
     "#Command": "command", "Theseus": "command",
     "Red 1": "lantern",
-    "Red 2": "shadow", "Blue 1": "ghost",
-    "Red 3": "flask", "Blue 2": "rook",
-    "Halyard": "captain",
-    "Cassia": "hauler", "Kestrel": "hauler", "Pilgrim Mercy": "hauler", "Hesper": "hauler",
-    "Lantern 1": "civilian", "Allsop": "hauler", "Keplaw": "hauler", "Pixie": "hauler",
-    "Aster": "civilian", "Briony": "civilian", "Tern": "civilian", "Gull": "civilian", "Petrel": "civilian",
-    "Lantern 2": "civilian", "Lantern 3": "civilian", "Gleaner 1": "civilian",
+    "Red 2": "shadow", "Blue 1": "turbo",
+    "Red 3": "flask", "Blue 2": "crispy",
+    "Halyard": "captain", "Bulwark": "lantern", "Sentry": "captain",
+    "Cassia": "hauler", "Keplaw": "hauler", "Kestrel": "gen3", "Pilgrim Mercy": "gen4", "Hesper": "gen5",
+    "Allsop": "gen6", "Pixie": "gen1", "Gull": "gen6", "Petrel": "gen3", "Briony": "gen5", "Tern": "hammer", "Aster": "rapt",
+    "Lantern 1": "civilian", "Lantern 2": "obit", "Lantern 3": "harridan", "Gleaner 1": "obit",
+    "Mender 1": "gen1", "Lifeline 1": "rapt",
+    # the Nightjar cell (guerrilla campaign)
+    "Roost": "harridan", "Nightjar 2": "shadow", "Nightjar 3": "flask", "Nightjar 4": "turbo",
 }
 DULL = {"flask"}	# voices whose reference recording is muffled (see post())
-SPEED = {"command": 0.95, "captain": 0.95, "hauler": 0.95, "civilian": 0.92, "lantern": 0.95, "shadow": 0.97, "flask": 0.97, "ghost": 0.97, "rook": 0.97}
+SPEED = {"briefing": 0.95, "turbo": 0.97, "obit": 0.95, "hammer": 0.97, "crispy": 0.97, "harridan": 0.95, "rapt": 0.97, "gen1": 0.97, "gen3": 0.97, "gen4": 0.97, "gen5": 0.97, "gen6": 0.97, "command": 0.95, "captain": 0.95, "hauler": 0.95, "civilian": 0.92, "lantern": 0.95, "shadow": 0.97, "flask": 0.97, "ghost": 0.97, "rook": 0.97}
 SHORT = {"XM-DeepLook": "DL", "XM-Tylium": "TY", "XM-Hollow": "HR", "XM-Shepherd": "IS", "XM-Station": "SK",
          "XM-Reckoning": "DR", "XM-Firebreak": "FB", "XM-Hunter": "HM", "XM-Anvil": "HA", "XM-Vigil": "VG"}
 
@@ -130,10 +132,42 @@ def post(mdir, wavdir, outdir):
     print("wrote %d ogg files" % sum(len(v) for v in manifest.values()))
 
 
+def prepare_brief(mdir, jobs_path):
+    """One job per mission briefing (the text of its first briefing stage); the Nightjar cell briefs with the Roost voice."""
+    meta = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "voice_refs", "meta.json")))
+    lines, used = [], set()
+    for f in sorted(glob.glob(os.path.join(mdir, "XM-*.fs2"))):
+        base = os.path.basename(f)[:-4]
+        s = open(f, encoding="latin-1").read().replace("\r\n", "\n")
+        m = re.search(r"#Briefing\n\$start_briefing\n\$num_stages: 1\n\$start_stage\n\$multi_text\n XSTR\(\"(.*?)\", -1\)", s, re.S)
+        if not m:
+            continue
+        voice = "briefing"   # the briefing officer of the original campaign (SP-04-B-03) for every mission
+        used.add(voice)
+        lines.append({"id": base + "-B-01", "mission": base + ".fs2", "message": "briefing", "voice": voice, "speed": SPEED[voice],
+                      "text": spoken(re.sub(r"\s+", " ", m.group(1)))})
+    json.dump({"refs": {v: {"wav": meta[v]["wav"], "text": meta[v]["text"]} for v in used}, "lines": lines}, open(jobs_path, "w"), indent=1)
+    print("%d briefings" % len(lines))
+
+
+def post_brief(wavdir, outdir):
+    """Briefings are narration, not radio: loudness only, 44.1 kHz stereo Vorbis like the original briefing audio."""
+    os.makedirs(outdir, exist_ok=True)
+    for src in sorted(glob.glob(os.path.join(wavdir, "*-B-01.wav"))):
+        dst = os.path.join(outdir, os.path.basename(src)[:-4] + ".ogg")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", src, "-af", "aresample=44100,loudnorm=I=-18:TP=-1.5:LRA=9,apad=pad_dur=0.2",
+                        "-ac", "2", "-c:a", "libvorbis", "-q:a", "5", dst], check=True)
+    print("wrote", len(glob.glob(os.path.join(outdir, "*.ogg"))), "briefings")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "prepare":
         only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
         prepare(sys.argv[2], sys.argv[3], only)
+    elif cmd == "prepare-brief":
+        prepare_brief(sys.argv[2], sys.argv[3])
+    elif cmd == "post-brief":
+        post_brief(sys.argv[2], sys.argv[3])
     elif cmd == "post":
         post(sys.argv[2], sys.argv[3], sys.argv[4])

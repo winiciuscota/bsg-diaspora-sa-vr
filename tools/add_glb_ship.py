@@ -18,6 +18,8 @@ ap.add_argument("--length", type=float, required=True)
 ap.add_argument("--axes", default="auto")
 ap.add_argument("--flip-front", action="store_true")
 ap.add_argument("--ref", help="the picture the model was generated from: colour-match and upscale the texture to it (enhance_texture.py)")
+ap.add_argument("--lods", help="comma separated lower detail GLBs (detail levels 1, 2, ...); the engine switches by distance")
+ap.add_argument("--texscale", type=int, default=1, help="texture upscale at enhance time (1 keeps the native size, upscale it with Real-ESRGAN later)")
 ap.add_argument("--glow", help="glow point banks json for glb2pof.py (engine lights); the glow sprite is made as <pof>_glow.dds")
 ap.add_argument("--glow-color", default="110,165,255", help="R,G,B of the engine glow sprite")
 ap.add_argument("--tech", help="text for the Tech Room: also lists the ship there")
@@ -32,13 +34,15 @@ with tempfile.TemporaryDirectory() as w:
            "--texture", tex, "--length", str(a.length), "--axes", a.axes, "--image", img, "--faces-per-part", "8000"]
     if a.flip_front:
         cmd.append("--flip-front")
+    if a.lods:
+        cmd += ["--lods", a.lods]
     if a.glow:
         cmd += ["--glow", a.glow]
         subprocess.run([sys.executable, os.path.join(ROOT, "tools", "make_engine_glow.py"), os.path.join(DATA, "maps", a.pof + "_glow.dds"), a.glow_color], check=True)
     subprocess.run(cmd, check=True)
     if a.ref:
         enh = os.path.join(w, tex + ".png")
-        subprocess.run([sys.executable, os.path.join(ROOT, "tools", "enhance_texture.py"), img, a.ref, enh], check=True)
+        subprocess.run([sys.executable, os.path.join(ROOT, "tools", "enhance_texture.py"), img, a.ref, enh, "--scale", str(a.texscale)], check=True)
         img = enh
     from PIL import Image
     wd, ht = Image.open(img).size
@@ -47,6 +51,10 @@ with tempfile.TemporaryDirectory() as w:
 rad = a.length / 2
 tbm = TBM_HEAD + TBM_SHIP.format(cls=a.cls, short=a.short, pof=a.pof + ".pof", rad=rad * 0.5, rad2=rad, hp=2000000,
                                  close=a.length * 1.6) + "#End\n"
+if a.lods:
+    n = 1 + len([x for x in a.lods.split(",") if x])
+    steps = ", ".join("%.0f" % (a.length * f) for f in (1.5, 4.0, 8.0)[:n - 1])
+    tbm = tbm.replace("$Detail distance:\t\t\t(0)", "$Detail distance:\t\t\t(0, %s)" % steps, 1)
 if a.tech:
     tbm = tbm.replace("$Species:\t\t\t\tCivilian\n", "$Species:\t\t\t\tCivilian\n+Tech Description:\t\t\t%s\n$end_multi_text\n" % a.tech, 1)
     tbm = tbm.replace('( "dont collide invisible" )', '( "dont collide invisible" "in tech database" )', 1)

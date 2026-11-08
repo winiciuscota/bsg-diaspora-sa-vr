@@ -25,11 +25,13 @@ The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr]
   HUD with long green streaks, worst with the sun in view).
 
 **Mod (`mod/diaspora_fixes`)**
-- 20 extra missions in the *Thunderlords Patrol Log* campaign (also in the Mission Simulator, which shows the estimated
-  duration and difficulty of each): Vigil, Tylium Run, Hollow Rock, Iron Shepherd, Station Keeping, Dead Reckoning, Deep
-  Look (Raptor), Firebreak, Hunter's Moon, Hammer and Anvil, Picket Line, Long Tow, Ghost Light, **five long missions of
-  25 to 30 minutes** (The Long Watch, Cold Convoy, Dead Hulks, Hammerfall, Last Stand at Armistice), Gunnery Qualification (a range on the old Cylotron training drones), and Fleet Anchorage
-  (a peaceful free flight to test your controls).
+- 42 extra missions in three campaigns: *Thunderlords Patrol Log* Part I (16) and Part II (16), and *Operation Nightjar* (10 guerrilla
+  missions). They run from quiet patrols and convoy escorts to 25-30 minute defence missions, a Raptor recon run, a gunnery
+  range on the old Cylotron training drones and Fleet Anchorage (a peaceful free flight to test your controls). All of them are
+  also in the Mission Simulator, which shows the estimated duration and difficulty of each.
+- Radio chatter from your wingmates and the enemy (kills, praise, losses, being tailed), triggered by a small Lua script.
+- Scratches on the canopy glass, drawn on the real glass shape of the Viper and Raptor: they glint in sunlight and in the flash of
+  flak bursts and explosions, and are faintly visible otherwise (F9: "Canopy scratches").
 - HUD layout tweaks for VR (smaller ship outline, stores and target box placement).
 - Saitek X52 default bindings.
 
@@ -82,7 +84,7 @@ NVIDIA driver, the Vulkan loader) comes from your system. The first start needs 
 
 ## VR settings
 
-Press **F9** in the main hall or in the Options screen for the in-game VR settings: a **graphics preset**, the **render
+Press **F9** (or the **left controller's menu button** in the headset, which has no keyboard) in the main hall or in the Options screen for the in-game VR settings: a **graphics preset**, the **render
 scale**, HUD distance, size, height and placement, menu size, flash and glare strength, sun light shafts, camera shake,
 padlock and look-to-target. The preset and the render scale apply at the next start.
 
@@ -106,6 +108,7 @@ Environment variables (put them in `vr.env` next to `launch-example.sh`, one `VA
 | `FSO_VR_HUD_SHIP_DX`, `FSO_VR_HUD_WEAPONS_DX` | 0, 25 | Nudge the ship outline / the weapon stores text |
 | `FSO_VR_HUD_HEIGHT` | 1 | <1 squeezes the HUD panels vertically towards the middle |
 | `FSO_VR_SUNGLARE` | 0.3 | Sun glare strength in VR |
+| `FSO_VR_CANOPY` | 1 | Strength of the canopy scratches (0 = off; scales sunlight 0.25, explosion flashes 0.15 and a 0.05 ambient level) |
 | `FSO_VR_SHAFTS` | 0 | 1 turns light shafts back on in VR |
 | `FSO_VR_SHAKE`, `FSO_VR_FLASH` | off, 0.35 | View shake, flash strength |
 | `FSO_VR_PADLOCK`, `FSO_VR_GAZE_TARGET` | on | Hat-switch targeting, head-gaze targeting |

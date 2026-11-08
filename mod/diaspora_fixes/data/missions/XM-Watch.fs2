@@ -59,7 +59,23 @@ $Variables:
 
 #Briefing
 $start_briefing
-$num_stages: 0
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("The tanker Cassia needs half an hour at the Halyard's picket station to top up the fleet's reserves, and the Cylons will find out. Red flight holds the station through six waves until Cassia's pumps are done and both ships can jump. Objectives. Keep Cassia and the Halyard alive until they jump. Destroy the Cylon attack waves.", -1)
+$end_multi_text
+$voice: XM-Watch-B-01.ogg
+$camera_pos: 0.000000, 3000.000000, -9000.000000
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 0.939693, 0.342020,
+	0.000000, -0.342020, 0.939693,
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 1
+$Formula: ( true ) 
+$end_stage
 $end_briefing
 
 #Debriefing_info
@@ -1501,7 +1517,7 @@ $Ships: (		;! 6 total
 $AI Goals: ( goals ( ai-chase "Halyard" 70 ) )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" )
 
-#Events		;! 35 total
+#Events		;! 41 total
 
 $Formula: ( when ( true ) ( ship-guardian-threshold 20 "Halyard" "Cassia" ) )
 +Name: Start
@@ -1678,6 +1694,36 @@ $Formula: ( when ( is-event-true-delay "Fail Fade" 2 ) ( end-mission ) )
 +Repeat Count: 1
 +Interval: 1
 
+$Formula: ( when ( and ( is-event-true-delay "Start" 250 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 1" ) )
++Name: More 1 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 520 ) ( not ( is-destroyed-delay 0 "Red 3" ) ) ) ( send-message "Red 3" "Normal" "More 2" ) )
++Name: More 2 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 800 ) ( not ( is-destroyed-delay 0 "Cassia" ) ) ) ( send-message "Cassia" "Normal" "More 3" ) )
++Name: More 3 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 1100 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) ) ( send-message "Halyard" "Normal" "More 4" ) )
++Name: More 4 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Start" 1400 ) ( send-message "#Command" "Normal" "More 5" ) )
++Name: More 5 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 1650 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 6" ) )
++Name: More 6 Msg
++Repeat Count: 1
++Interval: 1
+
 #Goals		;! 3 total
 
 $Type: Primary
@@ -1703,7 +1749,7 @@ $Formula: ( is-destroyed-delay 0 "Hammer 1" "Hammer 2" "Hammer 3" "Hammer 4" )
 
 #Waypoints		;! 0 lists total
 
-#Messages		;! 20 total
+#Messages		;! 26 total
 
 $Command Sender: Theseus
 
@@ -1826,6 +1872,42 @@ $Team: -1
 $MessageNew:  XSTR("We lost the station. Break off and fall back to the fleet.", -1)
 $end_multi_text
 +Wave Name: XM-Watch-20.ogg
+
+$Name: More 1
+$Team: -1
+$MessageNew:  XSTR("Half an hour on a picket. I've never been so grateful for coffee.", -1)
+$end_multi_text
++Wave Name: XM-Watch-21.ogg
+
+$Name: More 2
+$Team: -1
+$MessageNew:  XSTR("Every minute they don't attack is a minute we get ready for the next one.", -1)
+$end_multi_text
++Wave Name: XM-Watch-22.ogg
+
+$Name: More 3
+$Team: -1
+$MessageNew:  XSTR("Cassia to escort, the tanker's feeding the fleet. Keep the lanes clear.", -1)
+$end_multi_text
++Wave Name: XM-Watch-23.ogg
+
+$Name: More 4
+$Team: -1
+$MessageNew:  XSTR("Halyard to Red flight, the waves are getting bigger. Pace yourselves.", -1)
+$end_multi_text
++Wave Name: XM-Watch-24.ogg
+
+$Name: More 5
+$Team: -1
+$MessageNew:  XSTR("Theseus to Red flight, I've watched pickets like this break. Yours won't.", -1)
+$end_multi_text
++Wave Name: XM-Watch-25.ogg
+
+$Name: More 6
+$Team: -1
+$MessageNew:  XSTR("If we make it through this, I'm sleeping for a week.", -1)
+$end_multi_text
++Wave Name: XM-Watch-26.ogg
 
 #Reinforcements		;! 0 total
 

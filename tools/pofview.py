@@ -158,11 +158,13 @@ def render(model, tex, glow_tex, view, W, H, light, bg_seed=1, ss=2):
     # back-face cull with the stored polygon normal
     ctr = P.mean(1)
     facing = ((eye - ctr) * FN).sum(1) > 0
-    ok &= facing
+    if not os.environ.get("POFVIEW_NOCULL"): ok &= facing
     ok &= (sx.max(1) > 0) & (sx.min(1) < W2) & (sy.max(1) > 0) & (sy.min(1) < H2)
     idx = np.nonzero(ok)[0]
     area = np.abs((sx[idx, 1] - sx[idx, 0]) * (sy[idx, 2] - sy[idx, 0]) - (sx[idx, 2] - sx[idx, 0]) * (sy[idx, 1] - sy[idx, 0])) / 2
-    nsamp = np.clip(np.ceil(np.sqrt(area) * 1.2), 1, 14).astype(int)
+    # samples per triangle side: enough for the longest edge, so thin slivers do not leave gaps
+    emax = np.maximum.reduce([np.hypot(sx[idx, a] - sx[idx, b], sy[idx, a] - sy[idx, b]) for a, b in ((0, 1), (1, 2), (2, 0))])
+    nsamp = np.clip(np.ceil(np.maximum(np.sqrt(area) * 1.2, emax * 0.9)), 1, int(os.environ.get("POFVIEW_MAXS", "14"))).astype(int)
     keys, depths, cols = [], [], []
     L = np.array(light, dtype=np.float64); L /= np.linalg.norm(L)
     for n in np.unique(nsamp):

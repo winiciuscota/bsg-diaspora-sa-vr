@@ -1,0 +1,173 @@
+$Name: Thunderlords Patrol Log II - Hard Burn
+$Type: single
++Description:
+ XSTR("The Thunderlords on the offensive: hunting, strikes and traps against Cylon raiders, long picket duties, a lost data hulk and the stand at Armistice. Medium to very hard.", -1)
+$end_multi_text
+$Flags: 0
+
+
++Starting Ships: ( "Viper Mark VII"  "Viper Mark VIIe"  "Assault Raptor" )
+
++Starting Weapons: ( "MEC-A6"  "Training MEC-A6"  "GBK-6"  "HD-70 Lightning Javelin"  "TM-7 Pyro Javelin"  "HD-51 Arbalest"  "CTD-17 Jester"  "HS-24 Lance"  "HS-48 Spear"  "AGM-41 Whiplash"  "GBU-102 Tercio"  "TGB-102 Petardo"  "N4 Nessus" )
+
+$Mission: XM-Hunter.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Firebreak.fs2" ) )
+)
+
++Level: 0
++Position: 0
+
+$Mission: XM-Firebreak.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Anvil.fs2" ) )
+)
+
++Level: 1
++Position: 0
+
+$Mission: XM-Anvil.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-OpenDoor.fs2" ) )
+)
+
++Level: 2
++Position: 0
+
+$Mission: XM-OpenDoor.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-DeepLook.fs2" ) )
+)
+
++Level: 3
++Position: 0
+
+$Mission: XM-DeepLook.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-TankerDown.fs2" ) )
+)
+
++Level: 4
++Position: 0
+
+$Mission: XM-TankerDown.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-StandFast.fs2" ) )
+)
+
++Level: 5
++Position: 0
+
+$Mission: XM-StandFast.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Decoy.fs2" ) )
+)
+
++Level: 6
++Position: 0
+
+$Mission: XM-Decoy.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Intercept.fs2" ) )
+)
+
++Level: 7
++Position: 0
+
+$Mission: XM-Intercept.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Watch.fs2" ) )
+)
+
++Level: 8
++Position: 0
+
+$Mission: XM-Watch.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Convoy.fs2" ) )
+)
+
++Level: 9
++Position: 0
+
+$Mission: XM-Convoy.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Hulks.fs2" ) )
+)
+
++Level: 10
++Position: 0
+
+$Mission: XM-Hulks.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Basestar.fs2" ) )
+)
+
++Level: 11
++Position: 0
+
+$Mission: XM-Basestar.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Hammerfall.fs2" ) )
+)
+
++Level: 12
++Position: 0
+
+$Mission: XM-Hammerfall.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Gauntlet.fs2" ) )
+)
+
++Level: 13
++Position: 0
+
+$Mission: XM-Gauntlet.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( next-mission "XM-Armistice.fs2" ) )
+)
+
++Level: 14
++Position: 0
+
+$Mission: XM-Armistice.fs2
++Flags: 0
++Main Hall: 0
++Formula: ( cond
+   ( ( true ) ( end-of-campaign ) )
+)
+
++Level: 15
++Position: 0
+
+#End

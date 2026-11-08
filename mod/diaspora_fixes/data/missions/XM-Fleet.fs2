@@ -59,7 +59,23 @@ $Variables:
 
 #Briefing
 $start_briefing
-$num_stages: 0
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("The fleet is at anchor in a quiet system. No enemies, no orders, no clock. Take a Viper out and fly around the battlestar, the frigate, the tanker and the liners. Leave whenever you like.", -1)
+$end_multi_text
+$voice: XM-Fleet-B-01.ogg
+$camera_pos: 0.000000, 3000.000000, -9000.000000
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 0.939693, 0.342020,
+	0.000000, -0.342020, 0.939693,
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 1
+$Formula: ( true ) 
+$end_stage
 $end_briefing
 
 #Debriefing_info
@@ -625,7 +641,9 @@ $Special Ship: 0		;! Red 1
 
 $Arrival Location: Hyperspace
 $Arrival Cue: ( true )
-$Departure Location: Hyperspace
+$Departure Location: Docking Bay
+$Departure Anchor: Theseus
++Departure Paths: ( "$Bay20" )
 $Departure Cue: ( false )
 $Ships: (		;! 1 total
 	"Red 1"
@@ -676,9 +694,9 @@ $Formula: ( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "
 
 $Type: Secondary
 +Name: Land on a carrier
-$MessageNew:  XSTR("Touch down in a landing bay of the Theseus or the Prometheus below forty-five metres per second (ends the mission)", -1)
+$MessageNew:  XSTR("Press Alt+J near the Theseus to be guided into the bay, or touch down by hand in a bay below forty-five metres per second (ends the mission)", -1)
 $end_multi_text
-$Formula: ( is-event-true-delay "Landed" 0 )
+$Formula: ( or ( is-event-true-delay "Landed" 0 ) ( has-departed-delay 0 "Red 1" ) )
 +Score: 10
 
 $Type: Secondary
@@ -717,7 +735,7 @@ $end_multi_text
 
 $Name: HQ Landing
 $Team: -1
-$MessageNew:  XSTR("Red 1, Theseus. If you want to come home, take a landing bay on either side of the Theseus or the rear bay of the Prometheus. Bring your speed under forty and set her down. We'll catch you.", -1)
+$MessageNew:  XSTR("Red 1, Theseus. If you want to come home, press Alt+J near the Theseus and we'll guide you into the hangar bay. Or set her down by hand in a bay on either side of the Theseus or the rear bay of the Prometheus, under forty.", -1)
 $end_multi_text
 
 $Name: HQ Down

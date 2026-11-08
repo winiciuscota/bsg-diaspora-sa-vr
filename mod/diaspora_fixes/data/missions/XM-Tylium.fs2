@@ -59,7 +59,23 @@ $Variables:
 
 #Briefing
 $start_briefing
-$num_stages: 0
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("The fleet is down to its last reserves of tylium. The tanker Cassia and the freighter Hesper are bringing refined fuel from the Ragnar refinery to the jump point, with the frigate Halyard riding shotgun. Red flight escorts them across the last nine kilometres. The Cylons know what that fuel means. Objectives. Get the tanker Cassia to the jump point.", -1)
+$end_multi_text
+$voice: XM-Tylium-B-01.ogg
+$camera_pos: 0.000000, 3000.000000, -9000.000000
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 0.939693, 0.342020,
+	0.000000, -0.342020, 0.939693,
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 1
+$Formula: ( true ) 
+$end_stage
 $end_briefing
 
 #Debriefing_info
@@ -699,7 +715,7 @@ $Ships: (		;! 3 total
 $AI Goals: ( goals ( ai-chase "Hesper" 60 ) )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" )
 
-#Events		;! 25 total
+#Events		;! 30 total
 
 $Formula: ( when ( true ) ( ship-guardian-threshold 20 "Cassia" ) )
 +Name: Start
@@ -826,6 +842,31 @@ $Formula: ( when ( and ( is-event-true-delay "Convoy Jump" 4 ) ( not ( is-destro
 +Repeat Count: 1
 +Interval: 1
 
+$Formula: ( when ( and ( is-event-true-delay "Start" 150 ) ( not ( is-destroyed-delay 0 "Red 3" ) ) ) ( send-message "Red 3" "Normal" "More 1" ) )
++Name: More 1 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 330 ) ( not ( is-destroyed-delay 0 "Cassia" ) ) ) ( send-message "Cassia" "Normal" "More 2" ) )
++Name: More 2 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 480 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 3" ) )
++Name: More 3 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 620 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) ) ( send-message "Halyard" "Normal" "More 4" ) )
++Name: More 4 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Start" 790 ) ( send-message "#Command" "Normal" "More 5" ) )
++Name: More 5 Msg
++Repeat Count: 1
++Interval: 1
+
 #Goals		;! 3 total
 
 $Type: Primary
@@ -858,7 +899,7 @@ $List: (		;! 3 points in list
 	( 300.000000, 200.000000, 8500.000000 )
 )
 
-#Messages		;! 16 total
+#Messages		;! 21 total
 
 $Command Sender: Theseus
 
@@ -957,6 +998,36 @@ $Team: -1
 $MessageNew:  XSTR("Lords, I'll be glad to see the back of that tanker. Nothing personal, Cassia.", -1)
 $end_multi_text
 +Wave Name: XM-Tylium-16.ogg
+
+$Name: More 1
+$Team: -1
+$MessageNew:  XSTR("Half the fleet's fuel is sitting in that tanker. No pressure.", -1)
+$end_multi_text
++Wave Name: XM-Tylium-17.ogg
+
+$Name: More 2
+$Team: -1
+$MessageNew:  XSTR("Cassia to escort, engines nominal. We're not fast, but we're steady.", -1)
+$end_multi_text
++Wave Name: XM-Tylium-18.ogg
+
+$Name: More 3
+$Team: -1
+$MessageNew:  XSTR("Halyard has the flank. If anything gets through her flak, it's ours.", -1)
+$end_multi_text
++Wave Name: XM-Tylium-19.ogg
+
+$Name: More 4
+$Team: -1
+$MessageNew:  XSTR("Halyard to convoy, DRADIS is clear. Keep the formation tight and the chatter loose.", -1)
+$end_multi_text
++Wave Name: XM-Tylium-20.ogg
+
+$Name: More 5
+$Team: -1
+$MessageNew:  XSTR("Theseus to Red flight, the jump point is within reach. Hold on a little longer.", -1)
+$end_multi_text
++Wave Name: XM-Tylium-21.ogg
 
 #Reinforcements		;! 0 total
 

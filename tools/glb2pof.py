@@ -46,34 +46,15 @@ def axis(spec):
     return "xyz".index(spec.lstrip("-")), sign
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("src")
-    ap.add_argument("dst")
-    ap.add_argument("--texture", required=True)
-    ap.add_argument("--length", type=float, default=900.0)
-    ap.add_argument("--axes", default="auto", help="glTF axes of length,height,width, e.g. x,z,y; auto = z is up, the longer of x / y is the length")
-    ap.add_argument("--flip-front", action="store_true")
-    ap.add_argument("--hard", type=float, default=60.0)
-    ap.add_argument("--image", help="write the base colour image here")
-    ap.add_argument("--glow", help="json file with glow point banks: {\"banks\": [{\"texture\": name, \"points\": [[x,y,z,nx,ny,nz,radius], ...]}]}")
-    ap.add_argument("--faces-per-part", type=int, default=20000)
-    ap.add_argument("--max-parts", type=int, default=0, help="debug: keep only the first N parts")
-    ap.add_argument("--empty-root", action="store_true", help="debug: empty root submodel + all parts as children (the engine runs out of memory loading that layout)")
-    a = ap.parse_args()
-    a.root_geometry = not a.empty_root
-
-    pos, uv, idx, image, mime = read_glb(a.src)
-    if a.image:
-        open(a.image, "wb").write(image)
-    if a.axes == "auto":
-        a.axes = "x,z,y" if np.ptp(pos[:, 0]) >= np.ptp(pos[:, 1]) else "y,z,x"
-        print("axes:", a.axes)
+def build_lod(a, pos, uv, idx, first_sub, lod_name, xform):
+    """Submodels of one detail level (first one is the level's root, the rest are its children): (chunks, count, mins, maxs, radius)."""
     (il, sl), (iu, su), (iw, sw) = [axis(s) for s in a.axes.split(",")]
     # glTF -> ship space: x = width, y = up, z = forward (length); forward negated + winding reversed (handedness change)
     p = np.stack([pos[:, iw] * sw, pos[:, iu] * su, -pos[:, il] * sl * (-1.0 if a.flip_front else 1.0)], 1)
-    p -= (p.min(0) + p.max(0)) / 2
-    p *= a.length / float((p.max(0) - p.min(0)).max())
+    if not xform:                                 # the first (most detailed) mesh sets the placement, the LODs follow it
+        xform["center"] = (p.min(0) + p.max(0)) / 2
+        xform["scale"] = a.length / float((p.max(0) - p.min(0)).max())
+    p = (p - xform["center"]) * xform["scale"]
     f = idx[:, [0, 2, 1]]                         # reversed winding
 
     a0, b0, c0 = p[f[:, 0]], p[f[:, 1]], p[f[:, 2]]
@@ -101,7 +82,7 @@ def main():
     mins, maxs = p.min(0), p.max(0)
     rad = float(np.linalg.norm(p, axis=1).max())
 
-    objs, nsub = [], len(parts) + (0 if a.root_geometry else 1)
+    objs = []
     poly_dt = np.dtype([("id", "<i4"), ("size", "<i4"), ("n", "<3f4"), ("c", "<3f4"), ("r", "<f4"), ("nv", "<i4"), ("tm", "<i4"),
                         ("v", [("vi", "<i2"), ("ni", "<i2"), ("u", "<f4"), ("w", "<f4")], (3,))])
     for pi, sel in enumerate(parts, start=1):
@@ -135,18 +116,55 @@ def main():
         vmin, vmax = verts.min(0), verts.max(0)
         # the engine's collision parser wants DEFPOINTS, then BOUNDBOX followed by the polygons of that leaf, then EOF
         bsp = defpoints + struct.pack("<ii6f", 5, 32, *vmin, *vmax) + polys.tobytes() + struct.pack("<ii", 0, 0)
-        sub, parent, pname = (pi - 1, -1, "detail0") if (a.root_geometry and pi == 1) else (pi - (1 if a.root_geometry else 0), 0, "part%02d" % pi)
+        sub, parent, pname = (first_sub + pi - 1, -1, lod_name) if pi == 1 else (first_sub + pi - 1, first_sub, "%s_part%02d" % (lod_name, pi))
         o = struct.pack("<ifi", sub, float(np.linalg.norm(verts, axis=1).max()), parent) + struct.pack("<12f", 0, 0, 0, *((vmin + vmax) / 2), *vmin, *vmax)
         o += string(pname) + string("") + struct.pack("<iiii", -1, -1, 0, len(bsp)) + bsp
         objs.append(chunk(b"OBJ2", o))
         print("part %d: %d polygons, %d vertices" % (pi, m, len(verts)))
+    return objs, len(parts), mins, maxs, rad
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("src")
+    ap.add_argument("dst")
+    ap.add_argument("--texture", required=True)
+    ap.add_argument("--length", type=float, default=900.0)
+    ap.add_argument("--axes", default="auto", help="glTF axes of length,height,width, e.g. x,z,y; auto = z is up, the longer of x / y is the length")
+    ap.add_argument("--flip-front", action="store_true")
+    ap.add_argument("--hard", type=float, default=60.0)
+    ap.add_argument("--image", help="write the base colour image here")
+    ap.add_argument("--glow", help="json file with glow point banks: {\"banks\": [{\"texture\": name, \"points\": [[x,y,z,nx,ny,nz,radius], ...]}]}")
+    ap.add_argument("--lods", help="comma separated GLBs with lower detail versions of the model (same orientation), written as detail levels 1, 2, ...")
+    ap.add_argument("--faces-per-part", type=int, default=20000)
+    ap.add_argument("--max-parts", type=int, default=0, help="debug: keep only the first N parts")
+    ap.add_argument("--empty-root", action="store_true", help="debug: empty root submodel + all parts as children (the engine runs out of memory loading that layout)")
+    a = ap.parse_args()
+    a.root_geometry = not a.empty_root
+
+    pos, uv, idx, image, mime = read_glb(a.src)
+    if a.image:
+        open(a.image, "wb").write(image)
+    if a.axes == "auto":
+        a.axes = "x,z,y" if np.ptp(pos[:, 0]) >= np.ptp(pos[:, 1]) else "y,z,x"
+        print("axes:", a.axes)
+    xform = {}
+    objs, nparts, mins, maxs, rad = build_lod(a, pos, uv, idx, 0, "detail0", xform)
+    firsts = [0]
+    for k, path in enumerate([p for p in (a.lods or "").split(",") if p], start=1):
+        lpos, luv, lidx, _, _ = read_glb(path)
+        firsts.append(nparts)
+        lobjs, lparts, _, _, _ = build_lod(a, lpos, luv, lidx, nparts, "detail%d" % k, xform)
+        objs += lobjs
+        nparts += lparts
+    nsub = nparts + (0 if a.root_geometry else 1)
 
     root_bsp = struct.pack("<ii6f", 5, 32, *mins, *maxs) + struct.pack("<ii", 0, 0)
     root = struct.pack("<ifi", 0, rad, -1) + struct.pack("<12f", 0, 0, 0, 0, 0, 0, *mins, *maxs)
     root += string("detail0") + string("") + struct.pack("<iiii", -1, -1, 0, len(root_bsp)) + root_bsp
     mass = max(1000.0, rad ** 3 * 0.05)
     inertia = 0.4 * mass * rad * rad
-    hdr2 = struct.pack("<fii", rad, 0, nsub) + struct.pack("<6f", *mins, *maxs) + struct.pack("<ii", 1, 0) + struct.pack("<i", 0)
+    hdr2 = struct.pack("<fii", rad, 0, nsub) + struct.pack("<6f", *mins, *maxs) + struct.pack("<i", len(firsts)) + struct.pack("<%di" % len(firsts), *firsts) + struct.pack("<i", 0)
     hdr2 += struct.pack("<f3f9f", mass, 0.0, 0.0, 0.0, inertia, 0, 0, 0, inertia, 0, 0, 0, inertia) + struct.pack("<ii", 0, 0)
     pof = b"PSPO" + struct.pack("<i", 2117) + chunk(b"TXTR", struct.pack("<i", 1) + string(a.texture)) + chunk(b"HDR2", hdr2)
     if a.glow:

@@ -59,7 +59,23 @@ $Variables:
 
 #Briefing
 $start_briefing
-$num_stages: 0
+$num_stages: 1
+$start_stage
+$multi_text
+ XSTR("Three civilian ships and the frigate Halyard have twenty-two minutes to cross the Ragnar belt to the jump point. The Cylons will hit them from every side. Red flight escorts, and loses nobody. Objectives. Get Aster, Tern and Briony to the jump point. The Halyard must survive.", -1)
+$end_multi_text
+$voice: XM-Convoy-B-01.ogg
+$camera_pos: 0.000000, 3000.000000, -9000.000000
+$camera_orient:
+	1.000000, 0.000000, 0.000000,
+	0.000000, 0.939693, 0.342020,
+	0.000000, -0.342020, 0.939693,
+$camera_time: 500
+$num_lines: 0
+$num_icons: 0
+$Flags: 1
+$Formula: ( true ) 
+$end_stage
 $end_briefing
 
 #Debriefing_info
@@ -1398,7 +1414,7 @@ $Ships: (		;! 5 total
 $AI Goals: ( goals ( ai-chase-any 80 ) )
 +Flags: ( "no-arrival-music" "no-arrival-message" "no-arrival-warp" )
 
-#Events		;! 31 total
+#Events		;! 37 total
 
 $Formula: ( when ( true ) ( ship-guardian-threshold 20 "Halyard" "Tern" "Briony" "Aster" ) )
 +Name: Start
@@ -1555,6 +1571,36 @@ $Formula: ( when ( is-event-true-delay "Fail Fade" 2 ) ( end-mission ) )
 +Repeat Count: 1
 +Interval: 1
 
+$Formula: ( when ( and ( is-event-true-delay "Start" 240 ) ( not ( is-destroyed-delay 0 "Red 2" ) ) ) ( send-message "Red 2" "Normal" "More 1" ) )
++Name: More 1 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 480 ) ( not ( is-destroyed-delay 0 "Aster" ) ) ) ( send-message "Aster" "Normal" "More 2" ) )
++Name: More 2 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 760 ) ( not ( is-destroyed-delay 0 "Red 3" ) ) ) ( send-message "Red 3" "Normal" "More 3" ) )
++Name: More 3 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 1040 ) ( not ( is-destroyed-delay 0 "Tern" ) ) ) ( send-message "Tern" "Normal" "More 4" ) )
++Name: More 4 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( and ( is-event-true-delay "Start" 1320 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) ) ( send-message "Halyard" "Normal" "More 5" ) )
++Name: More 5 Msg
++Repeat Count: 1
++Interval: 1
+
+$Formula: ( when ( is-event-true-delay "Start" 1550 ) ( send-message "#Command" "Normal" "More 6" ) )
++Name: More 6 Msg
++Repeat Count: 1
++Interval: 1
+
 #Goals		;! 3 total
 
 $Type: Primary
@@ -1568,7 +1614,7 @@ $Type: Primary
 +Name: Keep the Halyard
 $MessageNew:  XSTR("The Halyard must survive", -1)
 $end_multi_text
-$Formula: ( not ( is-destroyed-delay 0 "Halyard" ) )
+$Formula: ( and ( is-event-true-delay "Win" 0 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) )
 +Score: 50
 
 $Type: Bonus
@@ -1588,7 +1634,7 @@ $List: (		;! 4 points in list
 	( 200.000000, 100.000000, 13000.000000 )
 )
 
-#Messages		;! 14 total
+#Messages		;! 20 total
 
 $Command Sender: Theseus
 
@@ -1675,6 +1721,42 @@ $Team: -1
 $MessageNew:  XSTR("We lost a ship of the convoy. Break off, Red flight.", -1)
 $end_multi_text
 +Wave Name: XM-Convoy-14.ogg
+
+$Name: More 1
+$Team: -1
+$MessageNew:  XSTR("A convoy at ten knots. Longest walk of my life.", -1)
+$end_multi_text
++Wave Name: XM-Convoy-15.ogg
+
+$Name: More 2
+$Team: -1
+$MessageNew:  XSTR("Aster to escort, thank you for the company. It's less lonely with you around.", -1)
+$end_multi_text
++Wave Name: XM-Convoy-16.ogg
+
+$Name: More 3
+$Team: -1
+$MessageNew:  XSTR("The Raiders always attack where we can't see. That's what makes them Raiders.", -1)
+$end_multi_text
++Wave Name: XM-Convoy-17.ogg
+
+$Name: More 4
+$Team: -1
+$MessageNew:  XSTR("Tern here, hull pressure is steady. We can take another hit if we have to.", -1)
+$end_multi_text
++Wave Name: XM-Convoy-18.ogg
+
+$Name: More 5
+$Team: -1
+$MessageNew:  XSTR("Halyard to Red flight, the convoy's stretched thin. Close it up.", -1)
+$end_multi_text
++Wave Name: XM-Convoy-19.ogg
+
+$Name: More 6
+$Team: -1
+$MessageNew:  XSTR("Theseus to Red flight, deliver them. The fleet is counting on that cargo.", -1)
+$end_multi_text
++Wave Name: XM-Convoy-20.ogg
 
 #Reinforcements		;! 0 total
 

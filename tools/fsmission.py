@@ -49,6 +49,9 @@ class Mission:
     def __init__(self, name, desc, test=False):
         self.name = name
         self.desc = desc
+        self.start_ship = "Red 1"
+        self.start_wing = "Red"
+        self.briefing = None          # (text, voice wave file) for one voiced briefing stage
         self.test = test
         self.objects = []
         self.wings = []
@@ -101,8 +104,8 @@ class Mission:
               "+Score: %d" % score]
         self.objects.append(o)
 
-    def player_wing(self, name, start, face, callsigns, guard=None, player_class="Viper Mark VII",
-                    player_primaries=None, player_secondaries=None):
+    def player_wing(self, name, start, face, callsigns, guard=None, bay=None, player_class="Viper Mark VII",
+                    player_primaries=None, player_secondaries=None, wing_class="Viper Mark VII", wing_primaries=None, wing_secondaries=None):
         """Player flight: the player is <name> 1 (a Viper unless player_class says otherwise), the wingmen fly Vipers."""
         flags = '( "cargo-known" "player-start" "don\'t-collide-invisible"%s )' % (' "invulnerable"' if self.test else '')
         wing_flags = '( "cargo-known" "don\'t-collide-invisible" )'
@@ -111,14 +114,16 @@ class Mission:
             sname = "%s %d" % (name, i + 1)
             pos = offset(start, (i - len(callsigns) / 2.0) * 60.0, 0.0, -10.0 * (i > 0))
             if i == 0:
+                self.start_ship = sname
+                self.start_wing = name
                 self.ship(sname, player_class, "Friendly", pos, face, flags=flags,
                           primaries=player_primaries or VIPER_GUNS, secondaries=player_secondaries or VIPER_MISSILES,
                           score=12)
             else:
-                self.ship(sname, "Viper Mark VII", "Friendly", pos, face, flags=wing_flags, callsign=callsigns[i - 1],
-                          ai_class="Lieutenant", primaries=VIPER_GUNS, secondaries=VIPER_MISSILES)
+                self.ship(sname, wing_class, "Friendly", pos, face, flags=wing_flags, callsign=callsigns[i - 1],
+                          ai_class="Lieutenant", primaries=wing_primaries or VIPER_GUNS, secondaries=wing_secondaries or VIPER_MISSILES)
             ships.append(sname)
-        self.wing(name, ships, "( true )", goals=guard or "ai-chase-any 50", flags=WING_FLAGS)
+        self.wing(name, ships, "( true )", goals=guard or "ai-chase-any 50", flags=WING_FLAGS, bay=bay)
         return ships
 
     def cylon_wing(self, name, cls, count, center, face, arrival, goals, spacing=80.0, score=10):
@@ -132,8 +137,9 @@ class Mission:
         self.wing(name, ships, arrival, goals=goals, flags=WING_FLAGS)
         return ships
 
-    def wing(self, name, ships, arrival, departure="( false )", goals="ai-chase-any 50", flags=WING_FLAGS):
-        self.wings.append(dict(name=name, ships=ships, arrival=arrival, departure=departure, goals=goals, flags=flags))
+    def wing(self, name, ships, arrival, departure="( false )", goals="ai-chase-any 50", flags=WING_FLAGS, bay=None):
+        # bay = (anchor ship, bay path): the wing departs into that ship's hangar (what Alt+J does for the player)
+        self.wings.append(dict(name=name, ships=ships, arrival=arrival, departure=departure, goals=goals, flags=flags, bay=bay))
 
     def event(self, name, formula):
         self.events.append((name, formula))
@@ -176,6 +182,10 @@ class Mission:
         w("")
         w("+Fog Far Mult: 1.000000")
         w("")
+        if getattr(self, "volumetric", None):
+            for line in ("+Volumetric Nebula: %s" % self.volumetric).split("\n"):
+                w(line)
+            w("")
         w("+Disallow Support: 1")
         w("")
         w("+Hull Repair Ceiling: 0.000000")
@@ -190,9 +200,10 @@ class Mission:
         w("+SquadReassignName: 72nd Thunderlords")
         w("+SquadReassignLogo: thunderlords.pcx")
         w("")
-        w('$Starting wing names: ( "Red" )')
-        w('$Squadron wing names: ( "Red" "Orange" "Violet" "Blue" "Green" )')
-        w('$Team-versus-team wing names: ( "Red" "Orange" )')
+        w('$Starting wing names: ( "%s" )' % self.start_wing)
+        others = [n for n in ("Red", "Orange", "Violet", "Blue", "Green") if n != self.start_wing]
+        w('$Squadron wing names: ( "%s" )' % '" "'.join([self.start_wing] + others[:4]))
+        w('$Team-versus-team wing names: ( "%s" "Orange" )' % self.start_wing)
         w("")
         w("$Load Screen 640:\tY_No_1024x768.tga")
         w("$Load Screen 1024:\t%s" % self.load_screen)
@@ -215,7 +226,27 @@ class Mission:
         w("")
         w("#Briefing")
         w("$start_briefing")
-        w("$num_stages: 0")
+        if self.briefing:
+            w("$num_stages: 1")
+            w("$start_stage")
+            w("$multi_text")
+            w(" %s" % xstr(self.briefing[0]))
+            w("$end_multi_text")
+            if self.briefing[1]:
+                w("$voice: %s" % self.briefing[1])
+            w("$camera_pos: 0.000000, 3000.000000, -9000.000000")
+            w("$camera_orient:")
+            w("\t1.000000, 0.000000, 0.000000,")
+            w("\t0.000000, 0.939693, 0.342020,")
+            w("\t0.000000, -0.342020, 0.939693,")
+            w("$camera_time: 500")
+            w("$num_lines: 0")
+            w("$num_icons: 0")
+            w("$Flags: 1")
+            w("$Formula: ( true ) ")
+            w("$end_stage")
+        else:
+            w("$num_stages: 0")
         w("$end_briefing")
         w("")
         w("#Debriefing_info")
@@ -241,7 +272,7 @@ class Mission:
         w("")
         w("#Players\t\t;! 1 total")
         w("")
-        w("$Starting Shipname: Red 1")
+        w("$Starting Shipname: %s" % self.start_ship)
         w("$Ship Choices: (")
         w(")")
         w("")
@@ -268,7 +299,12 @@ class Mission:
             w("")
             w("$Arrival Location: Hyperspace")
             w("$Arrival Cue: %s" % wing["arrival"])
-            w("$Departure Location: Hyperspace")
+            if wing.get("bay"):
+                w("$Departure Location: Docking Bay")
+                w("$Departure Anchor: %s" % wing["bay"][0])
+                w('+Departure Paths: ( "%s" )' % wing["bay"][1])
+            else:
+                w("$Departure Location: Hyperspace")
             w("$Departure Cue: %s" % wing["departure"])
             w("$Ships: (\t\t;! %d total" % len(wing["ships"]))
             for s in wing["ships"]:

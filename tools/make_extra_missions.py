@@ -18,14 +18,13 @@ Usage: python3 -I tools/make_extra_missions.py OUTDIR [--test]   (--test makes t
 """
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fsmission import Mission, offset, CYLON_FLAGS  # noqa: E402
 
 TEST = "--test" in sys.argv
-# the generated Tylium Refinery model is not part of the public mod yet (set DIASPORA_REFINERY=1 to put it in Tylium Run)
-USE_REFINERY = os.environ.get("DIASPORA_REFINERY") == "1"
 OUT = [a for a in sys.argv[1:] if not a.startswith("--")][0]
 CIVIL_FLAGS = '( "cargo-known" "no-shields" "escort" "no-arrival-warp" "don\'t-collide-invisible" )'
 CAPITAL_FLAGS = '( "cargo-known" "no-shields" "escort" "no-arrival-warp" "don\'t-collide-invisible" )'
@@ -65,11 +64,6 @@ def tylium_run():
            cargo="Tylium")
     m.ship("Halyard", "Frigate Bolitho Class", "Friendly", HALYARD, END, arrival="( true )", departure=jump,
            ai_goals='ai-guard "Cassia" 80', flags=CAPITAL_FLAGS, shields=0, score=500)
-    # the Ragnar refinery the convoy just left: the generated Tylium Refinery model, parked off to the left behind the convoy
-    if USE_REFINERY:
-      m.ship("Ragnar Refinery", "Tylium Refinery", "Friendly", (-1900.0, -350.0, -900.0), (-1900.0, -350.0, 3100.0), arrival="( true )",
-             flags='( "invulnerable" "hidden-from-sensors" "no-shields" "don\'t-collide-invisible" "cargo-known" )',
-             flags2='( "immobile" )', shields=0, score=0)
     m.waypoint_list("Convoy Lane", [(0.0, 0.0, 1500.0), (500.0, 150.0, 4500.0), (300.0, 200.0, 8500.0)])
 
     m.cylon_wing("Jackal", "Raider", 4, (3200.0, 400.0, 2200.0), CASSIA, '( is-event-true-delay "Jackal Cue" 0 )',
@@ -771,7 +765,7 @@ def fleet_anchorage():
                 True)	# True = invulnerable player
     m.load_screen = "Load_SP-R1-M1.tga"
     m.background["sun_angles"] = "2.600000 1.300000 5.300000"
-    m.player_wing("Red", (900.0, 150.0, -1800.0), (0.0, 0.0, 0.0), [], guard="ai-chase-any 50")
+    m.player_wing("Red", (900.0, 150.0, -1800.0), (0.0, 0.0, 0.0), [], guard="ai-chase-any 50", bay=("Theseus", "$Bay20"))
     idle = "( \"cargo-known\" \"no-shields\" \"no-arrival-warp\" \"don't-collide-invisible\" )"
     still = '( "immobile" )'
     m.ship("Theseus", "Battlestar Sobek Class", "Friendly", (0.0, 0.0, 0.0), (0.0, 0.0, 5000.0), arrival="( true )",
@@ -794,8 +788,18 @@ def fleet_anchorage():
     for i, pos in enumerate([(2900.0, 100.0, -2500.0), (3100.0, 200.0, -2300.0), (3300.0, 0.0, -2100.0), (3500.0, 150.0, -1900.0)]):
         m.ship("Drone %d" % (i + 1), "Cylotron Mark IX Drone", "Neutral", pos, offset(pos, -1.0, 0.0, 1.0), arrival="( true )",
                flags=idle, flags2=still, hull=100, shields=0, score=0)
-    m.message("HQ Welcome", "Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, "
-              "stretch the Viper's legs. Jump out whenever you want.")
+    # the big structures (textured showcase models, not part of the public mod): far from the fleet so each can be approached on its own
+    big = idle.replace('"cargo-known"', '"cargo-known" "invulnerable"')
+    for name, cls, pos in [] if os.environ.get("DIASPORA_STRUCTURES", "1") == "0" else [("Colonial One", "Colonial One", (-1800.0, 700.0, -3200.0)), ("Capital Starship", "Capital Starship", (9000.0, 1500.0, 2500.0)),
+                           ("Aerilon Shipyard", "Aerilon Shipyard", (-9500.0, -800.0, 5500.0)), ("Stellar Mining", "Stellar Mining Platform", (3000.0, -2000.0, 11000.0))]:
+        m.ship(name, cls, "Friendly", pos, offset(pos, 0.0, 0.0, 4000.0), arrival="( true )", flags=big, flags2=still, shields=0, score=0)
+    if os.environ.get("DIASPORA_STRUCTURES", "1") == "0":
+        m.message("HQ Welcome", "Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, "
+                  "stretch the Viper's legs. Jump out whenever you want.")
+    else:
+        m.message("HQ Welcome", "Red 1, Theseus. Nothing on DRADIS and no orders. The fleet is yours to look at. Fly around, "
+                  "stretch the Viper's legs. Colonial One is close, off the port quarter. Further out: the capital starship to the east, "
+                  "the Aerilon shipyard to the west, and the stellar mining platform dead ahead. Jump out whenever you want.")
     m.event("Welcome Msg", '( when ( true ) ( send-message "#Command" "High" "HQ Welcome" ) )')
     # Landing: the Theseus has a landing bay on each side (the model's $Bay paths end at x = +-165, y = -28..-50, z = 65..90) and
     # the Prometheus has one bay at the stern (its $fighterbay path ends at 0, 12, -180). Touch down slowly inside a bay and the
@@ -803,8 +807,8 @@ def fleet_anchorage():
     m.waypoint_list("Deck Port", [(-165.0, -30.0, 80.0)])
     m.waypoint_list("Deck Starboard", [(165.0, -30.0, 80.0)])
     m.waypoint_list("Deck Prometheus", [(1500.0, -188.0, 1215.0)])
-    m.message("HQ Landing", "Red 1, Theseus. If you want to come home, take a landing bay on either side of the Theseus or the rear "
-              "bay of the Prometheus. Bring your speed under forty and set her down. We'll catch you.")
+    m.message("HQ Landing", "Red 1, Theseus. If you want to come home, press Alt+J near the Theseus and we'll guide you into the hangar bay. "
+              "Or set her down by hand in a bay on either side of the Theseus or the rear bay of the Prometheus, under forty.")
     m.message("HQ Down", "Red 1, you're down. Welcome back aboard. Deck crew will take it from here.")
     m.event("Landing Msg", '( when ( is-event-true-delay "Welcome Msg" 40 ) ( send-message "#Command" "Low" "HQ Landing" ) )')
     m.event("Landed", '( when ( and ( < ( current-speed "Red 1" ) 45 ) ( or ( < ( distance "Red 1" "Deck Port:1" ) 70 ) '
@@ -813,8 +817,8 @@ def fleet_anchorage():
     win_end(m, "Landed")
     m.goal("Secondary", "Fly around the fleet", "Fly past the battlestar, the frigate and the tanker (optional)",
            '( or ( < ( distance "Red 1" "Theseus" ) 600 ) ( < ( distance "Red 1" "Sabazius" ) 400 ) ( < ( distance "Red 1" "Prometheus" ) 400 ) )', 10)
-    m.goal("Secondary", "Land on a carrier", "Touch down in a landing bay of the Theseus or the Prometheus below forty-five metres per second (ends the mission)",
-           '( is-event-true-delay "Landed" 0 )', 10)
+    m.goal("Secondary", "Land on a carrier", "Press Alt+J near the Theseus to be guided into the bay, or touch down by hand in a bay below forty-five metres per second (ends the mission)",
+           '( or ( is-event-true-delay "Landed" 0 ) ( has-departed-delay 0 "Red 1" ) )', 10)
     m.goal("Secondary", "Target practice", "Shoot the four parked training drones to the east (optional)",
            '( is-destroyed-delay 0 "Drone 1" "Drone 2" "Drone 3" "Drone 4" )', 10)
     m.debrief('( true )', "Quiet flight. The deck crew say the Viper came back without a scratch, as usual.",
@@ -914,6 +918,21 @@ CHATTER = {
 }
 
 
+BRIEF_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overlay", "diaspora_fixes", "data", "voice", "briefing")
+
+
+def briefing_text(m):
+    """The briefing: the mission description (without the duration tag) and the primary objectives, read out loud."""
+    desc = re.sub(r"^\[\[.*?\]\]\s*", "", m.desc).strip()
+    objs = [g[2].rstrip(".") for g in m.goals if g[0] == "Primary"]
+    return desc + (" Objectives. " + ". ".join(objs) + "." if objs else "")
+
+
+def add_briefing(fname, m):
+    wave = fname[:-4] + "-B-01.ogg"
+    m.briefing = (briefing_text(m), wave if os.path.exists(os.path.join(BRIEF_DIR, wave)) else None)
+
+
 def add_chatter(fname, m):
     for n, (after, delay, sender, text) in enumerate(CHATTER.get(fname, []), start=1):
         name = "Chatter %d" % n
@@ -922,6 +941,18 @@ def add_chatter(fname, m):
         if not sender.startswith("#"):
             cond = '( and %s ( not ( is-destroyed-delay 0 "%s" ) ) )' % (cond, sender)
         m.event("Chatter %d Msg" % n, '( when %s ( send-message "%s" "Normal" "%s" ) )' % (cond, sender, name))
+    # more chatter spread over the whole mission (tools/chatter_more.py), anchored on the mission's first event
+    from chatter_more import MORE
+    anchor = {"XM-Fleet.fs2": "Welcome Msg"}.get(fname)
+    names = [e[0] for e in m.events]
+    anchor = anchor or ("Start" if "Start" in names else "Orders Msg")
+    for n, (delay, sender, text) in enumerate(MORE.get(fname, []), start=1):
+        name = "More %d" % n
+        m.message(name, text)
+        cond = '( is-event-true-delay "%s" %d )' % (anchor, delay)
+        if not sender.startswith("#"):
+            cond = '( and %s ( not ( is-destroyed-delay 0 "%s" ) ) )' % (cond, sender)
+        m.event("More %d Msg" % n, '( when %s ( send-message "%s" "Normal" "%s" ) )' % (cond, sender, name))
 
 
 # ==============================================================================================================
@@ -1030,7 +1061,7 @@ def long_tow():
     fail_end(m, ["Mercy Lost", "Halyard Lost"])
 
     m.goal("Primary", "Get the mover out", "Keep Pilgrim Mercy alive until she jumps", '( is-event-true-delay "Win" 0 )', 100)
-    m.goal("Primary", "Keep the Halyard", "The Halyard must survive", '( not ( is-destroyed-delay 0 "Halyard" ) )', 50)
+    m.goal("Primary", "Keep the Halyard", "The Halyard must survive", '( and ( is-event-true-delay "Win" 0 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) )', 50)
     m.goal("Bonus", "No torpedo hits", "Destroy both Heavy Raiders", '( is-destroyed-delay 0 "Mauler 1" "Mauler 2" )', 30)
     m.debrief('( is-event-true-delay "Win" 0 )',
               "Pilgrim Mercy is through with her passengers and the Halyard is intact. Slow ships win by having a good escort.",
@@ -1081,7 +1112,7 @@ def ghost_light():
     fail_end(m, ["Halyard Lost"])
 
     m.goal("Primary", "Find the scout", "Destroy the stealthed Advanced Raider before it calls the basestar", '( is-event-true-delay "Win" 0 )', 100)
-    m.goal("Primary", "Keep the Halyard", "The Halyard must survive", '( not ( is-destroyed-delay 0 "Halyard" ) )', 50)
+    m.goal("Primary", "Keep the Halyard", "The Halyard must survive", '( and ( is-event-true-delay "Win" 0 ) ( not ( is-destroyed-delay 0 "Halyard" ) ) )', 50)
     m.debrief('( is-event-true-delay "Win" 0 )',
               "The scout is wreckage and its report never left the system. The Halyard is safe for now.",
               "Stealth hides a ship from DRADIS, not from your eyes. Look for the engine glow.")
@@ -1097,13 +1128,16 @@ META = {
     "XM-Station.fs2": ("~14 min", "Medium"), "XM-Reckoning.fs2": ("~13 min", "Medium"), "XM-DeepLook.fs2": ("~11 min", "Hard"),
     "XM-Firebreak.fs2": ("~10 min", "Hard"), "XM-Hunter.fs2": ("~13 min", "Medium"), "XM-Anvil.fs2": ("~12 min", "Hard"),
     "XM-Picket.fs2": ("~8 min", "Easy"), "XM-Tow.fs2": ("~11 min", "Medium"), "XM-Ghost.fs2": ("~8 min", "Medium"),
-    "XM-Fleet.fs2": ("no time limit", "None"), "XM-Range.fs2": ("~10 min", "Easy"),
+    "XM-Fleet.fs2": ("no time limit", "None"), "XM-OpenDoor.fs2": ("~12 min", "Hard"), "XM-StandFast.fs2": ("~12 min", "Hard"), "XM-Range.fs2": ("~10 min", "Easy"),
     "XM-Watch.fs2": ("~28 min", "Hard"), "XM-Convoy.fs2": ("~25 min", "Hard"), "XM-Hulks.fs2": ("~26 min", "Medium"),
     "XM-Hammerfall.fs2": ("~24 min", "Hard"), "XM-Armistice.fs2": ("~32 min", "Very Hard"),
 }
 
 if __name__ == "__main__":
     import long_missions
+    import more_missions
+    import guerrilla_missions
+    META.update(more_missions.META)
     long_missions.G.update(TEST=TEST, CIVIL=CIVIL_FLAGS, CAPITAL=CAPITAL_FLAGS, win_end=win_end, fail_end=fail_end)
     missions = [("XM-Tylium.fs2", tylium_run()), ("XM-Hollow.fs2", hollow_rock()), ("XM-Shepherd.fs2", iron_shepherd()),
                 ("XM-Station.fs2", station_keeping()), ("XM-Reckoning.fs2", dead_reckoning()), ("XM-DeepLook.fs2", deep_look()),
@@ -1112,24 +1146,50 @@ if __name__ == "__main__":
                 ("XM-Watch.fs2", long_missions.long_watch()), ("XM-Convoy.fs2", long_missions.cold_convoy()),
                 ("XM-Hulks.fs2", long_missions.dead_hulks()), ("XM-Hammerfall.fs2", long_missions.hammerfall()),
                 ("XM-Armistice.fs2", long_missions.last_stand()),
+                ("XM-OpenDoor.fs2", long_missions.open_door()),
+                ("XM-StandFast.fs2", long_missions.stand_fast()),
                 ("XM-Range.fs2", long_missions.gunnery_range()),
-                ("XM-Fleet.fs2", fleet_anchorage())]
+                ("XM-Fleet.fs2", fleet_anchorage())] + more_missions.build_all()
     manifest_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "overlay", "diaspora_fixes", "data", "voice",
                                  "special", "voice_manifest.json")
     manifest = json.load(open(manifest_path)) if os.path.exists(manifest_path) else {}
     for fname, mission in missions:
         add_chatter(fname, mission)
+        add_briefing(fname, mission)
         if fname in META:
             mission.desc = "[[Duration: %s | Difficulty: %s]] %s" % (META[fname][0], META[fname][1], mission.desc)
         mission.waves = manifest.get(fname, {})
         print(mission.write(os.path.join(OUT, fname)), "| voiced:", len(mission.waves))
-    order = ["XM-Vigil.fs2"] + [f for f, _ in missions]
-    camp = CAMPAIGN
-    for i, fname in enumerate(order):
-        nxt = '( end-of-campaign )' if i == len(order) - 1 else '( next-mission "%s" )' % order[i + 1]
-        camp += "$Mission: %s\n+Flags: 0\n+Main Hall: 0\n+Formula: ( cond\n   ( ( true ) %s )\n)\n\n+Level: %d\n+Position: 0\n\n" % (
-            fname, nxt, i)
-    camp += "#End\n"
-    with open(os.path.join(OUT, "XM-Thunderlords.fc2"), "wb") as f:
-        f.write(camp.replace("\n", "\r\n").encode("latin-1"))
-    print("wrote", os.path.join(OUT, "XM-Thunderlords.fc2"), "with", len(order), "missions")
+    import re as _re
+    for fname, mission in guerrilla_missions.build_all():
+        add_chatter(fname, mission)
+        mission.desc = "[[Duration: %s | Difficulty: %s]] %s" % (guerrilla_missions.META[fname][0], guerrilla_missions.META[fname][1], mission.desc)
+        add_briefing(fname, mission)
+        mission.waves = manifest.get(fname, {})
+        print(mission.write(os.path.join(OUT, fname)), "| voiced:", len(mission.waves))
+
+    def write_campaign(fc2, title, desc, order):
+        camp = CAMPAIGN.replace("$Name: Thunderlords Patrol Log", "$Name: " + title, 1)
+        camp = _re.sub(r'\+Description:\n XSTR\(".*?", -1\)', '+Description:\n XSTR("%s", -1)' % desc.replace("\\", "").replace('"', "'"), camp, count=1, flags=_re.S)
+        for i, fname in enumerate(order):
+            nxt = '( end-of-campaign )' if i == len(order) - 1 else '( next-mission "%s" )' % order[i + 1]
+            camp += "$Mission: %s\n+Flags: 0\n+Main Hall: 0\n+Formula: ( cond\n   ( ( true ) %s )\n)\n\n+Level: %d\n+Position: 0\n\n" % (fname, nxt, i)
+        camp += "#End\n"
+        with open(os.path.join(OUT, fc2), "wb") as f:
+            f.write(camp.replace("\n", "\r\n").encode("latin-1"))
+        print("wrote", fc2, "with", len(order), "missions")
+
+    present = {f for f, _ in missions}
+    PART1 = ["Fleet", "Range", "Vigil", "Quiet", "Picket", "Needle", "Pods", "Tylium", "Tow", "Ghost", "Hollow", "Shepherd", "Station", "Reckoning", "Crossing", "LastShuttle"]
+    PART2 = ["Hunter", "Firebreak", "Anvil", "OpenDoor", "DeepLook", "TankerDown", "StandFast", "Decoy", "Intercept", "Watch", "Convoy", "Hulks", "Basestar", "Hammerfall", "Gauntlet", "Armistice"]
+    assert sorted(PART1 + PART2) == sorted(f[3:-4] for f in present | {"XM-Vigil.fs2"}), "campaign split does not cover every mission"
+    write_campaign("XM-Thunderlords.fc2", "Thunderlords Patrol Log I - Picket Duty",
+                   "The 72nd Thunderlords at work between the big battles: gunnery and landing practice, a vigil at the Ashen Veil, convoys, "
+                   "rescues, picket lines and evacuations. Mostly easy and medium duty.", ["XM-%s.fs2" % n for n in PART1])
+    write_campaign("XM-Thunderlords2.fc2", "Thunderlords Patrol Log II - Hard Burn",
+                   "The Thunderlords on the offensive: hunting, strikes and traps against Cylon raiders, long picket duties, a lost data hulk "
+                   "and the stand at Armistice. Medium to very hard.", ["XM-%s.fs2" % n for n in PART2])
+    write_campaign("XM-Nightjar.fc2", "Nightjar Cell - Hit and Fade",
+                   "Nightjar is a black ops squadron: a handful of pilots in assault Vipers and a hidden tanker, cut off from the fleet and "
+                   "off every roster. No battlestar, no reinforcements: ambushes, raids and evacuations against an enemy that has no idea "
+                   "where they are. Ten missions.", ["XM-NJ%02d.fs2" % i for i in range(1, 11)])

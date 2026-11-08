@@ -1,0 +1,19 @@
+#Conditional Hooks
+
+$Application: FS2_Open
+
+$On Mission Start: [[ally_chatter.lua]]
+
+$On Simulation: [
+  if engine_tick then pcall(engine_tick) end
+]
+
+$On Ship Death Started: [
+  if engine_death then pcall(engine_death, hv.Ship, hv.Killer) end
+]
+
+$On Weapon Collision: [
+  if engine_hit then pcall(engine_hit, hv.Self, hv.Weapon) end
+]
+
+#End
