@@ -20,8 +20,9 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("out"); ap.add_argument("--seed", type=int, default=7); ap.add_argument("--w", type=int, default=4096)
     a = ap.parse_args(); rng = np.random.default_rng(a.seed)
     W = a.w; H = W * 96 // 225
-    img = np.zeros((H * S, W * S), np.float32)
     HS, WS = H * S, W * S
+    imgs = [np.zeros((HS, WS), np.float32) for _ in range(4)]   # 0: isotropic (dust, chips, fibres), 1..3: scratches by direction
+    img = imgs[0]
 
     wear = cv2.resize(rng.random((7, 15)).astype(np.float32), (W, H), interpolation=cv2.INTER_CUBIC)
     wear = np.clip((wear - 0.2) / 0.6, 0.0, 1.0) ** 1.4 * 0.8 + 0.2                  # 0.2 .. 1, patchy
@@ -41,10 +42,11 @@ def main():
     def stroke(x, y, th, L, curv, v, wd):
         """tapered polyline: thin and dim at the ends"""
         n = max(int(L / (4 * S)), 3); px, py, t = x, y, th
+        canvas = imgs[1 + int(((th % np.pi) / np.pi) * 3) % 3]            # the direction bin this stroke starts in
         for i in range(n):
             f = np.sin(np.pi * (i + 0.5) / n) ** 0.6
             qx, qy = px + np.cos(t) * 4 * S, py + np.sin(t) * 4 * S
-            cv2.line(img, (int(px), int(py)), (int(qx), int(qy)), float(v * (0.25 + 0.75 * f)), max(int(round(wd * (0.4 + 0.6 * f))), 1), cv2.LINE_AA)
+            cv2.line(canvas, (int(px), int(py)), (int(qx), int(qy)), float(v * (0.25 + 0.75 * f)), max(int(round(wd * (0.4 + 0.6 * f))), 1), cv2.LINE_AA)
             px, py, t = qx, qy, t + curv * 4 * S
 
     def wipe_dir(x, y):
@@ -80,16 +82,19 @@ def main():
         cv2.circle(img, (int(x), int(y)), int(r * 2.6), float(rng.uniform(0.03, 0.08)), -1, cv2.LINE_AA)
         cv2.circle(img, (int(x), int(y)), int(r), float(rng.uniform(0.15, 0.6)), -1, cv2.LINE_AA)
 
-    img = cv2.resize(img, (W, H), interpolation=cv2.INTER_AREA)
     grain = cv2.GaussianBlur(rng.random((H, W)).astype(np.float32), (0, 0), 1.1)             # fine grain, very faint
     grain = np.clip((grain - 0.5) * 6.0, 0, 1) * 0.045 * wear
-    mod = 0.6 + 0.8 * cv2.resize(rng.random((6, 12)).astype(np.float32), (W, H), interpolation=cv2.INTER_CUBIC)
-    img = np.clip(img * mod + grain, 0, 1)
     yy, xx = np.mgrid[0:H, 0:W]; u = xx / W; v = yy / H
     win = np.clip(np.minimum(np.minimum(u, 1 - u) / 0.04, np.minimum(v, 1 - v) / 0.06), 0, 1)   # fade at the dome rim
-    out = (img * win * 255).astype(np.uint8)
-    cv2.imwrite(a.out, cv2.merge([out, out, out]))
-    print("wrote", a.out, W, H)
+    base = a.out[:-4] if a.out.endswith(".png") else a.out
+    names = [base + ".png", base + "_a.png", base + "_b.png", base + "_c.png"]
+    for k, canvas in enumerate(imgs):
+        c = cv2.resize(canvas, (W, H), interpolation=cv2.INTER_AREA)
+        mod = 0.6 + 0.8 * cv2.resize(rng.random((6, 12)).astype(np.float32), (W, H), interpolation=cv2.INTER_CUBIC)
+        c = np.clip(c * mod + (grain if k == 0 else 0), 0, 1)
+        out = (c * win * 255).astype(np.uint8)
+        cv2.imwrite(names[k], cv2.merge([out, out, out]))
+    print("wrote", ", ".join(names), W, H)
 
 
 if __name__ == "__main__":

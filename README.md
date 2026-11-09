@@ -30,8 +30,9 @@ The engine changes live in a separate fork: **[winiciuscota/fs2open-diaspora-vr]
   range on the old Cylotron training drones and Fleet Anchorage (a peaceful free flight to test your controls). All of them are
   also in the Mission Simulator, which shows the estimated duration and difficulty of each.
 - Radio chatter from your wingmates and the enemy (kills, praise, losses, being tailed), triggered by a small Lua script.
-- Scratches on the canopy glass, drawn on the real glass shape of the Viper and Raptor: they glint in sunlight and in the flash of
-  flak bursts and explosions, and are faintly visible otherwise (F9: "Canopy scratches").
+- Scratches on the canopy glass, drawn on the real glass shape of the Viper and Raptor. They glint only when the light is at the
+  right angle to them, so they flicker as you move your head: in sunlight, in the flash of flak bursts and explosions, and faintly
+  otherwise. Below 60% hull the glass starts to crack, and big blasts close by light up the dash for a moment.
 - HUD layout tweaks for VR (smaller ship outline, stores and target box placement).
 - Saitek X52 default bindings.
 
@@ -108,7 +109,7 @@ Environment variables (put them in `vr.env` next to `launch-example.sh`, one `VA
 | `FSO_VR_HUD_SHIP_DX`, `FSO_VR_HUD_WEAPONS_DX` | 0, 25 | Nudge the ship outline / the weapon stores text |
 | `FSO_VR_HUD_HEIGHT` | 1 | <1 squeezes the HUD panels vertically towards the middle |
 | `FSO_VR_SUNGLARE` | 0.3 | Sun glare strength in VR |
-| `FSO_VR_CANOPY` | 1 | Strength of the canopy scratches (0 = off; scales sunlight 0.25, explosion flashes 0.15 and a 0.05 ambient level) |
+| `FSO_VR_CANOPY` | 1 | Strength of the canopy scratches (0 = off; scales the three built-in levels: sunlight 0.30, explosion flashes 0.18, no light 0.12) |
 | `FSO_VR_SHAFTS` | 0 | 1 turns light shafts back on in VR |
 | `FSO_VR_SHAKE`, `FSO_VR_FLASH` | off, 0.35 | View shake, flash strength |
 | `FSO_VR_PADLOCK`, `FSO_VR_GAZE_TARGET` | on | Hat-switch targeting, head-gaze targeting |
